@@ -28,7 +28,7 @@ module.exports.registrar = function(req, res){
 
 module.exports.listar = function(req, res){
     profesorModel.find().then(
-        function(usuarios){
-            res.send(usuarios);
+        function(profesores){
+            res.send(profesores);
         });
 };
