@@ -7,7 +7,7 @@ let profesorSchema = new mongoose.Schema({
     telefono : {type : String, required : true},
     correo : {type : String, required: true},
     experiencia : {type : Number, required : true},
-    cursos: {type : [], required: true},
+    cursos: {type : []},
     cedula : {type : Number, required : true},
     contrasenna : {type : String, required : true}
 });

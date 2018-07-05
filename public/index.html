@@ -1,12 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Profesores</title>
 </head>
 <body>
-    
+    <main>
+        <form>
+            <label for="txtNombre">Nombre completo</label>
+            <input type="text" id="txtNombre">
+            
+            <label for="txtProf">Profesión</label>
+            <input type="profesion" id="txtProf">
+
+            <label for="txtEmail">Correo electrónico</label>
+            <input type="email" id="txtEmail">
+
+            <label for="txtTelefono">Teléfono</label>
+            <input type="tel" id="txtTelefono">
+
+            <label for="txtExp">Años experiencia</label>
+            <input type="number" id="txtExp" min="0" max="120">
+
+            <label for="txtCed">Cedula</label>
+            <input type="text" id="txtCed">
+
+            <label for="txtContrasenna">Contraseña</label>
+            <input type="password" id="txtContrasenna">
+
+            <label for="txtConfirmacion">Confirmación Contraseña</label>
+            <input type="password" id="txtConfirmacion">
+
+            <label for="txtCurso">Cursos</label>
+            <input type="text" id="txtCurso">
+
+            <button type="button" id="btnRegistrar">Registrar</button>
+        </form>
+
+        <table id="tblPersonas">
+            <thead>
+                <th>Nombre</th>
+                <th>Correo electrónico</th>
+                <th>Teléfono</th>
+                <th>Edad</th>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </main>
+    <!-- <script src="js/jquery-3.3.1.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+    <script src="js/profesor.servicio.js"></script>
+    <script src="js/profesor.controlador.js"></script>
 </body>
 </html>
