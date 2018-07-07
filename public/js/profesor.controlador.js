@@ -22,14 +22,16 @@ function obtenerDatos(){
     let bError = false;
 
 
-    infoProfesor.push(inputNombre.value,
+    infoProfesor.push(
+        inputNombre.value,
         inputProfesion.value,
         inputEmail.value,
         inputTelefono.value,
         inputExp.value,
         inputContrasenna.value,
         inputCurso.value,
-        inputCed.value);
+        inputCed.value
+    );
     
     bError = validar();
     if(bError == true){
