@@ -17,6 +17,10 @@ function registrarProfesor(paInfoProfesores){
             cursos: paInfoProfesores[6],
             cedula: paInfoProfesores[7],
             contrasenna: paInfoProfesores[5],
+            universidad: paInfoProfesores[8],
+            fechaNacimiento: paInfoProfesores[9],
+            provincia: paInfoProfesores[10],
+            direccion: paInfoProfesores[11]
         }
       });
     

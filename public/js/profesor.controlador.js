@@ -1,6 +1,6 @@
 'use strict';
 
-imprimirListaProfesores();
+//imprimirListaProfesores();
 
 let botonRegistrar = document.querySelector('#btnRegistrar');
 
@@ -8,29 +8,37 @@ botonRegistrar.addEventListener('click', obtenerDatos);
 
 
 let inputNombre = document.querySelector('#txtNombre');
-let inputProfesion = document.querySelector('#txtProf')
+let inputProfesion = document.querySelector('#txtProf');
 let inputEmail = document.querySelector('#txtEmail');
 let inputTelefono = document.querySelector('#txtTelefono');
 let inputExp = document.querySelector('#txtExp');
-let inputContrasenna = document.querySelector('#txtContrasenna');
 let inputConfirmacion = document.querySelector('#txtConfirmacion');
 let inputCurso = document.querySelector('#txtCurso');
 let inputCed = document.querySelector('#txtCed');
+let inputFecha = document.querySelector('#txtFecha');
+let inputProv = document.querySelector('#slctProv');
+let inputDir = document.querySelector('#txtDir');
+let inputDoc = document.querySelector('#txtUniv');
+
 
 function obtenerDatos(){
     let infoProfesor =[];
     let bError = false;
 
-
+    let contrasenna= Math.random().toString(36).substring(7);
     infoProfesor.push(
         inputNombre.value,
         inputProfesion.value,
         inputEmail.value,
         inputTelefono.value,
         inputExp.value,
-        inputContrasenna.value,
+        contrasenna,
         inputCurso.value,
-        inputCed.value
+        inputCed.value,
+        inputFecha.value,
+        inputProv.value,
+        inputDir.value,
+        inputDoc.value    
     );
     
     bError = validar();
@@ -50,7 +58,7 @@ function obtenerDatos(){
             text: 'El usuario se registró adecuadamente',
             confirmButtonText : 'Entendido'
         });
-        imprimirListaProfesores();
+        //imprimirListaProfesores();
         limpiarFormulario();
     }
     
@@ -104,33 +112,20 @@ function validar(){
     //Validación de la edad
 
     //Validación de la contraseña
-
-    if(inputContrasenna.value == ''){
-        inputContrasenna.classList.add('error_input');
-        bError = true;
-    }else{
-        inputContrasenna.classList.remove('error_input');
-    }
-
-    if(inputContrasenna.value != inputConfirmacion.value){
-        inputContrasenna.classList.add('error_input');
-        inputConfirmacion.classList.add('error_input');
-        bError = true;
-    }else{
-        inputContrasenna.classList.remove('error_input');
-        inputConfirmacion.classList.remove('error_input');
-    }
-
     return bError;
 };
 
 function limpiarFormulario(){
-    inputNombre.value=null;
-    inputProfesion.value=null;
-    inputEmail.value=null;
-    inputTelefono.value=null;
-    inputExp.value=null;
-    inputContrasenna.value=null;
-    inputCurso.value=null;
-    inputCed.value=null;
+    inputNombre.value=null,
+    inputProfesion.value,
+    inputEmail.value =null,
+    inputTelefono.value =null,
+    inputExp.value=null,
+    inputContrasenna.value=null,
+    inputCurso.value=null,
+    inputCed.value=null,
+    inputFecha.value=null,
+    inputProv.value=null,
+    inputDir.value=null,
+    inputDoc.value=null    
 }
