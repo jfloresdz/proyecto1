@@ -117,7 +117,7 @@ function validar(){
 
 function limpiarFormulario(){
     inputNombre.value=null,
-    inputProfesion.value,
+    inputProfesion.value =null,
     inputEmail.value =null,
     inputTelefono.value =null,
     inputExp.value=null,
