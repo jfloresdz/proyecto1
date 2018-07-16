@@ -49,48 +49,26 @@
         <section id="tablas">
             <div id="info">
                 <h2>PROYECTOS ACTIVOS</h2>
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Buscar" id="bProyectos">
-            </div>
-            <div id="proyectos">
-                <table id="proyectosActivos">
-                    <tr id="row1">
-                        <td>Cliente</td>
-                        <td>Nombre del Proyecto</td>
-                        <td>Fecha de Creacion</td>
-                        <td>Fecha de Entrega</td>
-                        <td>Descripción</td>
-                        <td>Opciones</td>
-                    </tr>
-                    <tr>
-
-                    </tr>
-                </table>
             </div>
             <div id="botones">
-                
+                <button type="button" id="btnProf">Profesores</button>
+                <button type="button" id="btnBit">Bitacora</button>
+                <button type="button" id="btnCli">Clientes</button>
+                <button type="button" id="btnEst">Estudiantes</button>
+                <button type="button" id="btnProy">Proyectos</button>
+                <button type="button" id="btnTick">Tickets</button>
             </div>
-            <div id="info2">
-                <h2>USUARIOS ACTIVOS</h2>
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Buscar" id="bUsuarios">
-            </div>
-            <div id="usuarios">
-                <table id="usuariosActivos">
-                    <tr id="row1">
-                        <td>Nombre</td>
-                        <td>Proyecto Asociado</td>
-                        <td>Cedula</td>
-                        <td>Correo</td>
-                        <td>Telefono</td>
-                        <td>Rol</td>
-                        <td>Opciones</td>
-                    </tr>
-                    <tr>
-
-                    </tr>
+            <div id="proyectos">
+                <table id="tblLista">
+                    <thead>
+        
+                    </thead>
+                    <tbody>
+            
+                    </tbody>
                 </table>
             </div>
+
         </section>
 
         <section id="contacto">
@@ -132,9 +110,10 @@
                 <i class="fas fa-copyright"></i>Proyecto Desarrollo de Sfotware. Universidad Cenfotec - 2018</p>
         </div>
     </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
     <script src="js/jquery-3.3.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+    <script src="js/listar.servicio.js"></script>
+    <script src="js/listar.controlador.js"></script>
     <script src="js/script.js"></script>
 </body>
 

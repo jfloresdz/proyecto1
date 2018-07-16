@@ -142,14 +142,12 @@ function obtenerCli(){
     let telefono = filaHead.insertCell();
     let correo = filaHead.insertCell();
     let pais = filaHead.insertCell();
-    let redes = filaHead.insertCell();
 
     nombre.innerHTML = "nombre"; 
     cedula.innerHTML = "cedula"; 
     telefono.innerHTML = "telefono"; 
     correo.innerHTML = "correo"; 
-    pais.innerHTML = "pais"; 
-    redes.innerHTML = "redes"; 
+    pais.innerHTML = "pais";
 
 
     for(let i = 0; i < listaClientes.length; i++){

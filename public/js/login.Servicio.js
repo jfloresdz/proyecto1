@@ -1,6 +1,7 @@
+'use strict';
 function getListaUsuarios() {
-    let mListaProfesores = obtenerListaProfesores();
-    let mListaEstudiantes = imprimir_lista_datos();
+    let mListaProfesores = null;
+    let mListaEstudiantes = null;
 
      if (mListaProfesores == null) {
          mListaProfesores =
@@ -19,7 +20,7 @@ function getListaUsuarios() {
     for (let i = 0; i < mListaEstudiantes.length; i++) {
         mListaProfesores.push(mListaEstudiantes[i]);
     }
-    let mListaUsuarios = mListaProfesores;
+    let mListaUsuarios =mListaProfesores;
     return mListaUsuarios;
 }
 
@@ -29,13 +30,13 @@ function autenticarUsuario(psCorreo, psContrasenna) {
     let sMensaje = '';
 
    for (var i = 0; i <=mListaUsuarios.length; i++) {
-       if (mListaUsuarios[i]['correo'] == psCorreo && mListaUsuarios[i]['contrasenna'] == psContrasenna) {
+       if (mListaUsuarios[i][1] == psCorreo && mListaUsuarios[i][2] == psContrasenna) {
             sessionStorage.setItem('usuarioActivo', JSON.stringify(mListaUsuarios[i]));
-           redireccionarUsuario(mListaUsuarios[i]['tipoUsuario']);
-            // i=mListaUsuarios.length+1;
+           redireccionarUsuario(mListaUsuarios[i][4]);
+            i=mListaUsuarios.length+1;
             break;
         } else {
-            if(i=mListaUsuarios.length){
+            if(i==mListaUsuarios.length){
                 swal(
                     '¡Ooops!',
                     'Datos incorrectos',
@@ -65,7 +66,7 @@ function redireccionarUsuario(rollDelUsuario) {
             //window.location.href = "indexProfesor.html";
             break;
         case 'Estudiante':
-            // console.log('est');
+            console.log('est');
             window.location.href = "indexEstudiante.html";
             break;
     }
