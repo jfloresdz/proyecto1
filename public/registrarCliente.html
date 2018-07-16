@@ -3,40 +3,67 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cenfotec Software House</title>
-
-    <link rel="stylesheet" href="css/styleLanding.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
-    <script src='js/script.js'></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <!-- <header>
+    <header>
         <nav>
-            <img id="logo" src="img/logo.png" alt="">
+            <ul>
+                <a href="proyectos.html">
+                    <li>
+                        <i class="fas fa-code"></i>Proyectos</li>
+                </a>
+                <a href='tickets.html'>
+                    <li>
+                        <i class="fas fa-ticket-alt"></i>Tickets</li>
+                </a>
+            </ul>
+            <a href="index.html">
+                <img id='logo' src='img/logo.png'>
+            </a>
+            <ul>
+                <a href='reportes.html'>
+                    <li>
+                        <i class="fas fa-chart-area"></i>Reportes</li>
+                </a>
+                <a href='#'>
+                    <li>
+                        <i class="fas fa-user"></i>Mi Perfil</a>
+                <a href='landingPage.html'>
+                    <li id="cerrar">
+                        <i class="fas fa-power-off"></i>
+                    </li>
+                </a>
+            </ul>
         </nav>
-    </header> -->
-    <main>
+    </header>
+    <section id='banner'>
+        <h1>Cenfotec</h1>
+        <h2>Software House</h2>
+    </section>
+    <main id="registrar">
         <h2>INICIO DE SESIÓN</h2>
-        <form action="">
-            <label for="" id="txtNom">Nombre:</label>
+        <section id="info">
+        <form id="segundo">
+            <label for="txtNom">Nombre:</label>
             <input type="text" id="txtNom">
 
-            <label for="" id="txtCed">Numero de cedula:</label>
+            <label for="txtCed">Numero de cedula:</label>
             <input type="number" id="txtCed">
 
-            <label for="" id="txtTel">Telefonos:</label>
+            <label for="txtTel">Telefonos:</label>
             <input type="number" id="txtTel">
 
-            <label for="" id="txtCorreo">Correo electronico:</label>
+            <label for="txtCorreo">Correo electronico:</label>
             <input type="email" id="txtCorreo">
 
-            <label for="" id="txtPais">Pais: </label>
+            <label for="slctPais">Pais: </label>
             <select id="slctPais">
                 <option value="AF">Afganistán</option>
                 <option value="AL">Albania</option>
@@ -273,42 +300,54 @@
                 <option value="ZM">Zambia</option>
                 <option value="ZW">Zimbabue</option>
             </select>
-            <label for="" id="txtRedes">Redes Sociales:</label>
-            <input type="text" id="txtRedes">
-            <select name="" id="slctRedes">
-                <option value="sn">Snapchat</option>
-                <option value="ask">Ask Fm</option>
-                <option value="fb">Facebook</option>
-                <option value="tw">Twitter</option>
-                <option value="ins">Instagram</option>
-                <option value="gg">Google +</option>
-            </select>
-            <label for="" id="txtMapa">Ubicación:</label>
-            <a href="landing.html">Ingresar</a>
+            <label for="txtMapa">Ubicación:</label>
         </form>
-        <table id="tblProyectos">
-            <thead>
-                    Nombre
-                    Numero de cedula
-                    Telefonos
-                    Correo electronico
-                    Pais
-                    Redes Sociales
-                    Ubicación
-                <th>Nombre</th>
-                <th>Numero de Cedula</th>
-                <th>Teléfonos</th>
-                <th>Email</th>
-                <th>Pais</th>
-                <th>Redes Sociales</th>
-                <th>Ubicacion</th>
-            </thead>
-            <tbody>
-                
-            </tbody>
-        </table>
+
+    </section>
+    <div id="button">
+        <button type="button" id="btnRegistrar">Registrar</button>
+    </div>
+    <section id="contacto">
+        <h2>CONTÁCTENOS</h2>
+        <div id="datos">
+            <p id="cont">Datos de contacto</p>
+            <div id="info">
+                <p>
+                    <i class="fas fa-map-marker-alt"></i> Santa Marta - San Pedro de Montes Oca, del Cruce de la Escuela de Santa Marta 400 metros noreste
+                    carretera al Cristo de Sabanilla, San José, Costa Rica</p>
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    <a href="#">softwarehouse@ucenfotec.ac.cr</a>
+                </p>
+                <p>
+                    <i class="fas fa-phone"></i>+506 2281-1555</p>
+            </div>
+        </div>
+        <div id="social">
+            <p>Social</p>
+            <a href="https://www.facebook.com/Cenfotec/">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://twitter.com/UCenfotec?lang=es">
+                <i class="fab fa-twitter-square"></i>
+            </a>
+            <a href="https://www.linkedin.com/school/universidad-cenfotec/">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+        <div id="logo">
+            <img src="img/logo-cenfotec.png" alt="">
+        </div>
+    </section>
     </main>
+    <footer>
+        <div id="copy">
+            <p>
+                <i class="fas fa-copyright"></i>Proyecto Desarrollo de Sfotware. Universidad Cenfotec - 2018</p>
+        </div>
+    </footer>
     <script src="js/jquery-3.3.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
     <script src="js/clientes.servicio.js"></script>
     <script src="js/clientes.controlador.js"></script>
 </body>

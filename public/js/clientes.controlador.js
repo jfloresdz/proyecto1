@@ -1,89 +1,57 @@
 'use strict'
 
-imprimirListaClientes();
-let botonRegistrarCliente = document.querySelector('#btnRegistrar');
+let botonRegistrar = document.querySelector('#btnRegistrar');
 
 botonRegistrar.addEventListener ('click' , obtenerDatosCliente);
-Nom
-Ced
-Tel
-Correo
-Pais
-Redes
-Mapa
+
 
 let inputNombreCliente = document.querySelector('#txtNom');
 let inputNumCedulaCliente = document.querySelector('#txtCed');
 let inputTelefonoCliente = document.querySelector('#txtTel');
 let inputEmailCliente = document.querySelector('#txtCorreo');
-let inputPais = document.querySelector('#txtPais');
-let inputRedes = document.querySelector('#txtRedes');
-let inputMapa = document.querySelector('#txtMapa');
+let inputPais = document.querySelector('#slctPais');
+
+
 
 
 function obtenerDatosCliente(){
     let infoCliente = [];
-    let nNombreCliente = inputNombreCliente.value;
-    let nNumCedulaCliente = inputNumCedulaCliente.value;
-    let nTelefonoCliente = inputTelefonoCliente.value;
-    let nEmailCliente = inputEmailCliente.value;
-    let nPais = inputPais.value;
-    let nRedes = inputRedes.value;
-    let nMapa = inputMapa.value;
+    let bError = false;
     
-    infoProyecto.push(nNombreCliente,nNumCedulaCliente,nTelefonoCliente,nEmailCliente,nPais,nRedes,nMapa)
+    infoCliente.push( inputNombreCliente.value,   
+        inputNumCedulaCliente.value,
+        inputTelefonoCliente.value,
+        inputEmailCliente.value,
+        inputPais.value);
     
-        registrarCliente(infoCliente);
-    
-        imprimirListaClientes();
-        //limpiarFormulario();
-    }
+        bError = validar();
+        if(bError == true){
+            swal({
+                type : 'warning',
+                title : 'No se pudo registrar el cliente',
+                text: 'Por favor revise los campos en rojo',
+                confirmButtonText : 'Entendido'
+            });
+        }else{
+            registrarCliente(infoCliente);
+            swal({
+                type : 'success',
+                title : 'Registro exitoso',
+                text: 'El Cliente se registró adecuadamente',
+                confirmButtonText : 'Entendido'
+            });
+        }
+}
+
+function validar(){
+    return false;
+}
 
 
-function imprimirListaClientes(){
-    let listaClientes = obtenerListaClientes();
-    let tbody = document.querySelector('#tblProyectos tbody');
-    tbody.innerHTML = '';
-
-    for(let i = 0; i < listaProyectos.length; i++){
-        let fila = tbody.insertRow();
-            let cNombreCliente = fila.insertCell();
-            let cNumCedulaCliente = fila.insertCell();
-            let cTelefonoCliente = fila.insertCell();
-            let cEmailCliente = fila.insertCell();
-            let cPais = fila.insertCell();
-            let cRedes = fila.insertCell();
-            let cMapa  = fila.insertCell();
-          
-            
-    
-            cNombreCliente.innerHTML = listaProyectos[i]['nombre'];
-            cNumCedula.innerHTML = listaProyectos[i]['numeroCedula'];
-            cTelefono.innerHTML = listaProyectos[i]['telefonos'];
-            cEmail.innerHTML = listaProyectos[i]['email'];
-            cEmpresa.innerHTML = listaProyectos[i]['empresa'];
-            //cFechaCreacion = listaProyectos[i]['fechaCreacion'];
-            //cFechaFin = listaProyectos[i]['fechaFin'];
-            cUbicacion = listaProyectos[i]['ubicacion'];
-            cDescripcion = listaProyectos[i]['descripcion'];
-    }
-
-};
-
-
-
-
-
-
-
-
-    function limpiarFormulario(){
-       inputNombreCliente.value = '';    
-        inputNumCedulaCliente.value = '';
-        inputTelefonoCliente.value ='';
-        inputEmailCliente.value = '';
-        inputPais.valu = '';
-        inputRedes.value ='';
-        inputMapa.value ='';
-    
-    }
+function limpiarFormulario(){
+    inputNombreCliente.value = null    
+    inputNumCedulaCliente.value = null
+    inputTelefonoCliente.value =null
+    inputEmailCliente.value = null
+    inputPais.value = null
+}

@@ -2,14 +2,14 @@ const express = require('express');
 const router = express.Router();
 const clientes = require('./clientes.api');
 
-router.route('/registrar_clientes')
+router.route('/registrarClientes')
     .post(function(req, res){
-    proyectos.registrarProyecto(req, res);
+    clientes.registrar(req, res);
 });
 
-router.route('/listar_clientes')
+router.route('/listarClientes')
     .get(function(req, res){
-    proyectos.listar(req, res);
+    clientes.listar(req, res);
 });
 
 
