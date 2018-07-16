@@ -121,7 +121,6 @@ function limpiarFormulario(){
     inputEmail.value =null,
     inputTelefono.value =null,
     inputExp.value=null,
-    inputContrasenna.value=null,
     inputCurso.value=null,
     inputCed.value=null,
     inputFecha.value=null,

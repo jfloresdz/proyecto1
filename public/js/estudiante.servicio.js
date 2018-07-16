@@ -5,10 +5,10 @@ Responsabilidades del servicio
     - Comunicar el public (front-end) con el api (back-end)
 */
 'use strict';
-function registrar_estudiante(paInfoPersona){
+function registrarEstudiante(paInfoPersona){
     let respuesta = '';
     let peticion = $.ajax({
-        url : 'http://localhost:4000/api/registrar_estudiante',
+        url : 'http://localhost:4000/api/registrarEstudiante',
         type : 'post',
         contentType : 'application/x-www-form-urlencoded; charset=utf-8',
         dataType : 'json',

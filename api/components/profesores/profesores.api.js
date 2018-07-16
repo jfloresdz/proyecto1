@@ -38,3 +38,26 @@ module.exports.listar = function(req, res){
             res.send(profesores);
         });
 };
+
+module.exports.filtrar = function(req, res){
+    profesorModel.find(
+    {
+        "nombre_completo": req.body.nombre_completo,
+        "profesion": req.body.profesion,
+        "universidad": req.body.universidad,
+        "telefono": req.body.telefono,
+        "correo": req.body.correo,
+        "experiencia": req.body.experiencia,
+        "fechaNacimiento": req.body.fechaNacimiento,
+        "cursos": req.body.cursos,
+        "titulos": req.body.titulos,
+        "foto": req.body.foto,
+        "provincia": req.body.provincia,
+        "direccion": req.body.direccion,
+        "cedula": req.body.cedula
+    }
+    ).then(
+        function(profesores){
+            res.send(profesores);
+        });
+};

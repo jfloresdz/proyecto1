@@ -11,7 +11,7 @@ let profesorSchema = new mongoose.Schema({
     fechaNacimiento: {type : String, required : true},
     cursos: {type : []},
     titulos : {type : []},
-    foto: {type : String, required: true},
+    foto: {type : String, required:false},
     provincia : {type : String, required: true},
     direccion : {type : String, required: true},
     cedula : {type : Number, required : true},
