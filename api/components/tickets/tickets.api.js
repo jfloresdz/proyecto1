@@ -3,15 +3,14 @@ const ticketsModel = require('./tickets.model');
 
 module.exports.registrarTickets = function (req , res)
 {
-    
-    let nuevoProyecto = new ticketsModel({
-        
+    let nuevoTicket = new ticketsModel({  
     nombreTicket : req.body.nombreTicket,
     nombreProyecto : req.body.nombreProyecto,
     nombreEncargado : req.body.nombreEncargado,
-    telefono : req.body.telefono
-           
+    telefono : req.body.telefono,
+    descripcion : req.body.descripcion       
     });
+
   console.log(nuevoTicket);
    nuevoTicket.save(function(error)
    {
@@ -20,7 +19,7 @@ module.exports.registrarTickets = function (req , res)
         ({ succes : false, msj : 'El ticket no pudo ser registrado : ' + error})     
     }else{
     res.json
-        ({ succes : true, msj : 'El ticket se registro exitosamente : ' +error}) 
+        ({ succes : true, msj : 'El ticket se registro exitosamente'}) 
         }    
    });
 };

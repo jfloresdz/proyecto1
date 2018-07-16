@@ -31,3 +31,10 @@ module.exports.registrar = function(req, res){
 
     });
 };
+
+module.exports.listar = function(req, res){
+    infoModel.find().then(
+        function(estudiantes){
+            res.send(estudiantes);
+        });
+};

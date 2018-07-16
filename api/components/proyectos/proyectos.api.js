@@ -29,14 +29,14 @@ module.exports.registrarProyecto = function (req , resp)
 };
 
 module.exports.listar = function(req, res){
-    userModel.find().then(
+    proyectosModel.find().then(
         function(proyectos){
             res.send(proyectos);
         });
 };
 
 module.exports.filtrar = function(req, res){
-    userModel.find({"nombre_completo": "test"}).then(
+    proyectosModel.find({"nombre_completo": "test"}).then(
         function(proyectos){
             res.send(proyectos);
         });

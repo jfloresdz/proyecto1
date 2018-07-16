@@ -9,9 +9,9 @@ router.route('/registrar_proyectos')
     proyectos.registrarProyecto(req, res);
 });
 
-router.route('/listar_proyectos')
+router.route('/listarProyectos')
     .get(function(req, res){
-    proyectos.listarProyectos(req, res);
+    proyectos.listar(req, res);
 });
 
 

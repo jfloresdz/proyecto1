@@ -2,7 +2,7 @@
 function registrarTickets(paInfoTickets){
     let respuesta = '';
     let peticion = $.ajax({
-        url : 'http://localhost:4000/api/registrar_Tickets',
+        url : 'http://localhost:4000/api/registrarTickets',
         type : 'post',
         contentType : 'application/x-www-form-urlencoded; charset=utf-8',
         dataType : 'json',
@@ -11,9 +11,8 @@ function registrarTickets(paInfoTickets){
         nombreTicketc : paInfoTickets[0],
         nombreProyecto : paInfoTickets[1],
         nombreEncargado : paInfoTickets[2],
-        telefono :paInfoTickets[3]
-    
-    
+        telefono :paInfoTickets[3],
+        descripcion : paInfoTickets[4]
         }
       });
     
@@ -34,7 +33,7 @@ function obtenerListaTickets(){
 
   let respuesta = '';
   let peticion = $.ajax({
-      url : 'http://localhost:4000/api/listar_Tickets',
+      url : 'http://localhost:4000/api/listarTickets',
       type : 'get',
       contentType : 'application/x-www-form-urlencoded; charset=utf-8',
       dataType : 'json',

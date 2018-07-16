@@ -27,7 +27,7 @@ module.exports.registrar = function(req, res){
     });
 };
 
-module.exports.listar_bitacora = function(req, res){
+module.exports.listar = function(req, res){
     bitacoraModel.find().then(
         function(bitacoras){
             res.send(bitacoras);

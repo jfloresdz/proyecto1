@@ -10,4 +10,9 @@ router.route('/registrarEstudiante')
     datosApi.registrar(req, res);
 });
 
+router.route('/listarEstudiantes')
+    .get(function(req, res){
+    datosApi.listar(req, res);
+});
+
 module.exports = router;

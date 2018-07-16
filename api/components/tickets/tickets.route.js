@@ -4,12 +4,12 @@ const router = express.Router();
 const tickets = require('./tickets.api');
 
 
-router.route('/registrar_tickets')
+router.route('/registrarTickets')
     .post(function(req, res){
     tickets.registrarTickets(req, res);
 });
 
-router.route('/listar_tickets')
+router.route('/listarTickets')
     .get(function(req, res){
     tickets.listar(req, res);
 });

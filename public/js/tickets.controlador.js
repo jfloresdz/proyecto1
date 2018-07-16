@@ -1,6 +1,5 @@
 'use strict';
 
-imprimirListaTickets();
 let botonRegistrar = document.querySelector('#btnRegistrar');
 
 botonRegistrar.addEventListener ('click' , obtenerDatosTickets);
@@ -12,6 +11,8 @@ let inputTelefono = document.querySelector('#txtTelefono');
 let inputDescripcion = document.querySelector('#txtDescripcion');
 
 function obtenerDatosTickets(){
+
+    let bError = false;
     let infoTickets = [];
     let nNombreTicket = inputNombreTicket.value;
     let nNombreProyecto = inputNombreProyecto.value;
@@ -19,51 +20,38 @@ function obtenerDatosTickets(){
     let nTelefono = inputTelefono.value;
     let nDescripcion = inputDescripcion.value;
     
-    infoTickets.push(nNombreTicket,nNombreProyecto,nNombreEncardado,nTelefono,nDescripcion)
-    
+    infoTickets.push(nNombreTicket,nNombreProyecto,nNombreEncardado,nTelefono,nDescripcion);
+
+    bError = validar();
+    if(bError == true){
+        swal({
+            type : 'warning',
+            title : 'No se pudo registrar el ticket',
+            text : 'Por favor revise los campos en rojo',
+            confirmButtonText : 'Entendido'
+        });
+        console.log('No se pudo registrar el ticket');
+    }else{
         registrarTickets(infoTickets);
-    
-        imprimirListaTickets();
-        //limpiarFormulario();
+        swal({
+            type : 'success',
+            title : 'Registro exitoso',
+            text : 'El ticket se registró adecuadamente',
+            confirmButtonText : 'Entendido'
+        });
+        limpiarFormulario();
     }
+}
 
 
-function imprimirListaTickets(){
-    let listaTickets = obtenerListaTickets();
-    let tbody = document.querySelector('#tblTickets tbody');
-    tbody.innerHTML = '';
+function validar(){
+    return false;
+}
 
-    for(let i = 0; i < listaTickets.length; i++){
-        let fila = tbody.insertRow();
-            let cNombreTicket = fila.insertCell();
-            let cNombreProyecto = fila.insertCell();
-            let cNombreEncardado = fila.insertCell();
-            let cTelefono = fila.insertCell();
-            let cDescripcion = fila.insertCell();
-        
-            
-    
-            cNombreTicket.innerHTML = listaTickets[i]['nombre'];
-            cNombreProyecto.innerHTML = listaTickets[i]['numeroCedula'];
-            cNombreEncardado .innerHTML = listaTickets[i]['telefonos'];
-            cTelefono.innerHTML = listaTickets[i]['email'];
-            cDescripcion.innerHTML = listaTickets[i]['empresa'];
-    }
-
-};
-
-
-
-
-
-
-
-
-    function limpiarFormulario(){
+function limpiarFormulario(){
     inputNombreTicket .value = '';    
     inputNombreProyecto .value = '';
     inputNombreEncardado .value ='';
     inputTelefono.value = '';
-    inputDescripcion.value = '';
-        
-    }
+    inputDescripcion.value = '';  
+}
