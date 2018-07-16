@@ -19,6 +19,7 @@ section#banner h1{
 	padding-top: 350px;
 	color: #fbb803;
 	font-size: 4em;
+	margin-top: 0;
 }
 section#banner h2{
 	color: #fff;
@@ -119,29 +120,14 @@ section#servicios{
 				margin-bottom: 20px;
 			}
 				section#servicios #proyectos #izq div#primero{
-					/* width: 100%;
-					padding: 20px 10% 30px 10%;
-					border: 2px solid #b1b1b1;
-					border-radius: 5%;
-					margin-bottom: 20px; */
 					padding-top: 10px;
 					height: 20px;
 				}
 				section#servicios #proyectos #izq div#seg{
-					/* width: 100%;
-					padding: 20px 10% 30px 10%;
-					border: 2px solid #b1b1b1;
-					border-radius: 5%;
-					margin-bottom: 20px; */
 					padding-top: 15px;
 					height: 20px;
 				}
 				section#servicios #proyectos #izq div#ter{
-					/* width: 100%;
-					padding: 20px 10% 30px 10%;
-					border: 2px solid #b1b1b1;
-					border-radius: 5%;
-					margin-bottom: 20px; */
 					padding-top: 10px;
 					height: 25px;
 				}
