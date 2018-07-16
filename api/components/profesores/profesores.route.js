@@ -15,7 +15,7 @@ router.route('/listarProfesores')
 });
 
 router.route('/filtrarProfesores')
-    .get(function(req, res){
+    .post(function(req, res){
     profesores.filtrar(req, res);
 });
 

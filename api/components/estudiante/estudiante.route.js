@@ -15,4 +15,9 @@ router.route('/listarEstudiantes')
     datosApi.listar(req, res);
 });
 
+router.route('/filtrarEstudiantes')
+    .post(function(req, res){
+    datosApi.filtrar(req, res);
+});
+
 module.exports = router;

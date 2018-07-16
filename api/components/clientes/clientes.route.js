@@ -12,5 +12,9 @@ router.route('/listarClientes')
     clientes.listar(req, res);
 });
 
+router.route('/filtrarClientes')
+    .post(function(req, res){
+    clientes.filtrar(req, res);
+});
 
 module.exports = router;

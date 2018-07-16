@@ -27,3 +27,52 @@ module.exports.listar = function(req,res){
         }
     );
 };
+
+module.exports.filtrar = function(req, res){
+    switch(req.body.tipo)
+    {
+        case "1":
+        clienteModel.find(
+            {
+                "nombre": req.body.valor
+            }
+            ).then(
+                function(clientes){
+                    res.send(clientes);
+                });
+        break;
+
+        case "2":
+        clienteModel.find(
+            {
+                "cedula": req.body.valor
+            }
+            ).then(
+                function(clientes){
+                    res.send(clientes);
+                });
+        break;
+
+        case "3":
+        clienteModel.find(
+            {
+                "telefono": req.body.valor
+            }
+            ).then(
+                function(clientes){
+                    res.send(clientes);
+                });
+        break;
+
+        case "4":
+        clienteModel.find(
+            {
+                "correo": req.body.valor
+            }
+            ).then(
+                function(clientes){
+                    res.send(clientes);
+                });
+        break;
+    }
+};

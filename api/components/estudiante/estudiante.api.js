@@ -26,9 +26,7 @@ module.exports.registrar = function(req, res){
                 success : true,
                 msj : 'El dato ha sido registrado de forma exitosa'
             });
-            
         }
-
     });
 };
 
@@ -37,4 +35,53 @@ module.exports.listar = function(req, res){
         function(estudiantes){
             res.send(estudiantes);
         });
+};
+
+module.exports.filtrar = function(req, res){
+    switch(req.body.tipo)
+    {
+        case "1":
+        infoModel.find(
+            {
+                "nombre": req.body.valor
+            }
+            ).then(
+                function(estudiantes){
+                    res.send(estudiantes);
+                });
+        break;
+
+        case "2":
+        infoModel.find(
+            {
+                "cedula": req.body.valor
+            }
+            ).then(
+                function(estudiantes){
+                    res.send(estudiantes);
+                });
+        break;
+
+        case "3":
+        infoModel.find(
+            {
+                "telefono": req.body.valor
+            }
+            ).then(
+                function(estudiantes){
+                    res.send(estudiantes);
+                });
+        break;
+
+        case "4":
+        infoModel.find(
+            {
+                "correo": req.body.valor
+            }
+            ).then(
+                function(estudiantes){
+                    res.send(estudiantes);
+                });
+        break;
+    }
 };

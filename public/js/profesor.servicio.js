@@ -37,7 +37,6 @@ function registrarProfesor(paInfoProfesores){
      
 }
 
-
 function obtenerListaProfesores(){
     let listaProfesores = [];
 
@@ -50,6 +49,35 @@ function obtenerListaProfesores(){
         async : false,
         data:{
             
+        }
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+       
+      });
+
+      return respuesta;
+    
+    return listaProfesores;
+}
+
+function filtrarProfesor(cTipo,cValor){
+    let listaProfesores = [];
+
+    let respuesta = '';
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/filtrarProfesores',
+        type : 'post',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            tipo: cTipo,
+            valor: cValor
         }
       });
     

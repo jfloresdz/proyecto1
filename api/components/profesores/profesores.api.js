@@ -39,25 +39,52 @@ module.exports.listar = function(req, res){
         });
 };
 
+
 module.exports.filtrar = function(req, res){
-    profesorModel.find(
+    switch(req.body.tipo)
     {
-        "nombre_completo": req.body.nombre_completo,
-        "profesion": req.body.profesion,
-        "universidad": req.body.universidad,
-        "telefono": req.body.telefono,
-        "correo": req.body.correo,
-        "experiencia": req.body.experiencia,
-        "fechaNacimiento": req.body.fechaNacimiento,
-        "cursos": req.body.cursos,
-        "titulos": req.body.titulos,
-        "foto": req.body.foto,
-        "provincia": req.body.provincia,
-        "direccion": req.body.direccion,
-        "cedula": req.body.cedula
+        case "1":
+        profesorModel.find(
+            {
+                "nombre_completo": req.body.valor
+            }
+            ).then(
+                function(profesores){
+                    res.send(profesores);
+                });
+        break;
+
+        case "2":
+        profesorModel.find(
+            {
+                "cedula": req.body.valor
+            }
+            ).then(
+                function(profesores){
+                    res.send(profesores);
+                });
+        break;
+
+        case "3":
+        profesorModel.find(
+            {
+                "telefono": req.body.valor
+            }
+            ).then(
+                function(profesores){
+                    res.send(profesores);
+                });
+        break;
+
+        case "4":
+        profesorModel.find(
+            {
+                "correo": req.body.valor
+            }
+            ).then(
+                function(profesores){
+                    res.send(profesores);
+                });
+        break;
     }
-    ).then(
-        function(profesores){
-            res.send(profesores);
-        });
 };

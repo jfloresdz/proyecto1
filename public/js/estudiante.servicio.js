@@ -1,9 +1,3 @@
-/*
-Responsabilidades del servicio
-    - Procesamiento de datos (cálculos)
-    - Almacenamiento temporal de los datos
-    - Comunicar el public (front-end) con el api (back-end)
-*/
 'use strict';
 function registrarEstudiante(paInfoPersona){
     let respuesta = '';
@@ -39,20 +33,19 @@ function registrarEstudiante(paInfoPersona){
       return respuesta;
 }
 
-
-
-function imprimir_lista_datos(){
-    let listaPersonas = [];
-
+function filtrarEstudiantes(cTipo,cValor){
+    let listaClientes = [];
+  
     let respuesta = '';
     let peticion = $.ajax({
-        url : 'http://localhost:4000/api/listar_usuarios',
-        type : 'get',
+        url : 'http://localhost:4000/api/filtrarEstudiantes',
+        type : 'post',
         contentType : 'application/x-www-form-urlencoded; charset=utf-8',
         dataType : 'json',
         async : false,
         data:{
-            
+            tipo: cTipo,
+            valor: cValor
         }
       });
     
@@ -63,8 +56,8 @@ function imprimir_lista_datos(){
       peticion.fail(function(response){
        
       });
-
+  
       return respuesta;
     
-    return listaPersonas;
-}
+    return listaClientes;
+  }
