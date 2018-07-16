@@ -67,6 +67,9 @@ app.use( function(req, res, next) {
 const profesores = require('./components/profesores/profesores.route');
 const proyectos = require('./components/proyectos/proyectos.route');
 const estudiante = require('./components/estudiante/estudiante.route');
+const cliente = require('./components/clientes/clientes.route');
+const bitacora = require('./components/bitacora/bitacora.route');
+const tickets = require('./components/tickets/tickets.route');
 
 /**
  * Le indicamos que le de acceso externo a las rutas inicializadas
@@ -74,6 +77,9 @@ const estudiante = require('./components/estudiante/estudiante.route');
 app.use('/api', profesores);
 app.use('/api', proyectos);
 app.use('/api', estudiante);
+app.use('/api', cliente);
+app.use('/api', bitacora);
+app.use('/api', tickets);
 // Se guarda todo lo que se ha realizado
 module.exports = app;
 
