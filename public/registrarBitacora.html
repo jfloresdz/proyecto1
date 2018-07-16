@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registrar Bitacora</title>
+</head>
+
+<body>
+    <form>
+
+        <div>
+            <label for="mostrarProyectos">Escoger el proyecto</label>
+            <select id="mostrarProyectos">
+                    <option value="Seleccione">Seleccione</option>
+                    <option value="Proyecto1">Proyecto 1</option>
+                    <option value="Proyecto2">Proyecto 2</option>
+                    <option value="Proyecto3">Proyecto 3</option>
+            </select>      
+        </div>
+
+        <div>
+            <label for="txtHorasLaboradas">Horas Laboradas</label>
+            <input type="number" id="txtHorasLaboradas">
+
+        <div>
+            <label for="txtObservaciones">Observaciones</label>
+            <input type="text" id="txtObservaciones">
+        </div>
+
+        <div>
+            <label for="txtTotal">Total de Horas</label>
+            <input type="number" id="txtTotal">
+        </div>
+
+
+        <div>
+                <button type="button" id="btnGuardar">Guardar</button>
+        </div>
+
+    </form>
+
+    <table id="tblBitacora">
+        <thead>
+            <tr>
+                <th>Escoger el proyecto</th>
+                <th>Horas Laboradas</th>
+                <th>Observaciones</th>
+                <th>Total de Horas</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        </tbody>
+
+    </table>
+
+    <script src="public/js/servidor.js"></script>
+    <script src="public/js/controlador.js"></script>
+    
+</body>
+</html>
