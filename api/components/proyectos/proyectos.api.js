@@ -36,10 +36,52 @@ module.exports.listar = function(req, res){
 };
 
 module.exports.filtrar = function(req, res){
-    proyectosModel.find({"nombre_completo": "test"}).then(
-        function(proyectos){
-            res.send(proyectos);
-        });
+    switch(req.body.tipo)
+    {
+        case "1":
+        proyectosModel.find(
+            {
+                "nombre": req.body.valor
+            }
+            ).then(
+                function(proyectos){
+                    res.send(proyectos);
+                });
+        break;
+
+        case "2":
+        proyectosModel.find(
+            {
+                "numeroCedula": req.body.valor
+            }
+            ).then(
+                function(proyectos){
+                    res.send(proyectos);
+                });
+        break;
+
+        case "3":
+        proyectosModel.find(
+            {
+                "telefonos": req.body.valor
+            }
+            ).then(
+                function(proyectos){
+                    res.send(proyectos);
+                });
+        break;
+
+        case "4":
+        proyectosModel.find(
+            {
+                "email": req.body.valor
+            }
+            ).then(
+                function(proyectos){
+                    res.send(proyectos);
+                });
+        break;
+    }
 };
 
 

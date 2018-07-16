@@ -14,5 +14,9 @@ router.route('/listarProyectos')
     proyectos.listar(req, res);
 });
 
+router.route('/filtrarProyectos')
+    .post(function(req, res){
+    proyectos.filtrar(req, res);
+});
 
 module.exports = router;
