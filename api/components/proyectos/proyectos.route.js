@@ -4,7 +4,7 @@ const router = express.Router();
 const proyectos = require('./proyectos.api');
 
 
-router.route('/registrar_proyectos')
+router.route('/registrarProyecto')
     .post(function(req, res){
     proyectos.registrarProyecto(req, res);
 });

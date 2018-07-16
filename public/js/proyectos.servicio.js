@@ -1,4 +1,4 @@
-function registrarProyecto(paInfoPersona){
+function registrarProyecto(paInfoProyecto){
     let respuesta = '';
     let peticion = $.ajax({
         url : 'http://localhost:4000/api/registrarProyecto',
@@ -7,16 +7,15 @@ function registrarProyecto(paInfoPersona){
         dataType : 'json',
         async : false,
         data:{
-            nombre : paInfoPersona[0],
-            cedula : paInfoPersona[1],
-            telefono : paInfoPersona[2],
-            correo : paInfoPersona[3],
-            fechaNc : paInfoPersona[4],
-            estadoCivil: paInfoPersona[5],
-            nacionalidad : paInfoPersona[6],
-            lugarResidencia : paInfoPersona[7],
-            contactoEmer : paInfoPersona[8],
-            TelEmer : paInfoPersona[9]
+            nombre : paInfoProyecto[0],
+            numeroCedula : paInfoProyecto[1],
+            telefonos : paInfoProyecto[2],
+            email : paInfoProyecto[3],
+            empresa : paInfoProyecto[4],
+            fechaCreacion : paInfoProyecto[5],
+            fechaFin : paInfoProyecto[6],
+            ubicacion : paInfoProyecto[7],
+            descripcion : paInfoProyecto[8]
         }
       });
     
@@ -27,7 +26,7 @@ function registrarProyecto(paInfoPersona){
       peticion.fail(function(response){
        
       });
-
+      console.log(respuesta);
       return respuesta;
 }
 
