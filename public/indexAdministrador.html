@@ -35,7 +35,7 @@
                 <a href='#'>
                     <li><i class="fas fa-user"></i>Mi Perfil</li>
                 </a>
-                <a href='landingPage.html'>
+                <a href='logIn.html' id="btnCerrar">
                     <li id="cerrar"><i class="fas fa-power-off"></i></li>
                 </a>
             </ul>
@@ -51,12 +51,18 @@
                 <h2>PROYECTOS ACTIVOS</h2>
             </div>
             <div id="botones">
-                <button type="button" id="btnProf">Profesores</button>
-                <button type="button" id="btnBit">Bitacora</button>
-                <button type="button" id="btnCli">Clientes</button>
-                <button type="button" id="btnEst">Estudiantes</button>
-                <button type="button" id="btnProy">Proyectos</button>
-                <button type="button" id="btnTick">Tickets</button>
+                <button type="button" id="btnProf">Listar Profesores</button>
+                <button type="button" id="btnBit">Listar Bitacora</button>
+                <button type="button" id="btnCli">Listar Clientes</button>
+                <button type="button" id="btnEst">Listar Estudiantes</button>
+                <button type="button" id="btnProy">Listar Proyectos</button>
+                <button type="button" id="btnTick">ListarTickets</button>
+                <button type="button" id="btnRegProf" >Registrar Profesores</button>
+                <button type="button" id="btnRegBit">Registrar Bitácora</button>
+                <button type="button" id="btnRegCli">Registrar Clientes</button>
+                <button type="button" id="btnRegEst">Registrar Estudiantes</button>
+                <button type="button" id="btnRegProy">Registrar Proyectos</button>
+                <button type="button" id="btnRegTic">Registrar Tickets</button>
             </div>
             <div id="proyectos">
                 <table id="tblLista">
@@ -112,6 +118,8 @@
     </footer>
     <script src="js/jquery-3.3.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+    <script src="js/login.controlador.js"></script>
+    <script src="js/login.Servicio.js"></script>
     <script src="js/listar.servicio.js"></script>
     <script src="js/listar.controlador.js"></script>
     <script src="js/script.js"></script>

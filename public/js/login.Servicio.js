@@ -1,4 +1,8 @@
 'use strict';
+
+let cerrarSesion = document.querySelector('#btnCerrar');
+cerrarSesion.addEventListener('click', cerrarSesion);
+
 function getListaUsuarios() {
     let mListaProfesores = null;
     let mListaEstudiantes = null;

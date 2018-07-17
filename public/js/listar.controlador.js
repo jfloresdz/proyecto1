@@ -18,6 +18,24 @@ botonProy.addEventListener('click', obtenerProy);
 let botonTick = document.querySelector('#btnTick');
 botonTick.addEventListener('click', obtenerTick);
 
+let botonRegProf = document.querySelector('#btnRegProf');
+botonRegProf.addEventListener('click', obtenerRegProf);
+
+let botonRegBit = document.querySelector('#btnRegBit');
+botonRegBit.addEventListener('click', obtenerRegBit);
+
+let botonRegCli = document.querySelector('#btnRegCli');
+botonRegCli.addEventListener('click', obtenerRegCli);
+
+let botonRegEst = document.querySelector('#btnRegEst');
+botonRegEst.addEventListener('click', obtenerRegEst);
+
+let botonRegProy = document.querySelector('#btnRegProy');
+botonRegProy.addEventListener('click', obtenerRegProy);
+
+let botonRegTic = document.querySelector('#btnRegTic');
+botonRegTic.addEventListener('click', obtenerRegTic);
+
 function obtenerProf(){
     let listaProfesores = obtenerListaProfesores();
     let thead = document.querySelector('#tblLista thead');
@@ -318,3 +336,27 @@ function obtenerTick(){
     }
 
 };
+
+function obtenerRegProf() {
+    window.location.href = "registrarProfesor.html";
+}
+
+function obtenerRegBit() {
+    window.location.href = "registrarBitacora.html";
+}
+
+function obtenerRegCli() {
+    window.location.href = "registrarCliente.html";
+}
+
+function obtenerRegEst() {
+    window.location.href = "registrarEstudiante.html";
+}
+
+function obtenerRegProy() {
+    window.location.href = "registrarProyecto.html";
+}
+
+function obtenerRegTic() {
+    window.location.href = "registrarTickets.html";
+}

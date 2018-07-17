@@ -8,7 +8,7 @@ function registrarTickets(paInfoTickets){
         dataType : 'json',
         async : false,
         data:{
-        nombreTicketc : paInfoTickets[0],
+        nombreTicket : paInfoTickets[0],
         nombreProyecto : paInfoTickets[1],
         nombreEncargado : paInfoTickets[2],
         telefono :paInfoTickets[3],

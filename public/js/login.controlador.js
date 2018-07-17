@@ -7,3 +7,4 @@ function getUsuarioAutenticado() {
     let sContrasenna = document.querySelector('#txtPass').value;
     autenticarUsuario(sUsuarioIngresado, sContrasenna);
 }
+
