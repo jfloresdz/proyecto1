@@ -11,7 +11,9 @@ let estudianteSchema = new mongoose.Schema({
     direccion:{type : String, required : true},
     contactoEmer:{type : String, required : true},
     telEmer:{type : String, required : true},
-    contrasena:{type : String, required : true}
+    foto:{ type: String, required: false },
+    contrasena:{type : String, required : true},
+    activado:{type : String, required : true}
 });
 
 module.exports = mongoose.model('Estudiante', estudianteSchema);

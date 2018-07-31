@@ -2,21 +2,25 @@
 
 const clienteModel = require('./clientes.model');
 
+
+
 module.exports.registrar = function(req,res){
     let nuevoCliente = new clienteModel({
-        nombre : req.body.nombre,
-        cedula : req.body.cedula,
-        telefono : req.body.telefono,
-        correo : req.body.correo,
-        pais : req.body.pais,
-        redes : req.body.redes
+        nombre:req.body.nombre,
+        cedula:req.body.cedula,
+        telefono:req.body.telefono,
+        correo:req.body.correo,
+        contrasena:req.body.contrasena,
+        foto: req.body.foto,
+        contacto:req.body.contacto,
+        activado:"0"
     });
     nuevoCliente.save(function(error){
         if(error){
             res.json({success : false, msg : 'No se pudo registrar el cliente, ocurrió el siguiente error' + error});
         }else{
             res.json({success : true, msg : 'El cliente se registró con éxito'});
-        }``
+        }
     });
 };
 
@@ -34,7 +38,9 @@ module.exports.filtrar = function(req, res){
         case "1":
         clienteModel.find(
             {
-                "nombre": req.body.valor
+                "nombre":   {  
+                                $regex: new RegExp(req.body.valor, "ig")
+                            } 
             }
             ).then(
                 function(clientes){
@@ -45,7 +51,9 @@ module.exports.filtrar = function(req, res){
         case "2":
         clienteModel.find(
             {
-                "cedula": req.body.valor
+                "cedula":   {  
+                                $regex: new RegExp(req.body.valor, "ig")
+                            } 
             }
             ).then(
                 function(clientes){

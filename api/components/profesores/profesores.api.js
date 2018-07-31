@@ -7,20 +7,19 @@ module.exports.registrar = function(req, res){
     //Crea una variable nuevoUsuario utilizando como plantilla el userModel
     
     let nuevoProfesor = new profesorModel({
-        nombre_completo: req.body.nombre_completo,
-        profesion : req.body.profesion,
-        universidad: req.body.universidad,
-        telefono: req.body.telefono,
-        correo: req.body.correo,
-        experiencia: req.body.experiencia,
-        fechaNacimiento: req.body.fechaNacimiento,
-        cursos: req.body.cursos,
-        titulos: req.body.titulos,
-        foto: req.body.foto,
-        provincia: req.body.provincia,
-        direccion: req.body.direccion,
-        cedula: req.body.cedula,
-        contrasenna: req.body.contrasenna
+        nombre:req.body.nombre,
+        profesion:req.body.profesion,
+        telefono:req.body.telefono,
+        correo:req.body.correo,
+        experiencia:req.body.experiencia,
+        fechaNacimiento:req.body.fechaNacimiento,
+        cursos:req.body.cursos,
+        titulos:req.body.titulos,
+        foto:req.body.foto,
+        direccion:req.body.direccion,
+        cedula:req.body.cedula,
+        contrasena:req.body.contrasenna,
+        activado:"0"
     });
 
     nuevoProfesor.save(function(error){
@@ -40,13 +39,16 @@ module.exports.listar = function(req, res){
 };
 
 
+
 module.exports.filtrar = function(req, res){
     switch(req.body.tipo)
     {
         case "1":
         profesorModel.find(
             {
-                "nombre_completo": req.body.valor
+                "nombre":   {  
+                                $regex: new RegExp(req.body.valor, "ig")
+                            } 
             }
             ).then(
                 function(profesores){
@@ -57,7 +59,9 @@ module.exports.filtrar = function(req, res){
         case "2":
         profesorModel.find(
             {
-                "cedula": req.body.valor
+                "cedula":   {  
+                                $regex: new RegExp(req.body.valor, "ig")
+                            } 
             }
             ).then(
                 function(profesores){

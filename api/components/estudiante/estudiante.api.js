@@ -11,7 +11,9 @@ module.exports.registrar = function(req, res){
         direccion:req.body.direccion,
         contactoEmer:req.body.contactoEmer,
         telEmer:req.body.telEmer,
+        foto:req.body.foto,
         contrasena:req.body.contrasena,
+        activado:"0"
     });
 
     nuevoDato.save(function(error){
