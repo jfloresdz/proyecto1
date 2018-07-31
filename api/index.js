@@ -69,11 +69,13 @@ const profesores = require('./components/profesores/profesores.route');
 const proyectos = require('./components/proyectos/proyectos.route');
 const estudiante = require('./components/estudiante/estudiante.route');
 const cliente = require('./components/clientes/clientes.route');
+const admin = require('./components/admin/admin.route');
 const login = require('./components/login/login.route');
 
 /**
  * Le indicamos que le de acceso externo a las rutas inicializadas
  */
+app.use('/api', admin);
 app.use('/api', login);
 app.use('/api', profesores);
 app.use('/api', proyectos);
