@@ -46,5 +46,11 @@ function login(){
 }
 
 function validar() {
-    return false;
+    let resultado = false
+
+    if(InputContrasena.value =='' || InputContrasena ==null || InputCorreo == '' || InputCorreo == null ){
+        resultado = true
+    }
+
+    return resultado;
 }
