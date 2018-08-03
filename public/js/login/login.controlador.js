@@ -7,6 +7,7 @@ const InputContrasena = document.querySelector('#contrasena');
 BotonLogin.addEventListener('click',login);
 
 function login(){
+    let baseUrl = window.location.protocol+'//'+window.location.hostname+':'+window.location.port;
     let bError = false;
     let respuesta = [];
     
@@ -26,7 +27,7 @@ function login(){
 
                switch(respuesta['tipo']){
                    case "0":
-                   toastr.success('Administrador')
+                   window.location.assign(baseUrl+"/public/test.html");
                    break;
 
                    case "1":
