@@ -1,19 +1,16 @@
 'use strict'
-let lista_bitacora = [];
 
-function registrarBitacora(infoBitacora){
-    let respuesta = '';
+function loginServicio(InputCorreo,InputContrasena){
+    let respuesta = [];
     let peticion = $.ajax({
-        url : 'http://localhost:4000/api/registrarBitacora',
+        url : 'http://localhost:4000/api/login',
         type : 'post',
         contentType : 'application/x-www-form-urlencoded; charset=utf-8',
         dataType : 'json',
         async : false,
-        data:{
-            EscogerProyecto :infoBitacora[0],
-            HorasLaboradas : infoBitacora[1],
-            Observaciones : infoBitacora[2],
-            TotalHoras : infoBitacora[3]
+        data:{          
+              correo : InputCorreo,
+              contrasena : InputContrasena
         }
       });
     
@@ -27,4 +24,4 @@ function registrarBitacora(infoBitacora){
 
       console.log(respuesta);
       return respuesta;
-};
+}

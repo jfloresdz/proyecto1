@@ -82,5 +82,5 @@ function filtrarClientes(cTipo,cValor){
 
     return respuesta;
   
-  return listaClientes;
+    return listaClientes;
 }
