@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const clientes = require('./clientes.api');
 
-router.route('/registrarClientes')
+router.route('/registrarCliente')
     .post(function(req, res){
     clientes.registrar(req, res);
 });

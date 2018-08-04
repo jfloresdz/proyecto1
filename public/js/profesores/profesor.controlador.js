@@ -2,26 +2,43 @@
 
 //imprimirListaProfesores();
 
-let botonRegistrar = document.querySelector('#btnRegistrar');
-
-botonRegistrar.addEventListener('click', obtenerDatos);
-
-
-let inputNombre = document.querySelector('#txtNombre');
-let inputProfesion = document.querySelector('#txtProf');
-let inputEmail = document.querySelector('#txtEmail');
-let inputTelefono = document.querySelector('#txtTelefono');
-let inputExp = document.querySelector('#txtExp');
-let inputConfirmacion = document.querySelector('#txtConfirmacion');
-let inputCurso = document.querySelector('#txtCurso');
-let inputCed = document.querySelector('#txtCed');
-let inputFecha = document.querySelector('#txtFecha');
-let inputProv = document.querySelector('#slctProv');
-let inputDir = document.querySelector('#txtDir');
-let inputDoc = document.querySelector('#txtUniv');
+const botonRegistrar = document.querySelector('#btnRegistrar');
+const baseUrl = window.location.protocol+'//'+window.location.hostname+':'+window.location.port;
+const Salir = document.querySelector('#salir');
+//botonRegistrar.addEventListener('click', obtenerDatos);
 
 
-function obtenerDatos(){
+const inputNombre = document.querySelector('#txtNombre');
+const inputProfesion = document.querySelector('#txtProf');
+const inputEmail = document.querySelector('#txtEmail');
+const inputTelefono = document.querySelector('#txtTelefono');
+const inputExp = document.querySelector('#txtExp');
+const inputConfirmacion = document.querySelector('#txtConfirmacion');
+const inputCurso = document.querySelector('#txtCurso');
+const inputCed = document.querySelector('#txtCed');
+const inputFecha = document.querySelector('#txtFecha');
+const inputProv = document.querySelector('#slctProv');
+const inputDir = document.querySelector('#txtDir');
+const inputDoc = document.querySelector('#txtUniv');
+
+Salir.addEventListener('click',cerrarSesion);
+
+Comprobar();
+
+function Comprobar() {
+    let tipo =sessionStorage.getItem("tipo");
+
+    if(tipo!=2){
+        window.location.assign(baseUrl+'/public/logIn.html');
+    }
+}
+
+function cerrarSesion(){
+    sessionStorage.clear();
+    window.location.assign(baseUrl+'/public/logIn.html');
+}
+
+/*function obtenerDatos(){
     let infoProfesor =[];
     let bError = false;
 
@@ -127,4 +144,4 @@ function limpiarFormulario(){
     inputProv.value=null,
     inputDir.value=null,
     inputDoc.value=null    
-}
+}*/

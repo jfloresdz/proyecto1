@@ -1,4 +1,8 @@
-'use strict'
+'use strict';
+
+const baseUrl = window.location.protocol+'//'+window.location.hostname+':'+window.location.port;
+const Salir = document.querySelector('#salir');
+
 //imprimir_lista_datos();
 let botonGuardar = document.querySelector('#btnGuardar');
 
@@ -13,9 +17,26 @@ let inputLugarResidencia = document.querySelector('#txtDir');
 let inputcontactoEmer = document.querySelector('#txtCont');
 let inputTelEmer = document.querySelector('#txtTel2');
 
-botonGuardar.addEventListener('click', obtenerDatos);
+Salir.addEventListener('click',cerrarSesion);
 
-function obtenerDatos(){
+Comprobar();
+
+function Comprobar() {
+    let tipo =sessionStorage.getItem("tipo");
+
+    if(tipo!=1){
+        window.location.assign(baseUrl+'/public/logIn.html');
+    }
+}
+
+function cerrarSesion(){
+    sessionStorage.clear();
+    window.location.assign(baseUrl+'/public/logIn.html');
+}
+
+//botonGuardar.addEventListener('click', obtenerDatos);
+
+/*function obtenerDatos(){
     let infoEstudiante = [];
     let bError = false;
 
@@ -68,3 +89,4 @@ function limpiarFormulario(){
     inputcontactoEmer.value=null;
     inputTelEmer.value=null;
 }
+*/

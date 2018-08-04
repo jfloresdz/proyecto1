@@ -18,7 +18,7 @@ module.exports.registrar = function(req, res){
         foto:req.body.foto,
         direccion:req.body.direccion,
         cedula:req.body.cedula,
-        contrasena:req.body.contrasenna,
+        contrasena:req.body.contrasena,
         activado:"0"
     });
 
