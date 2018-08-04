@@ -23,23 +23,23 @@ function login(){
                sessionStorage.setItem("id",respuesta['_id']);
                sessionStorage.setItem("nombre",respuesta['nombre']);
                sessionStorage.setItem("tipo",respuesta['tipo']);
-               toastr.success('Bienvenido '+respuesta['nombre']);
+               toastr.success('Bienvenid@ '+respuesta['nombre']);
 
                switch(respuesta['tipo']){
                    case "0":
-                   window.location.assign(baseUrl+"/public/test.html");
+                   window.location.assign(baseUrl+"/public/adminIndex.html");
                    break;
 
                    case "1":
-                   toastr.success('Estudiante')
+                   window.location.assign(baseUrl+"/public/estudianteIndex.html");
                    break;
 
                    case "2":
-                   toastr.success('Profesor')
+                   window.location.assign(baseUrl+"/public/profesorIndex.html");
                    break;
 
                    case "3":
-                   toastr.success('Cliente')
+                   window.location.assign(baseUrl+"/public/clienteIndex.html");
                    break;
                }
            }

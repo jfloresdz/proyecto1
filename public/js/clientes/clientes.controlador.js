@@ -1,18 +1,32 @@
 'use strict'
+const baseUrl = window.location.protocol+'//'+window.location.hostname+':'+window.location.port;
+const Salir = document.querySelector('#salir');
+const botonRegistrar = document.querySelector('#btnRegistrar');
+Salir.addEventListener('click',cerrarSesion);
 
-let botonRegistrar = document.querySelector('#btnRegistrar');
+//botonRegistrar.addEventListener ('click' , obtenerDatosCliente);
 
-botonRegistrar.addEventListener ('click' , obtenerDatosCliente);
+Comprobar();
+
+function Comprobar() {
+    let tipo =sessionStorage.getItem("tipo");
+
+    if(tipo!=3){
+        window.location.assign(baseUrl+'/public/logIn.html');
+    }
+}
+
+function cerrarSesion(){
+    sessionStorage.clear();
+    window.location.assign(baseUrl+'/public/logIn.html');
+}
 
 
-let inputNombreCliente = document.querySelector('#txtNom');
+/*let inputNombreCliente = document.querySelector('#txtNom');
 let inputNumCedulaCliente = document.querySelector('#txtCed');
 let inputTelefonoCliente = document.querySelector('#txtTel');
 let inputEmailCliente = document.querySelector('#txtCorreo');
 let inputPais = document.querySelector('#slctPais');
-
-
-
 
 function obtenerDatosCliente(){
     let infoCliente = [];
@@ -54,4 +68,5 @@ function limpiarFormulario(){
     inputTelefonoCliente.value =null
     inputEmailCliente.value = null
     inputPais.value = null
-}
+}*/
+
