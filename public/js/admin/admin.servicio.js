@@ -17,7 +17,7 @@ function registrarEstudiante(estudiante){
             contactoEmer: estudiante[6],
             telEmer: estudiante[7],
             foto: estudiante[8],
-            contrasena:estudiante[9]
+            contrasena: Math.random().toString(36).substring(7)
         }
       });
     
@@ -25,10 +25,12 @@ function registrarEstudiante(estudiante){
        respuesta = response;
       });
     
+
       peticion.fail(function(response){
        
       });
 
+      console.log(respuesta);
       return respuesta;
 }
 

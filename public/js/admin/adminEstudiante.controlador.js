@@ -34,7 +34,6 @@ function cerrarSesion(){
 
 function registrarFormulario() {
     let estudiante=[];
-    let contrasena =Math.random().toString(36).substring(7);
     estudiante.push(
         nombre.value,
         cedula.value,
@@ -44,8 +43,7 @@ function registrarFormulario() {
         direccion.value,
         contactoEmer.value,
         telEmer.value,
-        foto.value,
-        contrasena
+        foto.value
     );
 
     let validar = validarFormulario();
@@ -53,13 +51,55 @@ function registrarFormulario() {
     if(validar){
         toastr.warning('Por favor llene los campos');
     }else{
-        let response=registrarEstudiante(estudiante.push);
-        toastr.success(response);
+        let respuesta=registrarEstudiante(estudiante);
+        if(respuesta.success == false){
+            toastr.error(respuesta.msj);
+        }else{
+            toastr.success(respuesta.msj);
+        }
     }
 
 }
 
 function validarFormulario(){
-    return true;
+    let respuesta=false;
+
+    if(nombre.value== null || nombre.value==""){
+        respuesta=true;
+    }
+
+    if (cedula.value == null || cedula.value==""){
+        respuesta=true;
+    }
+
+    if (telefono.value == null || telefono.value==""){
+        respuesta=true;
+    }
+
+    if (correo.value == null || correo.value ==""){
+        respuesta=true;
+    }
+
+    if (fechaNc.value == null || fechaNc.value ==""){
+        respuesta=true;
+    }
+
+    if (fechaNc.value == null || fechaNc.value ==""){
+        respuesta=true;
+    }
+
+    if (direccion.value == null || direccion.value ==""){
+        respuesta=true;
+    }
+
+    if (contactoEmer.value == null || contactoEmer.value ==""){
+        respuesta=true;
+    }
+
+    if (telEmer.value == null || telEmer.value ==""){
+        respuesta=true;
+    }
+
+    return respuesta;
 }
 
