@@ -281,4 +281,98 @@ function filtrarProfesores(cTipo,cValor){
       return respuesta;
     
     return listaProfesores;
-  }
+}
+
+function registrarProyecto(cliente){
+    let respuesta = '';
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/registrarProyecto',
+        type : 'post',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            nombre: cliente[0],
+            cedula: cliente[1],
+            telefono: cliente[2],
+            correo: cliente[3],
+            contacto:{
+                nombre:cliente[4],
+                correo:cliente[5],
+                telefono:cliente[6]
+            },
+            foto: cliente[7],
+            contrasena: Math.random().toString(36).substring(7)
+        }
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+
+      peticion.fail(function(response){
+       
+      });
+
+      console.log(respuesta);
+      return respuesta;
+}
+
+function obtenerListaProyectos(){
+    let listaProyectos = [];
+
+    let respuesta = '';
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/listarProyectos',
+        type : 'get',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            
+        }
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+       
+      });
+
+      return respuesta;
+    
+    return listaProyectos;
+}
+
+
+function filtrarProyectos(cTipo,cValor){
+    let listaProyectos = [];
+  
+    let respuesta = '';
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/filtrarProyectos',
+        type : 'post',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            tipo: cTipo,
+            valor: cValor
+        }
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+       
+      });
+  
+      return respuesta;
+    
+    return listaProyectos;
+}

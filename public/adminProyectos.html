@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-    <title>Administrar Estudiantes</title>
+    <title>Administrar Proyectos</title>
 
     <!-- / CSS -->
       <link rel="stylesheet" href="CSS/Home.css" type="text/css" >
@@ -29,9 +29,9 @@
         <ul>
             <li><a href="adminIndex.html"><i class="fas fa-home"></i><span>Inicio</span></a></li>
             <li><a href="adminProfesores.html"><i class="fas fa-chalkboard-teacher"></i><span>Profesor</span></a></li>
-            <li><a><i class="fas fa-user-graduate"></i><span>Estudiantes</span></a></li>
+            <li><a href="adminEstudiantes.html"><i class="fas fa-user-graduate"></i><span>Estudiantes</span></a></li>
             <li><a href="adminClientes.html"><i class="fas fa-user-tie"></i><span>Clientes</span></a></li>
-            <li><a href="adminProyectos.html"><i class="fas fa-project-diagram"></i><span>Proyectos</span></a></li>
+            <li><a><i class="fas fa-project-diagram"></i><span>Proyectos</span></a></li>
             <li><a id="salir" class="exit"><i class="fas fa-sign-out-alt"></i><span>Log out</span></a></li>
         </ul>
     </div>
@@ -50,25 +50,23 @@
 
             <div class="tabs_item">
                     <form class="cf">
-                      <figure class="snip1566">
-                        <img id="currentFoto" src="IMG/user.png" alt="sq-sample14" />
-                        <figcaption><i class="fas fa-plus"></i></figcaption>
-                        <a id="btnSeleccionarImagen"></a>
-                      </figure>
+                      <h1>Proyecto</h1>
                       <br>
                       <div class="half left cf">
                         <input type="text" id="nombre" placeholder="Nombre">
-                        <input type="email" id="correo" placeholder="Email">
-                        <input type="text" id="telefono" placeholder="Telefono">
-                        <input type="text" id="cedula" placeholder="Cedula">
+                        <select id="empresa">
+                            <option value="" disabled selected>Empresa</option>
+                        </select>
                       </div>
                       <div class="half right cf">
-                            <input type="date" id="fechaNc">
-                            <input type="text" id="contactoEmer" placeholder="Contacto Emergencia">
-                            <input type="text" id="telEmer" placeholder="Telefono Emergencia">
-                            <input type="hidden" id="foto">
-                        <textarea name="message" type="text" id="direccion" placeholder="Dirreccion"></textarea>
+                          <select id="tecnico">
+                            <option value="" disabled selected>Lider Tecnico</option>
+                          </select>
+                          <select id="Lider">
+                                <option value="" disabled selected>Lider</option>
+                          </select>
                       </div>
+                      <textarea name="message" type="text" id="descripcion" placeholder="Descripcion"></textarea>
                       <button type="button" class="input-submit" id="registrar">Registrar</button>
                     </form>
                 </div>
@@ -90,23 +88,20 @@
                 </div>
 
                     <div class="table-users">
-                      <div class="tittle">Estudiantes</div>
+                      <div class="tittle">Proyectos</div>
                     <table class="table" cellspacing="0" width="100%" id="table-users">
                       <thead>
                         <tr>
                           <th>Nombre</th>
-                          <th>Cedula</th>
-                          <th>Telefono</th>
-                          <th>Correo</th>
-                          <th>Nacimiento</th>
-                          <th>Direccion</th>
-                          <th>Contacto</th>
-                          <th>Tel Contacto</th>
+                          <th>Empresa</th>
+                          <th>Fecha Creacion</th>
+                          <th>Fecha Finalizacion</th>
+                          <th>Estado</th>
                           <th>Editar</th>
                         </tr>
                       </thead>
                     <tbody>
-                   
+                        
                     </tbody>
                     </table>
                   </div>
@@ -135,7 +130,7 @@
 
     <script src="js/imagenes.js"></script>
     <script src="js/admin/admin.servicio.js"></script>
-    <script src="js/admin/adminEstudiante.controlador.js"></script>
+    <script src="js/admin/adminProyectos.controlador.js"></script>
 </footer>
 <!-- / JS-scripts -->
 

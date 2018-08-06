@@ -17,9 +17,9 @@ module.exports.registrar = function(req,res){
     });
     nuevoCliente.save(function(error){
         if(error){
-            res.json({success : false, msg : 'No se pudo registrar el cliente, ocurrió el siguiente error' + error});
+            res.json({success : false, msj : 'No se pudo registrar el cliente, ocurrió el siguiente error' + error});
         }else{
-            res.json({success : true, msg : 'El cliente se registró con éxito'});
+            res.json({success : true, msj : 'El cliente se registró con éxito'});
         }
     });
 };

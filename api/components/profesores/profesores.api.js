@@ -22,9 +22,9 @@ module.exports.registrar = function(req, res){
 
     nuevoProfesor.save(function(error){
         if(error){
-            res.json({success : false, msg : 'No se pudo registrar el profesor, ocurrió el siguiente error' + error});
+            res.json({success : false, msj : 'No se pudo registrar el profesor, ocurrió el siguiente error' + error});
         }else{
-            res.json({success : true, msg : 'El profesor se registró con éxito'});
+            res.json({success : true, msj : 'El profesor se registró con éxito'});
         }``
     });
 };
