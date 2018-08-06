@@ -17,7 +17,10 @@ const Registrar = document.querySelector('#registrar');
 Registrar.addEventListener('click',registrarFormulario);
 Salir.addEventListener('click',cerrarSesion);
 
+
 Comprobar();
+imprimirListaEstudiantes();
+
 
 function Comprobar() {
     let tipo =sessionStorage.getItem("tipo");
@@ -103,3 +106,34 @@ function validarFormulario(){
     return respuesta;
 }
 
+function imprimirListaEstudiantes(){
+    let listaEstudiantes = obtenerListaEstudiantes();
+    let tbody = document.querySelector('#table-users tbody');
+    tbody.innerHTML = '';
+
+    for(let i = 0; i < listaEstudiantes.length; i++){
+        let fila = tbody.insertRow();
+
+        let cnombre= fila.insertCell();
+        let ccedula= fila.insertCell();
+        let ctelefono= fila.insertCell();
+        let ccorreo= fila.insertCell();
+        let cfechaNc= fila.insertCell();
+        let cdireccion= fila.insertCell();
+        let ccontactoEmer= fila.insertCell();
+        let ctelEmer= fila.insertCell();
+        let editar = fila.insertCell();
+        
+        cnombre.innerHTML = listaEstudiantes[i]['nombre'];
+        ccedula.innerHTML = listaEstudiantes[i]['cedula'];
+        ctelefono.innerHTML = listaEstudiantes[i]['telefono'];
+        ccorreo.innerHTML = listaEstudiantes[i]['correo'];
+        cfechaNc.innerHTML = listaEstudiantes[i]['fechaNc'];
+        cdireccion.innerHTML = listaEstudiantes[i]['direccion'];
+        ccontactoEmer.innerHTML = listaEstudiantes[i]['contactoEmer'];
+        ctelEmer.innerHTML = listaEstudiantes[i]['telEmer'];
+        editar.innerHTML = '<button type="button" class="editButton" value="'+listaEstudiantes[i]['_id']+'"><i class="fas fa-edit"></i></button>';
+        
+    }
+
+};
