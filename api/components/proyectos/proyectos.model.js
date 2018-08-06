@@ -33,6 +33,7 @@ let mensaje= new mongoose.Schema({
 let proyectoShema = new mongoose.Schema({
 nombre : {type : String, require : true},
 empresa : {type : String, require : true},
+empresa_nombre : {type : String, require : true},
 fechaCreacion : {type : String, require : true},
 fechaFin : {type : String},
 descripcion : {type : String , require : true},

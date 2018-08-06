@@ -22,6 +22,7 @@ Salir.addEventListener('click',cerrarSesion);
 
 
 Comprobar();
+llenarSelects();
 imprimirListaProyectos();
 
 
@@ -70,15 +71,15 @@ function validarFormulario(){
         respuesta=true;
     }
 
-    if (cedula.value == null || cedula.value==""){
+    if (lider.value == null || lider.value==""){
         respuesta=true;
     }
 
-    if (telefono.value == null || telefono.value==""){
+    if (empresa.value == null || empresa.value==""){
         respuesta=true;
     }
 
-    if (correo.value == null || correo.value ==""){
+    if (tecnico.value == null || tecnico.value ==""){
         respuesta=true;
     }
 
@@ -92,22 +93,23 @@ function imprimirListaProyectos(){
 
     for(let i = 0; i < listaProyectos.length; i++){
         let fila = tbody.insertRow();
-
-        let cnombre= fila.insertCell();
-        let ccedula= fila.insertCell();
-        let ctelefono= fila.insertCell();
-        let ccorreo= fila.insertCell();
-        let editar = fila.insertCell();
         
+        let cnombre= fila.insertCell();
+        let cempresa= fila.insertCell();
+        let cfechaCreacion= fila.insertCell();
+        let cfechaFin= fila.insertCell();
+        let cestado= fila.insertCell();
+        let editar= fila.insertCell();
+
         cnombre.innerHTML = listaProyectos[i]['nombre'];
-        ccedula.innerHTML = listaProyectos[i]['cedula'];
-        ctelefono.innerHTML = listaProyectos[i]['telefono'];
-        ccorreo.innerHTML = listaProyectos[i]['correo'];
+        cempresa.innerHTML = listaProyectos[i]['empresa'];
+        cfechaCreacion.innerHTML = listaProyectos[i]['fechaCreacion'];
+        cfechaFin.innerHTML = listaProyectos[i]['fechaFin'];
+        cestado.innerHTML = listaProyectos[i]['estado'];
         editar.innerHTML = '<button type="button" class="editButton" id="'+listaProyectos[i]['_id']+'"><i class="fas fa-edit"></i></button>';
 
         document.getElementById(listaProyectos[i]['_id']).onclick= function() {
             toastr.success(this.id);
-            console.log('working');
         }
         
     }
@@ -121,24 +123,55 @@ function buscarProyecto(){
 
     for(let i = 0; i < listaProyectos.length; i++){
         let fila = tbody.insertRow();
-
-        let cnombre= fila.insertCell();
-        let ccedula= fila.insertCell();
-        let ctelefono= fila.insertCell();
-        let ccorreo= fila.insertCell();
-        let editar = fila.insertCell();
         
+        let cnombre= fila.insertCell();
+        let cempresa= fila.insertCell();
+        let cfechaCreacion= fila.insertCell();
+        let cfechaFin= fila.insertCell();
+        let cestado= fila.insertCell();
+        let editar= fila.insertCell();
+
         cnombre.innerHTML = listaProyectos[i]['nombre'];
-        ccedula.innerHTML = listaProyectos[i]['cedula'];
-        ctelefono.innerHTML = listaProyectos[i]['telefono'];
-        ccorreo.innerHTML = listaProyectos[i]['correo'];
+        cempresa.innerHTML = listaProyectos[i]['empresa'];
+        cfechaCreacion.innerHTML = listaProyectos[i]['fechaCreacion'];
+        cfechaFin.innerHTML = listaProyectos[i]['fechaFin'];
+        cestado.innerHTML = listaProyectos[i]['estado'];
         editar.innerHTML = '<button type="button" class="editButton" id="'+listaProyectos[i]['_id']+'"><i class="fas fa-edit"></i></button>';
 
         document.getElementById(listaProyectos[i]['_id']).onclick= function() {
             toastr.success(this.id);
-            console.log('working');
         }
         
     }
-
 };
+
+function llenarSelects() {
+    let profesores =[];
+    let empresas =[];
+
+    profesores=obtenerListaProfesores();
+    empresas=obtenerListaClientes();
+
+    let option="";
+
+    for (let i=0; i < profesores.length; i ++) {
+        option = document.createElement('option');
+        option.setAttribute('value', profesores[i]['_id']);
+        option.appendChild(document.createTextNode(profesores[i]['nombre']));
+        lider.appendChild(option);
+    }
+
+    for (let i=0; i < profesores.length; i ++) {
+        option = document.createElement('option');
+        option.setAttribute('value', profesores[i]['_id']);
+        option.appendChild(document.createTextNode(profesores[i]['nombre']));
+        tecnico.appendChild(option);
+    }
+
+    for (let i=0; i < empresas.length; i ++) {
+        option = document.createElement('option');
+        option.setAttribute('value', empresas[i]['_id']);
+        option.appendChild(document.createTextNode(empresas[i]['nombre']));
+        empresa.appendChild(option);
+    }
+}

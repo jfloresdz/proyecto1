@@ -283,7 +283,7 @@ function filtrarProfesores(cTipo,cValor){
     return listaProfesores;
 }
 
-function registrarProyecto(cliente){
+function registrarProyecto(proyecto){
     let respuesta = '';
     let peticion = $.ajax({
         url : 'http://localhost:4000/api/registrarProyecto',
@@ -292,7 +292,7 @@ function registrarProyecto(cliente){
         dataType : 'json',
         async : false,
         data:{
-            nombre: cliente[0],
+            nombre: proyecto[0],
             cedula: cliente[1],
             telefono: cliente[2],
             correo: cliente[3],

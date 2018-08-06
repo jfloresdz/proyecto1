@@ -38,7 +38,9 @@ module.exports.filtrar = function(req, res){
         case "1":
         proyectosModel.find(
             {
-                "nombre": req.body.valor
+                "nombre": {  
+                    $regex: new RegExp(req.body.valor, "ig")
+                } 
             }
             ).then(
                 function(proyectos){
@@ -49,7 +51,9 @@ module.exports.filtrar = function(req, res){
         case "2":
         proyectosModel.find(
             {
-                "numeroCedula": req.body.valor
+                "numeroCedula":{  
+                    $regex: new RegExp(req.body.valor, "ig")
+                } 
             }
             ).then(
                 function(proyectos){
