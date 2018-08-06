@@ -13,8 +13,6 @@ module.exports.registrar = function(req, res){
         correo:req.body.correo,
         experiencia:req.body.experiencia,
         fechaNacimiento:req.body.fechaNacimiento,
-        cursos:req.body.cursos,
-        titulos:req.body.titulos,
         foto:req.body.foto,
         direccion:req.body.direccion,
         cedula:req.body.cedula,
