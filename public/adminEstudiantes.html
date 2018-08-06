@@ -32,7 +32,7 @@
             <li><a href=""><i class="fas fa-user-graduate"></i><span>Estudiantes</span></a></li>
             <li><a href="adminClientes.html"><i class="fas fa-user-tie"></i><span>Clientes</span></a></li>
             <li><a href="adminProyectos"><i class="fas fa-project-diagram"></i><span>Proyectos</span></a></li>
-            <li><a href="" id="salir" class="exit"><i class="fas fa-sign-out-alt"></i><span>Log out</span></a></li>
+            <li><a id="salir" class="exit"><i class="fas fa-sign-out-alt"></i><span>Log out</span></a></li>
         </ul>
     </div>
 </header>
@@ -51,7 +51,7 @@
             <div class="tabs_item">
                     <form class="cf">
                       <figure class="snip1566">
-                        <img src="IMG/user.png" alt="sq-sample14" />
+                        <img id="currentFoto" src="IMG/user.png" alt="sq-sample14" />
                         <figcaption><i class="fas fa-plus"></i></figcaption>
                         <a id="btnSeleccionarImagen"></a>
                       </figure>
@@ -74,6 +74,21 @@
                 </div>
 
             <div class="tabs_item">
+
+                <div class="flexsearch">
+                    <div class="flexsearch--wrapper">
+                        <div class="flexsearch--form">
+                            <div class="flexsearch--input-wrapper">
+                                <input class="flexsearch--input" type="text" id="buscar" placeholder="Buscar">
+                                <!--<select id="inputTipoBuscar">
+                                  <option value="" disabled selected>Seleccion Tipo</option>
+                                </select>-->
+                            </div>
+                            <button type="button" class="flexsearch--submit" id="btnBuscar">&#10140;</button>
+                        </div>
+                    </div>
+                </div>
+
                     <div class="table-users">
                       <div class="tittle">Estudiantes</div>
                     <table class="table" cellspacing="0" width="100%" id="table-users">

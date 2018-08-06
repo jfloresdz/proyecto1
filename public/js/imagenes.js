@@ -22,6 +22,7 @@ $(function() {
             imagenUrl = processImage(id);
             console.log(imagenUrl);
             document.querySelector('#foto').value = imagenUrl;
+            document.querySelector('#currentFoto').src= imagenUrl;
             return imagenUrl;
         });
     });
