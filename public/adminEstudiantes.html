@@ -113,6 +113,34 @@
           </div>
       </div>
   </div>
+  <!--End of tabs-->
+
+  <div class=edit-box>
+    <form class="cf">
+      <figure class="snip1566">
+        <img id="editFoto" src="IMG/user.png" alt="sq-sample14" />
+        <figcaption><i class="fas fa-plus"></i></figcaption>
+        <a id="btnSeleccionarImagen"></a>
+      </figure>
+      <br>
+      <div class="half left cf">
+        <input type="text" id="editNombre" placeholder="Nombre">
+        <input type="email" id="editCorreo" placeholder="Email">
+        <input type="text" id="editTelefono" placeholder="Telefono">
+        <input type="text" id="editCedula" placeholder="Cedula">
+      </div>
+      <div class="half right cf">
+            <input type="date" id="editFechaNc">
+            <input type="text" id="editContactoEmer" placeholder="Contacto Emergencia">
+            <input type="text" id="editTelEmer" placeholder="Telefono Emergencia">
+            <input type="hidden" id="editFoto">
+        <textarea name="message" type="text" id="editDireccion" placeholder="Dirreccion"></textarea>
+      </div>
+      <button type="button" class="input-editar" id="btnEditar">Editar</button>
+      <button type="button" class="input-cancelar" id="Cancelar">Cancelar</button>
+    </form>
+  </div>
+
 </main>
 
 <footer>
@@ -136,6 +164,7 @@
     <script src="js/imagenes.js"></script>
     <script src="js/admin/admin.servicio.js"></script>
     <script src="js/admin/adminEstudiante.controlador.js"></script>
+
 </footer>
 <!-- / JS-scripts -->
 

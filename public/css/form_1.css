@@ -54,17 +54,34 @@ form input:[type="checkbox"]{
   resize: none;
 }
 
-form .input-submit {
+form .input-submit,form .input-editar {
   color: white;
   font-size: 1em;
   background: #f7b600;
   cursor: pointer;
 }
 
-form .input-submit:hover {
+form .input-submit:hover,  form .input-editar:hover, form .input-cancelar:hover{
   -moz-box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
   -webkit-box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
   box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
+}
+
+
+form .input-editar, form .input-cancelar{
+  border: 0;
+  outline: 0;
+  padding: 1em;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  width: 45%;
+  margin-top: 1em;
+  -moz-box-shadow: 0 3px 3px rgba(0, 0.1, 0, 0.1);
+  -webkit-box-shadow: 0 3px 3px rgba(0, 0.1, 0, 0.1);
+  box-shadow: 0 3px 3px rgba(0, 0.1, 0, 0.1);
+  resize: none;
+  font-size: 1em;
 }
 
 form textarea {

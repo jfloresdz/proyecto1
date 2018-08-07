@@ -14,6 +14,19 @@ const telEmer = document.querySelector('#telEmer');
 const foto = document.querySelector('#foto');
 const Registrar = document.querySelector('#registrar');
 
+
+const editNombre = document.querySelector('#editNombre');
+const editCedula = document.querySelector('#editCedula');
+const editTelefono = document.querySelector('#editTelefono');
+const editCorreo = document.querySelector('#editCorreo');
+const editFechaNc = document.querySelector('#editFechaNc');
+const editDireccion = document.querySelector('#editDireccion');
+const editContactoEmer = document.querySelector('#editContactoEmer');
+const editTelEmer = document.querySelector('#editTelEmer');
+const editFoto = document.querySelector('#editFoto');
+const btnEditar = document.querySelector('#btnEditar');
+const btnCancelar = document.querySelector('#Cancelar');
+
 const Buscar =document.querySelector('#buscar');
 const btnBuscar=document.querySelector('#btnBuscar');
 
@@ -21,6 +34,7 @@ const btnBuscar=document.querySelector('#btnBuscar');
 
 Registrar.addEventListener('click',registrarFormulario);
 btnBuscar.addEventListener('click',buscarEstudiante);
+btnCancelar.addEventListener('click',cancelar);
 Salir.addEventListener('click',cerrarSesion);
 
 
@@ -141,8 +155,19 @@ function imprimirListaEstudiantes(){
         editar.innerHTML = '<button type="button" class="editButton" id="'+listaEstudiantes[i]['_id']+'"><i class="fas fa-edit"></i></button>';
 
         document.getElementById(listaEstudiantes[i]['_id']).onclick= function() {
-            toastr.success(this.id);
-            console.log('working');
+            let estudiante=filtrarEstudiantes("3",this.id);
+            editNombre.value=estudiante[0]['nombre'];
+            editCedula.value=estudiante[0]['cedula'];
+            editTelefono.value=estudiante[0]['telefono'];
+            editCorreo.value=estudiante[0]['correo'];
+            editFechaNc.value=estudiante[0]['fechaNc'];
+            editDireccion.value=estudiante[0]['direccion'];
+            editContactoEmer.value=estudiante[0]['contactoEmer'];
+            editTelEmer.value=estudiante[0]['telEmer'];
+            editFoto.value=estudiante[0]['foto'];
+            document.querySelector('#editFoto').src= editFoto.value;
+            $('.tab').slideUp();
+            $('.edit-box').slideDown();
         }
         
     }
@@ -179,8 +204,15 @@ function buscarEstudiante(){
 
         document.getElementById(listaEstudiantes[i]['_id']).onclick= function() {
             toastr.success(this.id);
-            console.log('working');
+            $('.tab').slideUp();
+            $('.edit-box').slideDown();
         };
     }
 
 };
+
+function cancelar() {
+    toastr.warning('Editar cancelado');
+    $('.edit-box').slideUp();
+    $('.tab').slideDown();
+}
