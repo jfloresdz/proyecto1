@@ -285,24 +285,32 @@ function filtrarProfesores(cTipo,cValor){
 
 function registrarProyecto(proyecto){
     let respuesta = '';
+    let informacion = {
+        nombre:proyecto[0],
+        empresa:proyecto[1],
+        descripcion:proyecto[2],
+        equipo:[
+            {
+                id_user:proyecto[3],
+                rol :"1",
+                estado :"1"
+            },
+            {
+                id_user:proyecto[4],
+                rol :"1",
+                estado :"1"
+            }
+        ],
+        empresa_nombre:proyecto[5]
+    }
+
     let peticion = $.ajax({
         url : 'http://localhost:4000/api/registrarProyecto',
         type : 'post',
-        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        contentType : 'application/json; charset=utf-8',
         dataType : 'json',
         async : false,
-        data:{
-            nombre:proyecto[0],
-            empresa:proyecto[1],
-            descripcion:proyecto[2],
-            equipo:
-                {
-                    id_user:proyecto[3],
-                    rol :"1",
-                    estado :"1"
-                },
-            empresa_nombre:proyecto[5]
-        }
+        data:JSON.stringify(informacion)
       });
     
       peticion.done(function(response){

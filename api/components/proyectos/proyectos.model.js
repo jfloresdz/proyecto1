@@ -9,26 +9,31 @@ let ticket = new mongoose.Schema({
     estado:{type : String, require : true},
     descripcion : {type : String , require : true} 
 });
+module.exports = mongoose.model('Ticket', ticket);
+
 
 let miembro= new mongoose.Schema({
     id_user: {type : String , require : true},
     rol : {type : String , require : true},
     estado : {type : String , require : true}
 }); 
+module.exports = mongoose.model('Miembro', miembro);
 
 let bitacora = new mongoose.Schema({
     id_user: {type : String , require : true},
     fechaCreacion : {type : String, require : true},
     fechaFin : {type : String, require : true},
     descripcion : {type : String , require : true} 
-}); 
+});
+module.exports = mongoose.model('Bitacora', bitacora);
 
 let mensaje= new mongoose.Schema({
     id_user: {type : String , require : true},
     fechaCreacion : {type : String, require : true},
     fechaFin : {type : String, require : true},
     descripcion : {type : String , require : true} 
-}); 
+});
+module.exports = mongoose.model('Mensaje', mensaje);
 
 let proyectoShema = new mongoose.Schema({
 nombre : {type : String, require : true},
