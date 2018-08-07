@@ -90,11 +90,11 @@ module.exports.registrar = function(req, res){
                         </table>
                     </td>
                 </tr>
-                <tr>
+                <!--<tr>
                     <td colspan="3" align="center">
                         <img src="http://www.rickygipson.com/images/codepen/grey_div.jpg" width="95%">
                     </td>
-                </tr>
+                </tr>-->
                 <tr>
                     <td colspan="3" height="3">&nbsp;</td>
                 </tr>
@@ -107,8 +107,10 @@ module.exports.registrar = function(req, res){
                                     <div class="consoleImage">
                                     <img src="http://www.rickygipson.com/images/codepen//thumbnails.jpg" class="belowFeatureIMG">
                                     </div>
-                                    <h3 style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; color: #404040; margin: 0; padding: 0;">This is a story</h3>
-                                    <p style="font-family: Arial, Helvetica, sans-serif; color: #555555; font-size: 13px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse semper aliquet venenatis. Quisque eu nunc vitae elit eleifend accumsan.</p>
+                                    <h3 style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; color: #404040; margin: 0; padding: 0;">Cenfotec Software House</h3>
+                                    <p style="font-family: Arial, Helvetica, sans-serif; color: #555555; font-size: 13px;">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse semper aliquet venenatis. Quisque eu nunc vitae elit eleifend accumsan.
+                                    </p>
                                 </td>
                             </tr>
                         </table>
