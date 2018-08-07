@@ -292,17 +292,16 @@ function registrarProyecto(proyecto){
         dataType : 'json',
         async : false,
         data:{
-            nombre: proyecto[0],
-            cedula: cliente[1],
-            telefono: cliente[2],
-            correo: cliente[3],
-            contacto:{
-                nombre:cliente[4],
-                correo:cliente[5],
-                telefono:cliente[6]
-            },
-            foto: cliente[7],
-            contrasena: Math.random().toString(36).substring(7)
+            nombre:proyecto[0],
+            empresa:proyecto[1],
+            descripcion:proyecto[2],
+            equipo:
+                {
+                    id_user:proyecto[3],
+                    rol :"1",
+                    estado :"1"
+                },
+            empresa_nombre:proyecto[5]
         }
       });
     

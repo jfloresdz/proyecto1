@@ -3,13 +3,15 @@ const proyectosModel = require('./proyectos.model');
 
 module.exports.registrarProyecto = function (req , resp)
 {
+    let fechaHoy =new Date();
     let nuevoProyecto = new proyectosModel
     ({
         nombre:req.body.nombre,
         empresa:req.body.empresa,
-        fechaCreacion:req.body.fechaCreacion,
+        empresa_nombre:req.body.empresa_nombre,
+        fechaCreacion:fechaHoy.toLocaleString(),
         descripcion:req.body.descripcion,
-        equipo :req.body.equipo,
+        equipo: req.body.equipo,
         estado: "Activado"
     });
   
@@ -17,10 +19,10 @@ module.exports.registrarProyecto = function (req , resp)
    {
     if(error) {
     resp.json
-        ({ succes : false, msj : 'El proyecto no pudo ser registrado : ' + error})     
+        ({ success : false, msj : 'El proyecto no pudo ser registrado : ' + error})     
     }else{
     resp.json
-        ({ succes : true, msj : 'El proyecto se registro exitosamente : ' +error}) 
+        ({ success : true, msj : 'El proyecto se registro exitosamente'}) 
         }    
    });
 };

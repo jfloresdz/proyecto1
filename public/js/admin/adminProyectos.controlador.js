@@ -46,7 +46,8 @@ function registrarFormulario() {
         empresa.value,
         descripcion.value,
         tecnico.value,
-        lider.value
+        lider.value,
+        empresa.options[empresa.selectedIndex].text
     );
 
     let validar = validarFormulario();
@@ -102,7 +103,7 @@ function imprimirListaProyectos(){
         let editar= fila.insertCell();
 
         cnombre.innerHTML = listaProyectos[i]['nombre'];
-        cempresa.innerHTML = listaProyectos[i]['empresa'];
+        cempresa.innerHTML = listaProyectos[i]['empresa_nombre'];
         cfechaCreacion.innerHTML = listaProyectos[i]['fechaCreacion'];
         cfechaFin.innerHTML = listaProyectos[i]['fechaFin'];
         cestado.innerHTML = listaProyectos[i]['estado'];
