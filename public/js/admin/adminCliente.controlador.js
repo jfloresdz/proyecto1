@@ -13,6 +13,20 @@ const contactoEmail = document.querySelector('#contactoEmail');
 const foto = document.querySelector('#foto');
 const Registrar = document.querySelector('#registrar');
 
+
+const editNombre = document.querySelector('#editNombre');
+const editCedula = document.querySelector('#editCedula');
+const editTelefono = document.querySelector('#editTelefono');
+const editCorreo = document.querySelector('#editCorreo');
+const editContactoNombre = document.querySelector('#editContactoNombre');
+const editContactoTel = document.querySelector('#editContactoTel');
+const editContactoEmail = document.querySelector('#editContactoEmail');
+const editFoto = document.querySelector('#editFoto');
+const editId = document.querySelector('#editId');
+const btnEditar = document.querySelector('#btnEditar');
+const btnCancelar = document.querySelector('#Cancelar');
+
+
 const Buscar =document.querySelector('#buscar');
 const btnBuscar=document.querySelector('#btnBuscar');
 
@@ -20,6 +34,8 @@ const btnBuscar=document.querySelector('#btnBuscar');
 
 Registrar.addEventListener('click',registrarFormulario);
 btnBuscar.addEventListener('click',buscarCliente);
+btnEditar.addEventListener('click',editarFormulario);
+btnCancelar.addEventListener('click',cancelar);
 Salir.addEventListener('click',cerrarSesion);
 
 
@@ -63,6 +79,7 @@ function registrarFormulario() {
             toastr.error(respuesta.msj);
         }else{
             toastr.success(respuesta.msj);
+            imprimirListaClientes();
         }
     }
 
@@ -111,8 +128,19 @@ function imprimirListaClientes(){
         editar.innerHTML = '<button type="button" class="editButton" id="'+listaClientes[i]['_id']+'"><i class="fas fa-edit"></i></button>';
 
         document.getElementById(listaClientes[i]['_id']).onclick= function() {
-            toastr.success(this.id);
-            console.log('working');
+            let clientes = filtrarClientes("3",this.id);
+            editNombre.value=clientes[0]['nombre'];
+            editCedula.value=clientes[0]['cedula'];
+            editTelefono.value=clientes[0]['telefono'];
+            editCorreo.value=clientes[0]['correo'];
+            editContactoNombre.value=clientes[0]['contacto']['nombre'];
+            editContactoTel.value=clientes[0]['contacto']['telefono'];
+            editContactoEmail.value=clientes[0]['contacto']['correo'];
+            editFoto.value=clientes[0]['foto'];
+            editId.value=this.id;
+            document.querySelector('#editFotoShow').src= editFoto.value;
+            $('.tab').slideUp();
+            $('.edit-box').slideDown();
         }
         
     }
@@ -140,10 +168,82 @@ function buscarCliente(){
         editar.innerHTML = '<button type="button" class="editButton" id="'+listaClientes[i]['_id']+'"><i class="fas fa-edit"></i></button>';
 
         document.getElementById(listaClientes[i]['_id']).onclick= function() {
-            toastr.success(this.id);
-            console.log('working');
+            let clientes = filtrarClientes("3",this.id);
+            editNombre.value=clientes[0]['nombre'];
+            editCedula.value=clientes[0]['cedula'];
+            editTelefono.value=clientes[0]['telefono'];
+            editCorreo.value=clientes[0]['correo'];
+            editContactoNombre.value=clientes[0]['contacto']['nombre'];
+            editContactoTel.value=clientes[0]['contacto']['telefono'];
+            editContactoEmail.value=clientes[0]['contacto']['correo'];
+            editFoto.value=clientes[0]['foto'];
+            editId.value=this.id;
+            document.querySelector('#editFotoShow').src= editFoto.value;
+            $('.tab').slideUp();
+            $('.edit-box').slideDown();
         }
         
     }
 
 };
+
+
+function editarFormulario() {
+    let Cliente=[];
+    Cliente.push(
+        editNombre.value,
+        editCedula.value,
+        editTelefono.value,
+        editCorreo.value,
+        editContactoNombre.value,
+        editContactoEmail.value,
+        editContactoTel.value,
+        editFoto.value
+    );
+
+    let validar = validarEditar();
+
+    if(validar){
+        toastr.warning('Por favor llene los campos');
+    }else{
+        let respuesta=actualizarCliente(editId.value,Cliente);
+        if(respuesta.success == false){
+            toastr.error(respuesta.msj);
+            $('.edit-box').slideUp();
+            $('.tab').slideDown();
+        }else{
+            toastr.success(respuesta.msj);
+            imprimirListaClientes();
+            $('.edit-box').slideUp();
+            $('.tab').slideDown();
+        }
+    }
+
+}
+
+function validarEditar(){
+    let respuesta=false;
+    if(editNombre.value== null || editNombre.value==""){
+        respuesta=true;
+    }
+
+    if (editCedula.value == null || editCedula.value==""){
+        respuesta=true;
+    }
+
+    if (editTelefono.value == null || editTelefono.value==""){
+        respuesta=true;
+    }
+
+    if (editCorreo.value == null || editCorreo.value ==""){
+        respuesta=true;
+    }
+    return respuesta;
+}
+
+
+function cancelar() {
+    toastr.warning('Editar cancelado');
+    $('.edit-box').slideUp();
+    $('.tab').slideDown();
+}

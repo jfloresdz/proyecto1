@@ -7,6 +7,8 @@ let contactoCliente = mongoose.Schema({
     telefono:{type: String, required:true}
 });
 
+module.exports = mongoose.model('Contacto', contactoCliente);
+
 let clienteSchema = mongoose.Schema({
     nombre:{type: String, required:true},
     cedula: { type: Number, required: true },

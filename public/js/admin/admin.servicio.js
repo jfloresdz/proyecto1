@@ -132,25 +132,26 @@ function filtrarEstudiantes(cTipo,cValor){
 
 function registrarCliente(cliente){
     let respuesta = '';
+    let informacion = {
+        nombre: cliente[0],
+        cedula: cliente[1],
+        telefono: cliente[2],
+        correo: cliente[3],
+        contacto:{
+            nombre:cliente[4],
+            correo:cliente[5],
+            telefono:cliente[6]
+        },
+        foto: cliente[7],
+        contrasena: Math.random().toString(36).substring(7)
+    }
     let peticion = $.ajax({
         url : 'http://localhost:4000/api/registrarCliente',
         type : 'post',
-        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        contentType : 'application/json; charset=utf-8',
         dataType : 'json',
         async : false,
-        data:{
-            nombre: cliente[0],
-            cedula: cliente[1],
-            telefono: cliente[2],
-            correo: cliente[3],
-            contacto:{
-                nombre:cliente[4],
-                correo:cliente[5],
-                telefono:cliente[6]
-            },
-            foto: cliente[7],
-            contrasena: Math.random().toString(36).substring(7)
-        }
+        data:JSON.stringify(informacion)
       });
     
       peticion.done(function(response){
@@ -165,6 +166,45 @@ function registrarCliente(cliente){
       console.log(respuesta);
       return respuesta;
 }
+
+
+function actualizarCliente(id_user,cliente){
+    let respuesta = '';
+    let informacion = {
+        _id:id_user,
+        nombre: cliente[0],
+        cedula: cliente[1],
+        telefono: cliente[2],
+        correo: cliente[3],
+        contacto:{
+            nombre:cliente[4],
+            correo:cliente[5],
+            telefono:cliente[6]
+        },
+        foto: cliente[7]
+    }
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/actualizarCliente',
+        type : 'post',
+        contentType : 'application/json; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:JSON.stringify(informacion)
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+
+      peticion.fail(function(response){
+       
+      });
+
+      console.log(respuesta);
+      return respuesta;
+}
+
 
 function obtenerListaClientes(){
     let listaClientes = [];
