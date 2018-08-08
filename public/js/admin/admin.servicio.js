@@ -35,6 +35,41 @@ function registrarEstudiante(estudiante){
       return respuesta;
 }
 
+function actualizarEstudiante(id_user,estudiante){
+    let respuesta = '';
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/actualizarEstudiante',
+        type : 'post',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            _id:id_user,
+            nombre: estudiante[0],
+            cedula: estudiante[1],
+            telefono: estudiante[2],
+            correo: estudiante[3],
+            fechaNc: estudiante[4],
+            direccion: estudiante[5],
+            contactoEmer: estudiante[6],
+            telEmer: estudiante[7],
+            foto: estudiante[8]
+        }
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+       
+      });
+
+      console.log(respuesta);
+      return respuesta;
+}
+
+
 
 function obtenerListaEstudiantes(){
     let listaEstudiantes = [];

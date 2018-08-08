@@ -191,13 +191,13 @@ module.exports.filtrar = function(req, res){
 };
 
 module.exports.actualizar = function (req, res) {
-    userModel.findByIdAndUpdate(req.body._id, { $set: req.body },
+    infoModel.findByIdAndUpdate(req.body._id, { $set: req.body },
         function (err, user) {
             if (err) {
-                res.json({ success: false, msj: 'No se ha actualizado.' + handleError(err) });
+                res.json({ success: false, msj: 'No se ha actualizado: ' + handleError(err) });
 
             } else {
-                res.json({ success: true, msj: 'Se ha actualizado correctamente.' + res });
+                res.json({ success: true, msj: 'Se ha actualizado correctamente.' });
             }
         });
 };

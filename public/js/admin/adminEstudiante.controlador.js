@@ -24,6 +24,7 @@ const editDireccion = document.querySelector('#editDireccion');
 const editContactoEmer = document.querySelector('#editContactoEmer');
 const editTelEmer = document.querySelector('#editTelEmer');
 const editFoto = document.querySelector('#editFoto');
+const editId = document.querySelector('#editId');
 const btnEditar = document.querySelector('#btnEditar');
 const btnCancelar = document.querySelector('#Cancelar');
 
@@ -34,6 +35,7 @@ const btnBuscar=document.querySelector('#btnBuscar');
 
 Registrar.addEventListener('click',registrarFormulario);
 btnBuscar.addEventListener('click',buscarEstudiante);
+btnEditar.addEventListener('click',editarFormulario);
 btnCancelar.addEventListener('click',cancelar);
 Salir.addEventListener('click',cerrarSesion);
 
@@ -165,7 +167,8 @@ function imprimirListaEstudiantes(){
             editContactoEmer.value=estudiante[0]['contactoEmer'];
             editTelEmer.value=estudiante[0]['telEmer'];
             editFoto.value=estudiante[0]['foto'];
-            document.querySelector('#editFoto').src= editFoto.value;
+            editId.value=this.id;
+            document.querySelector('#editFotoShow').src= editFoto.value;
             $('.tab').slideUp();
             $('.edit-box').slideDown();
         }
@@ -203,13 +206,98 @@ function buscarEstudiante(){
         editar.innerHTML = '<button type="button" class="editButton" id="'+listaEstudiantes[i]['_id']+'"><i class="fas fa-edit"></i></button>';
 
         document.getElementById(listaEstudiantes[i]['_id']).onclick= function() {
-            toastr.success(this.id);
+            let estudiante=filtrarEstudiantes("3",this.id);
+            editNombre.value=estudiante[0]['nombre'];
+            editCedula.value=estudiante[0]['cedula'];
+            editTelefono.value=estudiante[0]['telefono'];
+            editCorreo.value=estudiante[0]['correo'];
+            editFechaNc.value=estudiante[0]['fechaNc'];
+            editDireccion.value=estudiante[0]['direccion'];
+            editContactoEmer.value=estudiante[0]['contactoEmer'];
+            editTelEmer.value=estudiante[0]['telEmer'];
+            editFoto.value=estudiante[0]['foto'];
+            editId.value=this.id;
+            document.querySelector('#editFotoShow').src= editFoto.value;
             $('.tab').slideUp();
             $('.edit-box').slideDown();
         };
     }
 
 };
+
+
+function editarFormulario() {
+    let estudiante=[];
+    estudiante.push(
+        editNombre.value,
+        editCedula.value,
+        editTelefono.value,
+        editCorreo.value,
+        editFechaNc.value,
+        editDireccion.value,
+        editContactoEmer.value,
+        editTelEmer.value,
+        editFoto.value
+    );
+
+    let validar = validarEditar();
+
+    if(validar){
+        toastr.warning('Por favor llene los campos');
+    }else{
+        let respuesta=actualizarEstudiante(editId.value,estudiante);
+        if(respuesta.success == false){
+            toastr.error(respuesta.msj);
+            $('.edit-box').slideUp();
+            $('.tab').slideDown();
+        }else{
+            toastr.success(respuesta.msj);
+            imprimirListaEstudiantes();
+            $('.edit-box').slideUp();
+            $('.tab').slideDown();
+        }
+    }
+
+}
+
+function validarEditar(){
+    let respuesta=false;
+
+    if(editNombre.value== null || editNombre.value==""){
+        respuesta=true;
+    }
+
+    if (editCedula.value == null || editCedula.value==""){
+        respuesta=true;
+    }
+
+    if (editTelefono.value == null || editTelefono.value==""){
+        respuesta=true;
+    }
+
+    if (editCorreo.value == null || editCorreo.value ==""){
+        respuesta=true;
+    }
+
+    if (editFechaNc.value == null || editFechaNc.value ==""){
+        respuesta=true;
+    }
+
+    if (editDireccion.value == null || editDireccion.value ==""){
+        respuesta=true;
+    }
+
+    if (editContactoEmer.value == null || editContactoEmer.value ==""){
+        respuesta=true;
+    }
+
+    if (editTelEmer.value == null || editTelEmer.value ==""){
+        respuesta=true;
+    }
+
+    return respuesta;
+}
+
 
 function cancelar() {
     toastr.warning('Editar cancelado');
