@@ -108,6 +108,31 @@
           </div>
       </div>
   </div>
+
+  <div class="edit-box">
+    <form class="cf">
+        <h1>Proyecto</h1>
+        <br>
+        <div class="half left cf">
+          <input type="text" id="editNombre" placeholder="Nombre">
+          <select id="editEmpresa">
+              <option value="" disabled selected>Empresa</option>
+          </select>
+        </div>
+        <div class="half right cf">
+            <select id="editTecnico">
+              <option value="" disabled selected>Lider Tecnico</option>
+            </select>
+            <select id="editLider">
+                  <option value="" disabled selected>Lider</option>
+            </select>
+        </div>
+        <textarea name="message" type="text" id="editDescripcion" placeholder="Descripcion"></textarea>
+        <input type="hidden" id="editId">
+        <button type="button" class="input-editar" id="btnEditar">Editar</button>
+        <button type="button" class="input-cancelar" id="Cancelar">Cancelar</button>
+    </form>
+  </div>
 </main>
 
 <footer>

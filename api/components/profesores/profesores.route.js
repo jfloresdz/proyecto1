@@ -19,4 +19,9 @@ router.route('/filtrarProfesores')
     profesores.filtrar(req, res);
 });
 
+router.route('/actualizarProfesor')
+    .post(function(req, res){
+    profesores.actualizar(req, res);
+});
+
 module.exports = router;

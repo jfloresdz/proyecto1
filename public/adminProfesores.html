@@ -90,7 +90,7 @@
                 </div>
 
                     <div class="table-users">
-                      <div class="tittle">Clientes</div>
+                      <div class="tittle">Profesores</div>
                     <table class="table" cellspacing="0" width="100%" id="table-users">
                       <thead>
                         <tr>
@@ -109,6 +109,34 @@
           </div>
       </div>
   </div>
+  <!--end of tabs-->
+  <div class="edit-box">
+    <form class="cf">
+      <figure class="snip1566">
+        <img id="editFotoShow" src="IMG/user.png" alt="sq-sample14" />
+        <figcaption><i class="fas fa-plus"></i></figcaption>
+        <a id="btnEditarImagen"></a>
+      </figure>
+      <br>
+      <div class="half left cf">
+        <input type="text" id="editNombre" placeholder="Nombre">
+        <input type="email" id="editCorreo" placeholder="Email">
+        <input type="text" id="editTelefono" placeholder="Telefono">
+        <input type="text" id="editCedula" placeholder="Cedula">
+      </div>
+      <div class="half right cf">
+        <input type="text" id="editProfesion" placeholder="Profesion">
+        <input type="text" id="editExperiencia" placeholder="Experiencia">
+        <input type="date" id="editFechaNacimiento">
+        <input type="hidden" id="editFoto">
+        <input type="hidden" id="editId">
+        <textarea name="message" type="text" id="editDireccion" placeholder="Dirreccion"></textarea>
+      </div>
+      <button type="button" class="input-editar" id="btnEditar">Editar</button>
+      <button type="button" class="input-cancelar" id="Cancelar">Cancelar</button>
+    </form>
+  </div>
+
 </main>
 
 <footer>

@@ -8,8 +8,16 @@ const empresa = document.querySelector('#empresa');
 const descripcion= document.querySelector('#descripcion');
 const tecnico= document.querySelector('#tecnico');
 const lider = document.querySelector('#lider');
-
 const Registrar = document.querySelector('#registrar');
+
+const editNombre = document.querySelector('#editNombre');
+const editEmpresa = document.querySelector('#editEmpresa');
+const editDescripcion= document.querySelector('#editDescripcion');
+const editTecnico= document.querySelector('#editTecnico');
+const editLider = document.querySelector('#editLider');
+const editId = document.querySelector('#editId');
+const btnEditar = document.querySelector('#btnEditar');
+const btnCancelar = document.querySelector('#Cancelar');
 
 const Buscar =document.querySelector('#buscar');
 const btnBuscar=document.querySelector('#btnBuscar');
@@ -18,6 +26,8 @@ const btnBuscar=document.querySelector('#btnBuscar');
 
 Registrar.addEventListener('click',registrarFormulario);
 btnBuscar.addEventListener('click',buscarProyecto);
+btnEditar.addEventListener('click',editarFormulario);
+btnCancelar.addEventListener('click',cancelar);
 Salir.addEventListener('click',cerrarSesion);
 
 
@@ -60,6 +70,7 @@ function registrarFormulario() {
             toastr.error(respuesta.msj);
         }else{
             toastr.success(respuesta.msj);
+            imprimirListaProyectos();
         }
     }
 
@@ -110,7 +121,15 @@ function imprimirListaProyectos(){
         editar.innerHTML = '<button type="button" class="editButton" id="'+listaProyectos[i]['_id']+'"><i class="fas fa-edit"></i></button>';
 
         document.getElementById(listaProyectos[i]['_id']).onclick= function() {
-            toastr.success(this.id);
+            let proyectos = filtrarProyectos("3",this.id);
+                editNombre.value=proyectos[0]['nombre'];
+                editEmpresa.value=proyectos[0]['empresa'];
+                editDescripcion.value=proyectos[0]['descripcion'];
+                editTecnico.value=proyectos[0]['equipo'][0]['id_user'];
+                editLider.value=proyectos[0]['equipo'][1]['id_user'];
+                editId.value=this.id;
+                $('.tab').slideUp();
+                $('.edit-box').slideDown();
         }
         
     }
@@ -140,7 +159,15 @@ function buscarProyecto(){
         editar.innerHTML = '<button type="button" class="editButton" id="'+listaProyectos[i]['_id']+'"><i class="fas fa-edit"></i></button>';
 
         document.getElementById(listaProyectos[i]['_id']).onclick= function() {
-            toastr.success(this.id);
+            let proyectos = filtrarProyectos("3",this.id);
+                editNombre.value=proyectos[0]['nombre'];
+                editEmpresa.value=proyectos[0]['empresa'];
+                editDescripcion.value=proyectos[0]['descripcion'];
+                editTecnico.value=proyectos[0]['equipo'][0]['id_user'];
+                editLider.value=proyectos[0]['equipo'][1]['id_user'];
+                editId.value=this.id;
+                $('.tab').slideUp();
+                $('.edit-box').slideDown();
         }
         
     }
@@ -175,4 +202,84 @@ function llenarSelects() {
         option.appendChild(document.createTextNode(empresas[i]['nombre']));
         empresa.appendChild(option);
     }
+
+    for (let i=0; i < profesores.length; i ++) {
+        option = document.createElement('option');
+        option.setAttribute('value', profesores[i]['_id']);
+        option.appendChild(document.createTextNode(profesores[i]['nombre']));
+        editLider.appendChild(option);
+    }
+
+    for (let i=0; i < profesores.length; i ++) {
+        option = document.createElement('option');
+        option.setAttribute('value', profesores[i]['_id']);
+        option.appendChild(document.createTextNode(profesores[i]['nombre']));
+        editTecnico.appendChild(option);
+    }
+
+    for (let i=0; i < empresas.length; i ++) {
+        option = document.createElement('option');
+        option.setAttribute('value', empresas[i]['_id']);
+        option.appendChild(document.createTextNode(empresas[i]['nombre']));
+        editEmpresa.appendChild(option);
+    }
+
+}
+
+
+function editarFormulario(){
+    let Proyecto=[];
+    Proyecto.push(
+        editNombre.value,
+        editEmpresa.value,
+        editDescripcion.value,
+        editTecnico.value,
+        editLider.value
+    );
+
+    let validar = validarEditar();
+
+    if(validar){
+        toastr.warning('Por favor llene los campos');
+    }else{
+        let respuesta=actualizarProyecto(editId.value,Proyecto);
+        if(respuesta.success == false){
+            toastr.error(respuesta.msj);
+            $('.edit-box').slideUp();
+            $('.tab').slideDown();
+        }else{
+            toastr.success(respuesta.msj);
+            imprimirListaProyectos();
+            $('.edit-box').slideUp();
+            $('.tab').slideDown();
+        }
+    }
+}
+
+function validarEditar(){
+    let respuesta=false;
+    if(editNombre.value== null || editNombre.value==""){
+        respuesta=true;
+    }
+
+    if (editLider.value == null || editLider.value==""){
+        respuesta=true;
+    }
+
+    if (editEmpresa.value == null || editEmpresa.value==""){
+        respuesta=true;
+    }
+
+    if (editTecnico.value == null || editTecnico.value ==""){
+        respuesta=true;
+    }
+
+    return respuesta;
+}
+
+
+function cancelar() {
+    toastr.warning('Editar cancelado');
+    $('.edit-box').slideUp();
+    $('.tab').slideDown();
 }

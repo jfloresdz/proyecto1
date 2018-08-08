@@ -19,4 +19,9 @@ router.route('/filtrarProyectos')
     proyectos.filtrar(req, res);
 });
 
+router.route('/actualizarProyecto')
+    .post(function(req, res){
+    proyectos.actualizar(req, res);
+});
+
 module.exports = router;

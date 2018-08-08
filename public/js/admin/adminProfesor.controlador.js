@@ -14,6 +14,19 @@ const foto = document.querySelector('#foto');
 const direccion= document.querySelector('#direccion');
 const Registrar = document.querySelector('#registrar');
 
+const editNombre = document.querySelector('#editNombre');
+const editCedula = document.querySelector('#editCedula');
+const editTelefono = document.querySelector('#editTelefono');
+const editCorreo = document.querySelector('#editCorreo');
+const editProfesion = document.querySelector('#editProfesion');
+const editExperiencia = document.querySelector('#editExperiencia');
+const editFechaNacimiento = document.querySelector('#editFechaNacimiento');
+const editFoto = document.querySelector('#editFoto');
+const editDireccion= document.querySelector('#editDireccion');
+const editId = document.querySelector('#editId');
+const btnEditar = document.querySelector('#btnEditar');
+const btnCancelar = document.querySelector('#Cancelar');
+
 const Buscar =document.querySelector('#buscar');
 const btnBuscar=document.querySelector('#btnBuscar');
 
@@ -21,6 +34,8 @@ const btnBuscar=document.querySelector('#btnBuscar');
 
 Registrar.addEventListener('click',registrarFormulario);
 btnBuscar.addEventListener('click',buscarProfesor);
+btnEditar.addEventListener('click',editarFormulario);
+btnCancelar.addEventListener('click',cancelar);
 Salir.addEventListener('click',cerrarSesion);
 
 
@@ -113,8 +128,20 @@ function imprimirListaProfesores(){
         editar.innerHTML = '<button type="button" class="editButton" id="'+listaProfesores[i]['_id']+'"><i class="fas fa-edit"></i></button>';
 
         document.getElementById(listaProfesores[i]['_id']).onclick= function() {
-            toastr.success(this.id);
-            console.log('working');
+            let Profesor = filtrarProfesores("3",this.id);
+            editNombre.value=Profesor[0]['nombre'];
+            editCedula.value=Profesor[0]['cedula'];
+            editTelefono.value=Profesor[0]['telefono'];
+            editCorreo.value=Profesor[0]['correo'];
+            editProfesion.value=Profesor[0]['profesion'];
+            editExperiencia.value=Profesor[0]['experiencia'];
+            editFechaNacimiento.value=Profesor[0]['fechaNacimiento'];
+            editFoto.value=Profesor[0]['foto'];
+            editDireccion.value=Profesor[0]['direccion'];
+            editId.value=this.id;
+            document.querySelector('#editFotoShow').src= editFoto.value;
+            $('.tab').slideUp();
+            $('.edit-box').slideDown();
         }
         
     }
@@ -142,10 +169,83 @@ function buscarProfesor(){
         editar.innerHTML = '<button type="button" class="editButton" id="'+listaProfesores[i]['_id']+'"><i class="fas fa-edit"></i></button>';
 
         document.getElementById(listaProfesores[i]['_id']).onclick= function() {
-            toastr.success(this.id);
-            console.log('working');
+            let Profesor = filtrarProfesores("3",this.id);
+            editNombre.value=Profesor[0]['nombre'];
+            editCedula.value=Profesor[0]['cedula'];
+            editTelefono.value=Profesor[0]['telefono'];
+            editCorreo.value=Profesor[0]['correo'];
+            editProfesion.value=Profesor[0]['profesion'];
+            editExperiencia.value=Profesor[0]['experiencia'];
+            editFechaNacimiento.value=Profesor[0]['fechaNacimiento'];
+            editFoto.value=Profesor[0]['foto'];
+            editDireccion.value=Profesor[0]['direccion'];
+            editId.value=this.id;
+            document.querySelector('#editFotoShow').src= editFoto.value;
+            $('.tab').slideUp();
+            $('.edit-box').slideDown();
         }
         
     }
 
 };
+
+
+function editarFormulario(){
+    let Profesor=[];
+    Profesor.push(
+        editNombre.value,
+        editCedula.value,
+        editTelefono.value,
+        editCorreo.value,
+        editProfesion.value,
+        editExperiencia.value,
+        editFechaNacimiento.value,
+        editFoto.value,
+        editDireccion.value
+    );
+
+    let validar = validarEditar();
+
+    if(validar){
+        toastr.warning('Por favor llene los campos');
+    }else{
+        let respuesta=actualizarProfesor(editId.value,Profesor);
+        if(respuesta.success == false){
+            toastr.error(respuesta.msj);
+            $('.edit-box').slideUp();
+            $('.tab').slideDown();
+        }else{
+            toastr.success(respuesta.msj);
+            imprimirListaProfesores();
+            $('.edit-box').slideUp();
+            $('.tab').slideDown();
+        }
+    }
+}
+
+function validarEditar(){
+    let respuesta=false;
+    if(editNombre.value== null || editNombre.value==""){
+        respuesta=true;
+    }
+
+    if (editCedula.value == null || editCedula.value==""){
+        respuesta=true;
+    }
+
+    if (editTelefono.value == null || editTelefono.value==""){
+        respuesta=true;
+    }
+
+    if (editCorreo.value == null || editCorreo.value ==""){
+        respuesta=true;
+    }
+    return respuesta;
+}
+
+
+function cancelar() {
+    toastr.warning('Editar cancelado');
+    $('.edit-box').slideUp();
+    $('.tab').slideDown();
+}

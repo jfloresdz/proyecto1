@@ -299,6 +299,41 @@ function registrarProfesor(profesor){
       return respuesta;
 }
 
+function actualizarProfesor(id_user,profesor){
+    let respuesta = '';
+    let informacion = {
+        _id:id_user,
+        nombre:profesor[0],
+        cedula:profesor[1],
+        telefono:profesor[2],
+        correo:profesor[3],
+        profesion:profesor[4],
+        experiencia:profesor[5],
+        fechaNacimiento:profesor[6],
+        foto:profesor[7],
+        direccion:profesor[8]
+    }
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/actualizarProfesor',
+        type : 'post',
+        contentType : 'application/json; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:JSON.stringify(informacion)
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+
+      peticion.fail(function(response){
+       
+      });
+
+      console.log(respuesta);
+      return respuesta;
+}
 
 function obtenerListaProfesores(){
     let listaProfesores = [];
@@ -457,4 +492,49 @@ function filtrarProyectos(cTipo,cValor){
       return respuesta;
     
     return listaProyectos;
+}
+
+
+function actualizarProyecto(id_proyect,proyecto){
+    let respuesta = '';
+    let informacion = {
+        _id:id_proyect,
+        nombre:proyecto[0],
+        empresa:proyecto[1],
+        descripcion:proyecto[2],
+        equipo:[
+            {
+                id_user:proyecto[3],
+                rol :"1",
+                estado :"1"
+            },
+            {
+                id_user:proyecto[4],
+                rol :"1",
+                estado :"1"
+            }
+        ],
+        empresa_nombre:proyecto[5]
+    }
+
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/actualizarProyecto',
+        type : 'post',
+        contentType : 'application/json; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:JSON.stringify(informacion)
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+
+      peticion.fail(function(response){
+       
+      });
+
+      console.log(respuesta);
+      return respuesta;
 }
