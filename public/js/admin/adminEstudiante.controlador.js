@@ -140,20 +140,12 @@ function imprimirListaEstudiantes(){
         let ccedula= fila.insertCell();
         let ctelefono= fila.insertCell();
         let ccorreo= fila.insertCell();
-        let cfechaNc= fila.insertCell();
-        let cdireccion= fila.insertCell();
-        let ccontactoEmer= fila.insertCell();
-        let ctelEmer= fila.insertCell();
         let editar = fila.insertCell();
         
         cnombre.innerHTML = listaEstudiantes[i]['nombre'];
         ccedula.innerHTML = listaEstudiantes[i]['cedula'];
         ctelefono.innerHTML = listaEstudiantes[i]['telefono'];
         ccorreo.innerHTML = listaEstudiantes[i]['correo'];
-        cfechaNc.innerHTML = listaEstudiantes[i]['fechaNc'];
-        cdireccion.innerHTML = listaEstudiantes[i]['direccion'];
-        ccontactoEmer.innerHTML = listaEstudiantes[i]['contactoEmer'];
-        ctelEmer.innerHTML = listaEstudiantes[i]['telEmer'];
         editar.innerHTML = '<button type="button" class="editButton" id="'+listaEstudiantes[i]['_id']+'"><i class="fas fa-edit"></i></button>';
 
         document.getElementById(listaEstudiantes[i]['_id']).onclick= function() {
@@ -189,20 +181,12 @@ function buscarEstudiante(){
         let ccedula= fila.insertCell();
         let ctelefono= fila.insertCell();
         let ccorreo= fila.insertCell();
-        let cfechaNc= fila.insertCell();
-        let cdireccion= fila.insertCell();
-        let ccontactoEmer= fila.insertCell();
-        let ctelEmer= fila.insertCell();
         let editar = fila.insertCell();
         
         cnombre.innerHTML = listaEstudiantes[i]['nombre'];
         ccedula.innerHTML = listaEstudiantes[i]['cedula'];
         ctelefono.innerHTML = listaEstudiantes[i]['telefono'];
         ccorreo.innerHTML = listaEstudiantes[i]['correo'];
-        cfechaNc.innerHTML = listaEstudiantes[i]['fechaNc'];
-        cdireccion.innerHTML = listaEstudiantes[i]['direccion'];
-        ccontactoEmer.innerHTML = listaEstudiantes[i]['contactoEmer'];
-        ctelEmer.innerHTML = listaEstudiantes[i]['telEmer'];
         editar.innerHTML = '<button type="button" class="editButton" id="'+listaEstudiantes[i]['_id']+'"><i class="fas fa-edit"></i></button>';
 
         document.getElementById(listaEstudiantes[i]['_id']).onclick= function() {

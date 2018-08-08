@@ -160,6 +160,10 @@ table tr:nth-child(2n+1) {
   cursor: pointer;
 }
 
+.flexsearch--submit:focus {
+  outline: none;
+}
+
 ::-webkit-input-placeholder {
   color: #666666;
 }

@@ -17,4 +17,9 @@ router.route('/filtrarClientes')
     clientes.filtrar(req, res);
 });
 
+router.route('/actualizarCliente')
+    .post(function(req, res){
+    clientes.actualizar(req, res);
+});
+
 module.exports = router;
