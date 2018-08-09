@@ -195,7 +195,6 @@ module.exports.actualizar = function (req, res) {
         function (err, user) {
             if (err) {
                 res.json({ success: false, msj: 'No se ha actualizado: ' + handleError(err) });
-
             } else {
                 res.json({ success: true, msj: 'Se ha actualizado correctamente.' });
             }

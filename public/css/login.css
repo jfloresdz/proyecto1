@@ -6,10 +6,7 @@
   }
 
   .wrap {
-      width: 40%;
-      height: auto;
-      margin: auto;
-      margin-top: 20%;
+      
   }
 
   .avatar {
@@ -98,4 +95,9 @@
   .return a{
     color: #ffffff;
     text-decoration: none;
+  }
+
+  
+.edit-box{
+    display: none;
   }

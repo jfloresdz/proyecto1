@@ -4,7 +4,13 @@ const BotonLogin = document.querySelector('#loginButton');
 const InputCorreo = document.querySelector('#correo');
 const InputContrasena = document.querySelector('#contrasena');
 const baseUrl = window.location.protocol+'//'+window.location.hostname+':'+window.location.port;
+const recuperar= document.querySelector('#recuperar');
+const btnCancelar = document.querySelector('#Cancelar');
+
+
 BotonLogin.addEventListener('click',login);
+recuperar.addEventListener('click',cambiar);
+btnCancelar.addEventListener('click',cancelar);
 redireccion();
 
 
@@ -59,6 +65,17 @@ function validar() {
     }
 
     return resultado;
+}
+
+function cambiar() {
+    $('.wrap').slideUp();
+    $('.edit-box').slideDown();
+}
+
+
+function cancelar() {
+    $('.edit-box').slideUp();
+    $('.wrap').slideDown();
 }
 
 function redireccion() {
