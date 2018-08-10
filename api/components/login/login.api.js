@@ -115,8 +115,7 @@ module.exports.comprobarCorreo = function(req, res){
                                 res.send({
                                     "_id":estudiantes[0]._id,
                                     "_result":true,
-                                    "tipo":"1",
-                        
+                                    "tipo":"1"
                                 })
                             }
                             else{

@@ -5,12 +5,16 @@ const InputCorreo = document.querySelector('#correo');
 const InputContrasena = document.querySelector('#contrasena');
 const baseUrl = window.location.protocol+'//'+window.location.hostname+':'+window.location.port;
 const recuperar= document.querySelector('#recuperar');
+const InputCorreoRecuperar= document.querySelector('#editCorreo');
 const btnCancelar = document.querySelector('#Cancelar');
-
+const btnEditar = document.querySelector('#btnEditar');
 
 BotonLogin.addEventListener('click',login);
 recuperar.addEventListener('click',cambiar);
 btnCancelar.addEventListener('click',cancelar);
+btnEditar.addEventListener('click',cambiarContrasena);
+
+
 redireccion();
 
 
@@ -70,6 +74,34 @@ function validar() {
 function cambiar() {
     $('.wrap').slideUp();
     $('.edit-box').slideDown();
+}
+
+function cambiarContrasena(){
+    let comprobacion=[];
+    let respuesta = comprobarCorreo(InputCorreoRecuperar.value);
+    if(respuesta['_result']){
+        switch(respuesta['tipo']){
+            case 0:
+                comprobacion=contrasenaAdmin(respuesta['_id'],InputCorreoRecuperar.value);
+            break;
+
+            case 1:
+                comprobacion=contrasenaEstudiante(respuesta['_id'],InputCorreoRecuperar.value);
+            break;
+
+            case 2:
+                comprobacion=contrasenaProfesor(respuesta['_id'],InputCorreoRecuperar.value);
+            break;
+
+            case 3:
+                comprobacion=contrasenaCliente(respuesta['_id'],InputCorreoRecuperar.value);
+            break;
+
+        }
+        toastr.success(comprobacion['msj']);
+    }else{
+        toastr.error('correo invalido');
+    }
 }
 
 
