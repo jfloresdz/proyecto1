@@ -1,23 +1,27 @@
-jQuery(document).ready(function($) {
+"use strict";
+
+mapa(9.933684,-84.061228);
+
+function mapa(latitude,longitude) {
   //set your google maps parameters
-  var $latitude = 9.933684,
-    $longitude = -84.061228,
+  let $latitude = latitude,
+    $longitude = longitude,
     $map_zoom = 14;
 
   //google map custom marker icon - .png fallback for IE11
-  var is_internetExplorer11 =
+  let is_internetExplorer11 =
     navigator.userAgent.toLowerCase().indexOf("trident") > -1;
-  var $marker_url = is_internetExplorer11
+  let $marker_url = is_internetExplorer11
     ? "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png"
     : "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg";
 
   //define the basic color of your map, plus a value for saturation and brightness
-  var $main_color = "#2d313f",
+  let $main_color = "#2d313f",
     $saturation = -20,
     $brightness = 5;
 
   //we define here the style of the map
-  var style = [
+  let style = [
     {
       //set saturation for the labels on the map
       elementType: "labels",
@@ -176,7 +180,7 @@ jQuery(document).ready(function($) {
   ];
 
   //set google map options
-  var map_options = {
+  let map_options = {
     center: new google.maps.LatLng($latitude, $longitude),
     zoom: $map_zoom,
     panControl: false,
@@ -187,13 +191,15 @@ jQuery(document).ready(function($) {
     scrollwheel: false,
     styles: style
   };
+
   //inizialize the map
-  var map = new google.maps.Map(
+  let map = new google.maps.Map(
     document.getElementById("google-container"),
     map_options
   );
+
   //add a custom marker to the map
-  var marker = new google.maps.Marker({
+  let marker = new google.maps.Marker({
     position: new google.maps.LatLng($latitude, $longitude),
     map: map,
     visible: true,
@@ -203,7 +209,7 @@ jQuery(document).ready(function($) {
   //add custom buttons for the zoom-in/zoom-out on the map
   function CustomZoomControl(controlDiv, map) {
     //grap the zoom elements from the DOM and insert them in the map
-    var controlUIzoomIn = document.getElementById("cd-zoom-in"),
+    let controlUIzoomIn = document.getElementById("cd-zoom-in"),
       controlUIzoomOut = document.getElementById("cd-zoom-out");
     controlDiv.appendChild(controlUIzoomIn);
     controlDiv.appendChild(controlUIzoomOut);
@@ -217,9 +223,9 @@ jQuery(document).ready(function($) {
     });
   }
 
-  var zoomControlDiv = document.createElement("div");
-  var zoomControl = new CustomZoomControl(zoomControlDiv, map);
+  let zoomControlDiv = document.createElement("div");
+  let zoomControl = new CustomZoomControl(zoomControlDiv, map);
 
   //insert the zoom div on the top left of the map
   map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControlDiv);
-});
+}
