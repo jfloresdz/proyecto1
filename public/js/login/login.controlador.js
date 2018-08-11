@@ -81,20 +81,24 @@ function cambiarContrasena(){
     let respuesta = comprobarCorreo(InputCorreoRecuperar.value);
     if(respuesta['_result']){
         switch(respuesta['tipo']){
-            case 0:
+            case "0":
                 comprobacion=contrasenaAdmin(respuesta['_id'],InputCorreoRecuperar.value);
+                cancelar();
             break;
 
-            case 1:
+            case "1":
                 comprobacion=contrasenaEstudiante(respuesta['_id'],InputCorreoRecuperar.value);
+                cancelar();
             break;
 
-            case 2:
+            case "2":
                 comprobacion=contrasenaProfesor(respuesta['_id'],InputCorreoRecuperar.value);
+                cancelar();
             break;
 
-            case 3:
+            case "3":
                 comprobacion=contrasenaCliente(respuesta['_id'],InputCorreoRecuperar.value);
+                cancelar();
             break;
 
         }
