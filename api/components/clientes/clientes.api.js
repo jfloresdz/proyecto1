@@ -22,6 +22,8 @@ module.exports.registrar = function(req,res){
         contrasena:req.body.contrasena,
         foto: req.body.foto,
         contacto:req.body.contacto,
+        latitud:req.body.latitud,
+        longitud:req.body.longitud,
         activado:"0"
     });
     nuevoCliente.save(function(error){

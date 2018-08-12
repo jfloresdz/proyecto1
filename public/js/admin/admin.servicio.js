@@ -143,6 +143,8 @@ function registrarCliente(cliente){
             telefono:cliente[6]
         },
         foto: cliente[7],
+        latitud:cliente[8],
+        longitud:cliente[9],
         contrasena: Math.random().toString(36).substring(7)
     }
     let peticion = $.ajax({

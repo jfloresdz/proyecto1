@@ -11,6 +11,8 @@ const contactoNombre = document.querySelector('#contactoNombre');
 const contactoTel = document.querySelector('#contactoTel');
 const contactoEmail = document.querySelector('#contactoEmail');
 const foto = document.querySelector('#foto');
+const latitude =document.querySelector('#latitude');
+const longitude =document.querySelector('#longitude');
 const Registrar = document.querySelector('#registrar');
 
 
@@ -66,7 +68,9 @@ function registrarFormulario() {
         contactoNombre.value,
         contactoEmail.value,
         contactoTel.value,
-        foto.value
+        foto.value,
+        latitude.value,
+        longitude.value
     );
 
     let validar = validarFormulario();
@@ -137,6 +141,7 @@ function imprimirListaClientes(){
             editContactoTel.value=clientes[0]['contacto']['telefono'];
             editContactoEmail.value=clientes[0]['contacto']['correo'];
             editFoto.value=clientes[0]['foto'];
+            mapa2(clientes[0]['latitud'],clientes[0]['longitud'])
             editId.value=this.id;
             document.querySelector('#editFotoShow').src= editFoto.value;
             $('.tab').slideUp();

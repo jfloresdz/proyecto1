@@ -68,7 +68,7 @@ function registrarFormulario() {
         direccion.value,
         contactoEmer.value,
         telEmer.value,
-        foto.value
+        foto.value,
     );
 
     let validar = validarFormulario();

@@ -17,6 +17,8 @@ let clienteSchema = mongoose.Schema({
     contrasena: { type: String, required: true },
     foto:{ type: String, required: false },
     contacto: contactoCliente,
+    latitud:{ type: String, required: true },
+    longitud:{ type: String, required: true },
     activado:{type : String, required : true}
 });
 
