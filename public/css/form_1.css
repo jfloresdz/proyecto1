@@ -12,7 +12,7 @@ h1 {
 }
 
 form {
-  max-width: 80%;
+  max-width: 90%;
   text-align: center;
   margin: 10px auto;
   background: #ffffff;
@@ -86,6 +86,11 @@ form .input-editar, form .input-cancelar{
 
 form textarea {
   min-height: 126px;
+}
+
+form p{
+  text-align: center;
+  color: #a8a8a8;
 }
 
 .half {

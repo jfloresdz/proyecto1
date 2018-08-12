@@ -1,0 +1,45 @@
+.divChart{
+  margin: 10px auto;
+  width: 90%;
+  background: #ffffff;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  border:6px solid #666666;
+  -moz-box-shadow: 0 5px 5px rgba(0, 0.1, 0, 0.1);
+  -webkit-box-shadow: 0 5px 5px rgba(0, 0.1, 0, 0.1);
+  box-shadow: 0 5px 5px rgba(0, 0.1, 0, 0.1);
+}
+
+.divChart p{
+  color: #666666;
+}
+
+
+.ulChart {
+    margin-bottom: 4em;
+  }
+  .chart {
+    display: inline-block;
+    width: 95px;
+    height: 95px;
+    margin: 0 10px;
+    color: #666666;
+    vertical-align: top;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-top: 22px;
+  }
+  .chart span {
+    display: block;
+    font-size: 2em;
+    font-weight: normal;
+  }
+  .chart canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  

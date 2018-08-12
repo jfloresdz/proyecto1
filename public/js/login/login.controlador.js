@@ -37,6 +37,8 @@ function login(){
                 sessionStorage.setItem("id",respuesta['_id']);
                 sessionStorage.setItem("nombre",respuesta['nombre']);
                 sessionStorage.setItem("tipo",respuesta['tipo']);
+                sessionStorage.setItem("foto",respuesta['foto']);
+                sessionStorage.setItem("activado",respuesta['estado']);
                 toastr.success('Bienvenid@ '+respuesta['nombre']);
  
                 switch(respuesta['tipo']){
