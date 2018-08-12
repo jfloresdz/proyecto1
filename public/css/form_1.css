@@ -39,6 +39,7 @@ form input:not([type="checkbox"]), form textarea, form select, .input-submit {
   -webkit-box-shadow: 0 3px 3px rgba(0, 0.1, 0, 0.1);
   box-shadow: 0 3px 3px rgba(0, 0.1, 0, 0.1);
   resize: none;
+  z-index: 100;
 }
 
 form input:not([type="checkbox"]):focus, form textarea:focus, form select:focus, .input-submit{
