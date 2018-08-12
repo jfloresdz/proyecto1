@@ -6,10 +6,13 @@
     <title>Administrador</title>
 
     <!-- / CSS -->
-    	<link rel="stylesheet" href="CSS/Home.css" type="text/css" >
-      <link rel="stylesheet" href="CSS/form_1.css">
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-  </head>
+    <link rel="stylesheet" href="CSS/Home.css" type="text/css" >
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="CSS/form_1.css">
+    <link rel="stylesheet" type="text/css" href="CSS/Table.css">
+    <link rel="stylesheet" href="CSS/chart.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+</head>
 
   <body>
     <div class="header">
@@ -32,46 +35,87 @@
   </ul>
 </div>
 
+<main>
 <!-- Content -->
-<div class="main">
+    <div class="main">
 
-  <form class="cf">
-    <h1>Form</h1>
-    <div class="half left cf">
-      <input type="text" id="input-name" placeholder="Name">
-      <input type="email" id="input-email" placeholder="Email address">
-      <input type="text" id="input-subject" placeholder="Subject">
-      <input type="text" id="input-test" placeholder="test">
+    
+        <div class="grid">
+
+            <!-- Row One -->
+            <div class="col-one-half">
+                <form class="cf">
+                    <figure class="snip1566">
+                      <img id="currentFoto" src="IMG/user.png" alt="sq-sample14" />
+                      
+                    </figure>
+                  <h1 id="userName"></h1>
+                 <p>Bienvenido de vuelta Administrador</p>
+                </form>
+            </div>
+        
+            <div class="col-one-half">
+              <div class="divChart">
+              <h1>Registrados</h1>
+                <ul class="ulChart">
+                    <li class="chart" id="Profesores"></li>
+                    <li class="chart" id="Estudiantes"></li>
+                    <li class="chart" id="Clientes"></li>
+                    <li class="chart" id="Proyectos"></li>
+                </ul>
+              </div> 
+            </div>
+        
+            <!-- Row Two -->
+            <div class="col-one-half">
+                <div class="table-users">
+                    <div class="tittle">Ultimos Proyectos</div>
+                  <table class="table" cellspacing="0" width="100%" id="table-users">
+                      <thead>
+                          <tr>
+                            <th>Nombre</th>
+                            <th>Empresa</th>
+                            <th>Fecha Creacion</th>
+                            <th>Estado</th>
+                          </tr>
+                        </thead>
+                  <tbody>
+                    <tr>
+                      <td>Nombre</td>
+                      <td>Cliente</td>
+                      <td>Lider</td>
+                      <td>Lider Tecnico</td>
+                      <td>Abrir</td>
+                    </tr>
+                  </tbody>
+                  </table>
+                </div>
+            </div>
+        
+            <div class="col-one-half">
+              <form class="cf">
+                <br>
+                <img src="IMG/logo_login.png" >
+                <h1>Cenfotec Software House</h1>
+                <p>
+                Digite mensaje a compartir con los usuarios del sistema
+                </p>
+                <textarea name="message" type="text" id="descripcion" placeholder="Mensaje"></textarea>
+                <button type="button" class="input-submit" id="registrar">Registrar</button>
+              </form>
+            </div>
+        
+          </div><!-- /.grid -->
+
     </div>
-    <div class="half right cf">
-      <select id="input-valor">
-        <option value="" disabled selected>Select your option</option>
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
-      </select>
-      <textarea name="message" type="text" id="input-message" placeholder="Message"></textarea>
-
-      <input id='one' type='checkbox' />
-      <label for='one'>
-        <span></span>
-        Activado
-      </label>
-
-    </div>
-    <input type="submit" value="Submit" id="input-submit">
-  </form>
-
-</div>
-
+</main>
 
 
 <!-- / JS-scripts -->
-  <script src="js/jquery-3.1.1.min.js"></script>
-  <script type="text/javascript" src="js/Home.js"></script>
-  <script src="js/admin/admin.servicio.js"></script>
-  <script src="js/admin/admin.controlador.js"></script>
+<script src="JS/jquery-3.1.1.min.js"></script>
+<script src="JS/Home.js"></script>
+<script src="js/admin/admin.servicio.js"></script>
+<script src="js/admin/admin.controlador.js"></script>
   
 
   </body>
