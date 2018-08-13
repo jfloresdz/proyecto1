@@ -262,6 +262,23 @@ img.small{
   animation-name: swing;
 }
 
-.edit-box{
+.edit-box, #view2{
   display: none;
+}
+
+.divChart{
+  margin: 10px auto;
+  width: 90%;
+  background: #ffffff;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  border:6px solid #666666;
+  -moz-box-shadow: 0 5px 5px rgba(0, 0.1, 0, 0.1);
+  -webkit-box-shadow: 0 5px 5px rgba(0, 0.1, 0, 0.1);
+  box-shadow: 0 5px 5px rgba(0, 0.1, 0, 0.1);
+}
+
+.divChart p{
+  color: #666666;
 }

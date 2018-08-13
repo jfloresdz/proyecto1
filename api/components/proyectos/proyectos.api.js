@@ -183,6 +183,17 @@ module.exports.filtrar = function(req, res){
                     res.send(proyectos);
                 });
         break;
+
+        case "5":
+        proyectosModel.find(
+            {
+                "equipo.id_user":req.body.valor
+
+            }).then(
+                function(proyectos){
+                    res.send(proyectos);
+                });
+        break;
     }
 };
 

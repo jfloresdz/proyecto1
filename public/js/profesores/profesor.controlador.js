@@ -38,8 +38,6 @@ function buscarProfesor(){
             document.querySelector('#telefono').textContent="Telefono: "+estudiante[0]['telefono'];
             document.querySelector('#correo').textContent="Correo: "+estudiante[0]['correo'];
             document.querySelector('#cedula').textContent="Cedula: "+estudiante[0]['cedula'];
-            document.querySelector('#contactoEmer').textContent="Contacto Emergencia: "+estudiante[0]['contactoEmer'];
-            document.querySelector('#telEmer').textContent="Telefono Emergencia: "+estudiante[0]['telEmer'];
-            document.querySelector('#fechaNc').textContent="Fecha Nacimiento: "+estudiante[0]['fechaNc'];
+            document.querySelector('#fechaNc').textContent="Fecha Nacimiento: "+estudiante[0]['fechaNacimiento'];
 
 };

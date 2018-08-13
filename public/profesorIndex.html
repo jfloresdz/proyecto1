@@ -30,7 +30,7 @@
         <ul>
           <li><a><i class="fas fa-home"></i><span>Inicio</span></a></li>
           <li><a href=""><i class="fas fa-user-cog"></i><span>Perfil</span></a></li>
-          <li><a href=""><i class="fas fa-project-diagram"></i><span>Proyectos</span></a></li>
+          <li><a href="profesorProyectos.html"><i class="fas fa-project-diagram"></i><span>Proyectos</span></a></li>
           <li><a id="salir" class="exit"><i class="fas fa-sign-out-alt"></i><span>Log out</span></a></li>
         </ul>
       </div>
@@ -54,12 +54,10 @@
                 <div class="half left cf">
                     <p id="correo">Correo: </p>
                     <p id="telefono">Telefono:</p>
-                    <p id="cedula">Cedula:</p>
                 </div>
                 <div class="half right cf">
-                      <p id="contactoEmer">Contacto Emergencia: Test</p>
-                      <p id="telEmer">Telefono Emergencia: test</p>
-                      <p id="fechaNc"></p>
+                    <p id="cedula">Cedula:</p>
+                    <p id="fechaNc"></p>
                 </div>
               </form>
           </div>
@@ -123,6 +121,11 @@
       <script src="JS/jquery-3.1.1.min.js"></script>
       <script src="JS/Home.js"></script>
       <script src="JS/chart.js"></script>
+
+       <!-- Inicio: Scripts de toastr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!-- Fin: Scripts de toastr -->
+
       <script src="JS/profesores/profesor.servicio.js"></script>
       <script src="JS/profesores/profesor.controlador.js"></script>
     </footer>
