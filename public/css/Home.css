@@ -262,7 +262,7 @@ img.small{
   animation-name: swing;
 }
 
-.edit-box, #view2{
+.edit-box, #view2, #view3{
   display: none;
 }
 

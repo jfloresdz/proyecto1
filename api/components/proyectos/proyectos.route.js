@@ -24,4 +24,9 @@ router.route('/actualizarProyecto')
     proyectos.actualizar(req, res);
 });
 
+router.route('/crearMensaje')
+    .post(function(req, res){
+    proyectos.crearMensaje(req, res);
+});
+
 module.exports = router;

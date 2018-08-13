@@ -122,3 +122,33 @@ function filtrarProyectos(cTipo,cValor){
     
     return listaProyectos;
   }
+
+  function crearMensaje(id_proyect,proyecto){
+    let respuesta = '';
+    let informacion = {
+        _id:id_proyect,
+        id_user:proyecto[0],
+        mensaje:proyecto[1]
+    }
+
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/crearMensaje',
+        type : 'post',
+        contentType : 'application/json; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:JSON.stringify(informacion)
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+
+      peticion.fail(function(response){
+       
+      });
+
+      console.log(respuesta);
+      return respuesta;
+}

@@ -208,3 +208,15 @@ module.exports.actualizar = function (req, res) {
             }
         });
 };
+
+module.exports.crearMensaje=function(req,res){
+    proyectosModel.findByIdAndUpdate(req.body._id, { $push:{chat:{id_user:req.body.id_user, mensaje:req.body.mensaje}}},
+        function (err, user) {
+            if (err) {
+                res.json({ success: false, msj: 'No se ha actualizado: ' + handleError(err) });
+
+            } else {
+                res.json({ success: true, msj: 'Se ha actualizado correctamente.' });
+            }
+        });
+}
