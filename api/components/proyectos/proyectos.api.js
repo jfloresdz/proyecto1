@@ -236,3 +236,19 @@ module.exports.anadirEstudiante=function(req,res){
             }
         });
 }
+
+module.exports.anadirBitacora=function(req,res){
+    proyectosModel.findByIdAndUpdate(req.body._id, { $push:{bitacoras:{
+        id_user:req.body.id_user,
+        horas:req.body.horas,
+        descripcion:req.body.descripcion
+        }}},
+        function (err, user) {
+            if (err) {
+                res.json({ success: false, msj: 'No se ha actualizado: ' + handleError(err) });
+
+            } else {
+                res.json({ success: true, msj: 'Se ha actualizado correctamente.' });
+            }
+        });
+}

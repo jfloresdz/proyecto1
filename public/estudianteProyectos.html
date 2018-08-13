@@ -169,23 +169,35 @@
                             <h1>Bitacora</h1>
                             <br>
                             <div class="half left cf">
-                              <h2>Inicio:</h2>
-                              <input type="date" id="fecha1">
+                              <h2>Horas:</h2>
+                              <input type="text" id="horas" placeholder="Horas">
                             </div>
                             <div class="half right cf">
-                                <h2>Fin:</h2>
-                                <input type="date" id="fecha2">      
+                                    <h2>Descripcion:</h2>
+                                    <textarea name="message" type="text" id="bitacora" placeholder="Descripcion"></textarea>  
                             </div>
-                            <textarea name="message" type="text" id="bitacora" placeholder="Descripcion"></textarea>
-                            <button type="button" class="input-editar" id="btnRegistrar">Guardar</button>
+                            <button type="button" class="input-editar" id="btnGuardar">Guardar</button>
                             <button type="button" class="input-cancelar" id="Volver2">Volver</button>
                           </form>
           </div>
 
 
           <div id="view5">
-              <button type="button" class="input-volver" id="Volver3">Volver</button>
-             
+                <button type="button" class="input-volver" id="Volver3">Volver</button>
+                <div class="table-users">
+                        <div class="tittle">Bitacora</div>
+                      <table class="table" cellspacing="0" width="100%" id="table-bitacora">
+                        <thead>
+                          <tr>
+                            <th>Horas</th>
+                            <th>Descripcion</th>
+                          </tr>
+                        </thead>
+                      <tbody>
+                        
+                      </tbody>
+                      </table>
+                    </div>
             </div>
 
       </div>

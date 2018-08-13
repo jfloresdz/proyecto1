@@ -34,4 +34,10 @@ router.route('/anadirEstudiante')
     proyectos.anadirEstudiante(req, res);
 });
 
+
+router.route('/anadirBitacora')
+    .post(function(req, res){
+    proyectos.anadirBitacora(req, res);
+});
+
 module.exports = router;

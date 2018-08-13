@@ -240,15 +240,17 @@ function filtrarEstudiantes(cTipo,cValor){
     return listaEstudiantes;
   }
 
-  function anadirMiembro(id_proyect,user_id){
+  function anadirBitacora(id_proyect,proyecto){
     let respuesta = '';
     let informacion = {
         _id:id_proyect,
-        id_user:user_id
+        id_user:proyecto[0],
+        horas:proyecto[1],
+        descripcion:proyecto[2]    
     }
 
     let peticion = $.ajax({
-        url : 'http://localhost:4000/api/anadirEstudiante',
+        url : 'http://localhost:4000/api/anadirBitacora',
         type : 'post',
         contentType : 'application/json; charset=utf-8',
         dataType : 'json',

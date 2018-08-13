@@ -10,6 +10,7 @@ const Estudiantes=document.querySelector('#Estudiantes');
 const descripcion=document.querySelector('#descripcion');
 const btnCliente=document.querySelector('#btnCliente');
 const btnRegistrar=document.querySelector('#btnRegistrar');
+const btnGuardar=document.querySelector('#btnGuardar');
 
 const btnVolver=document.querySelector('#Volver');
 const btnVolver2=document.querySelector('#Volver2');
@@ -21,12 +22,13 @@ const submitMensaje=document.querySelector('#submitMensaje');
 const Buscar =document.querySelector('#buscar');
 const btnVer=document.querySelector('#verEstudiantes');
 
+btnGuardar.addEventListener('click',guardar);
 btnVolver.addEventListener('click',volver);
 btnVolver2.addEventListener('click',volver2);
 btnVolver3.addEventListener('click',volver3);
 btnCliente.addEventListener('click',mostrarCliente);
 btnRegistrar.addEventListener('click',registrar);
-//btnVer.addEventListener('click',obtenerEstudiantesProyecto);
+btnVer.addEventListener('click',obtenerBitacoras);
 submitMensaje.addEventListener('click',enviarMensaje);
 Cancelar.addEventListener('click',cancelar);
 Salir.addEventListener('click',cerrarSesion);
@@ -127,6 +129,25 @@ function obtenerProyectoSeleccionado(id_proyecto){
     $('#view2').slideDown();
 }
 
+function obtenerBitacoras(){
+    let bitacora= filtrarProyectos("5",sessionStorage.getItem('id'));
+
+    let tbody2= document.querySelector('#table-bitacora tbody');
+    tbody2.innerHTML="";
+
+    for(let j=0; j <bitacora[0]['bitacoras'].length;j++){
+        if(bitacora[0]['bitacoras'][j]['id_user']==sessionStorage.getItem('id')){
+        let fila2=tbody2.insertRow();
+        let Horas= fila2.insertCell();
+        let Descripcion= fila2.insertCell();
+
+        Horas.innerHTML=bitacora[0]['bitacoras'][j]['horas'];
+        Descripcion.innerHTML=bitacora[0]['bitacoras'][j]['descripcion'];
+        }
+    }
+    $('#view2').slideUp();
+    $('#view5').slideDown();
+}
 
 function enviarMensaje(){
     let mensajeContenido=[];
@@ -172,6 +193,22 @@ function mostrarCliente() {
             $('#view3').slideDown();
 }
 
+
+function guardar() {
+    let bitacora=[];
+    bitacora.push(
+        sessionStorage.getItem('id'),
+        document.querySelector('#horas').value,
+        document.querySelector('#bitacora').value
+    );
+    let respuesta=anadirBitacora(document.querySelector('#idProyecto').value,bitacora);
+    if(respuesta.success){
+        toastr.success(respuesta.msj);
+    }else{
+        toastr.error(respuesta.msj);
+    }
+
+}
 
 function volver(){
     $('#view3').slideUp();

@@ -20,8 +20,7 @@ module.exports = mongoose.model('Miembro', miembro);
 
 let bitacora = new mongoose.Schema({
     id_user: {type : String , require : true},
-    fechaCreacion : {type : String, require : true},
-    fechaFin : {type : String, require : true},
+    horas: {type : String, require : true},
     descripcion : {type : String , require : true} 
 });
 module.exports = mongoose.model('Bitacora', bitacora);
