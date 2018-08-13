@@ -176,7 +176,7 @@ module.exports.filtrar = function(req, res){
         case "4":
         proyectosModel.find(
             {
-                "email": req.body.valor
+                "empresa": req.body.valor
             }
             ).then(
                 function(proyectos){
@@ -249,6 +249,22 @@ module.exports.anadirBitacora=function(req,res){
 
             } else {
                 res.json({ success: true, msj: 'Se ha actualizado correctamente.' });
+            }
+        });
+}
+
+module.exports.anadirTicket=function(req,res){
+    proyectosModel.findByIdAndUpdate(req.body._id, { $push:{tickets:{
+            titulo:req.body.titulo,
+            estado:"0",
+            descripcion:req.body.descripcion
+        }}},
+        function (err, user) {
+            if (err) {
+                res.json({ success: false, msj: 'No se ha actualizado: ' + handleError(err) });
+
+            } else {
+                res.json({ success: true, msj: 'Se ha creado correctamente.' });
             }
         });
 }

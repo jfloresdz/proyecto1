@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cliente</title>
+
+    <!-- / CSS -->
+    <link rel="stylesheet" href="CSS/Home.css" type="text/css" >
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="CSS/form_1.css">
+    <link rel="stylesheet" type="text/css" href="CSS/Table.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/map.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+</head>
+
+  <body>
+
+    <header>
+      <div class="header">
+        <a  id="menu-action">
+        <i class="fa fa-bars"></i>
+        <span>Cerrar</span>
+        </a>
+        <div class="logo">
+          <img src="IMG/logo.png" class="small"/>
+        </div>
+      </div>
+      <div class="sidebar">
+        <ul>
+          <li><a href="clienteIndex.html"><i class="fas fa-home"></i><span>Inicio</span></a></li>
+          <li><a><i class="fas fa-user-cog"></i><span>Perfil</span></a></li>
+          <li><a><i class="fas fa-project-diagram"></i><span>Proyectos</span></a></li>
+          <li><a id="salir" class="exit"><i class="fas fa-sign-out-alt"></i><span>Log out</span></a></li>
+        </ul>
+      </div>
+    </header>
+
+
+      <!-- Content -->
+    <main>
+      <div class="main">
+
+
+            <div class="table-users" id="view1">
+                    <div class="tittle">Proyectos</div>
+                  <table class="table" cellspacing="0" width="100%" id="table-proyectos">
+                    <thead>
+                      <tr>
+                        <th>Nombre</th>
+                        <th>Cliente</th>
+                        <th>Estado</th>
+                        <th>Abrir</th>
+                      </tr>
+                    </thead>
+                  <tbody>
+                    
+                  </tbody>
+                  </table>
+                </div>
+
+
+        <div class="grid" id="view2">
+
+          <!-- Row One -->
+          <div class="col-one-half">
+                <form class="cf">
+                        <h1 id="nombreProyecto">Proyecto</h1>
+                        <div class="half left cf">
+                         <p id="empresaProyecto"></p>
+                         <p id="Lider"></p>
+                         <p id="LiderTecnico"></p>
+                         <input type="hidden" id="idProyecto">
+                         <input type="hidden" id="idCliente">
+                         <h2>Descripcion:</h2>
+                        </div>
+                        <textarea name="message" id="descripcion" placeholder="Descripcion" disabled></textarea>
+                        <!--<button type="button" class="input-editar" id="btnCliente">Cliente</button>-->
+                        <button type="button" class="input-submit" id="Cancelar">Volver</button>
+                      </form>
+          </div>
+      
+          <div class="col-one-half">
+                <div class="chat">
+                        <div class="chat-title">
+                          <h1>Chat</h1>
+                        </div>
+                        <div class="messages">
+                          <div class="messages-content" id="chat">
+                
+                                <div class="message new"><figure class="avatar"><img src="img/user.png" /></figure>example</div>
+                                <div class="message message-personal">test</div>
+                                <div class="message loading new"><figure class="avatar"><img src="img/user.png" /></figure><span></span></div>
+                          </div>
+                        </div>
+                        <div class="message-box">
+                          <textarea type="text" class="message-input" placeholder="Escriba aqui..." id="mensajeTexto"></textarea>
+                          <button type="submit" class="message-submit" id="submitMensaje">&#10140;</button>
+                        </div>
+                      
+                      </div>
+                      <div class="bg"></div>
+          </div>
+      
+          <!-- Row Two -->
+          <div class="col-one-half">
+                <div class="table-users">
+                        <div class="tittle">Estudiantes</div>
+                      <table class="table" cellspacing="0" width="100%" id="table-estudiantes">
+                        <thead>
+                          <tr>
+                            <th>Foto</th>
+                            <th>Nombre</th>
+                            <th>Cedula</th>
+                            <th>Correo</th>
+                          </tr>
+                        </thead>
+                      <tbody>
+                     
+                      </tbody>
+                      </table>
+                    </div>
+          </div>
+      
+          <div class="col-one-half">
+              <div class="divChart">
+                <h1>Tickets</h1>
+                <button type="button" class="input-seleccionar" id="btnRegistrar">Añadir</button>
+                <button type="button" class="input-ver" id="verEstudiantes">Ver</button>
+              </div>
+          </div>
+        
+        </div><!-- /.grid -->
+
+        <div id="view3">
+          <form class="cf">
+            <figure class="snip1566">
+              <img id="currentFoto" src="IMG/user.png" alt="sq-sample14" />
+            </figure>
+            <br>
+            <div class="half left cf">
+              <h2>Cliente</h2>
+              <input type="text" id="nombre" placeholder="Nombre" disabled>
+              <input type="email" id="correo" placeholder="Email" disabled>
+              <input type="text" id="telefono" placeholder="Telefono" disabled>
+              <input type="text" id="cedula" placeholder="Cedula" disabled>
+            </div>
+            <div class="half right cf">
+              <h2>Contacto</h2>
+              <input type="text" id="contactoNombre" placeholder="Nombre Contacto" disabled>
+              <input type="text" id="contactoTel" placeholder="Telefono Contacto" disabled>
+              <input type="text" id="contactoEmail" placeholder="Email Contacto" disabled>
+            </div>
+            <section id="cd-google-map">
+                <div id="google-container"></div>
+                <div id="cd-zoom-in"></div>
+                <div id="cd-zoom-out"></div>
+              </section>
+            <button type="button" class="input-submit" id="Volver">Volver</button>
+          </form>
+        </div>
+
+        <div id="view4">
+
+                      <form class="cf">
+                            <h1>Tickets</h1>
+                            <br>
+                            <div class="half left cf">
+                              <h2>Horas:</h2>
+                              <input type="text" id="titulo" placeholder="Titulo">
+                            </div>
+                            <div class="half right cf">
+                                <h2>Descripcion:</h2>
+                                <textarea name="message" type="text" id="bitacora" placeholder="Descripcion"></textarea>  
+                            </div>
+                            <button type="button" class="input-editar" id="btnGuardar">Guardar</button>
+                            <button type="button" class="input-cancelar" id="Volver2">Volver</button>
+                          </form>
+          </div>
+
+
+          <div id="view5">
+                <button type="button" class="input-volver" id="Volver3">Volver</button>
+                <div class="table-users">
+                        <div class="tittle">Tickets</div>
+                      <table class="table" cellspacing="0" width="100%" id="table-bitacora">
+                        <thead>
+                          <tr>
+                            <th>Titulo</th>
+                            <th>Estado</th>
+                            <th>Descripcion</th>
+                          </tr>
+                        </thead>
+                      <tbody>
+                        
+                      </tbody>
+                      </table>
+                    </div>
+            </div>
+
+      </div>
+    </main>
+
+    <footer>
+      <!-- / JS-scripts -->
+      <script src="JS/jquery-3.1.1.min.js"></script>
+      <script src="JS/Home.js"></script>
+      <script src="JS/chart.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBm453fVYnWQvAG2GG1VyB_VA9dnMfIK3E" type="text/javascript"></script>
+      <script src="js/map.js"></script>
+
+       <!-- Inicio: Scripts de toastr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!-- Fin: Scripts de toastr -->
+
+      <script src="JS/clientes/clientes.servicio.js"></script>
+      <script src="JS/clientes/clientesProyectos.controlador.js"></script>
+    </footer>
+
+
+  </body>
+</html>

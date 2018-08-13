@@ -4,7 +4,7 @@ let mongoose = require('mongoose');
 
 let ticket = new mongoose.Schema({
     titulo : {type : String, require : true},
-    estudiante:{type : String, require : true},
+    estudiante:{type : String},
     estado:{type : String, require : true},
     descripcion : {type : String , require : true} 
 });

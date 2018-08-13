@@ -40,4 +40,9 @@ router.route('/anadirBitacora')
     proyectos.anadirBitacora(req, res);
 });
 
+router.route('/anadirTicket')
+    .post(function(req, res){
+    proyectos.anadirTicket(req, res);
+});
+
 module.exports = router;
