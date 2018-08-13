@@ -220,3 +220,19 @@ module.exports.crearMensaje=function(req,res){
             }
         });
 }
+
+module.exports.anadirEstudiante=function(req,res){
+    proyectosModel.findByIdAndUpdate(req.body._id, { $push:{equipo:{
+        id_user:req.body.id_user,
+        rol:"3",
+        estado:"0"
+        }}},
+        function (err, user) {
+            if (err) {
+                res.json({ success: false, msj: 'No se ha actualizado: ' + handleError(err) });
+
+            } else {
+                res.json({ success: true, msj: 'Se ha actualizado correctamente.' });
+            }
+        });
+}

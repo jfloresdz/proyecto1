@@ -239,3 +239,32 @@ function filtrarEstudiantes(cTipo,cValor){
     
     return listaEstudiantes;
   }
+
+  function anadirMiembro(id_proyect,user_id){
+    let respuesta = '';
+    let informacion = {
+        _id:id_proyect,
+        id_user:user_id
+    }
+
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/anadirEstudiante',
+        type : 'post',
+        contentType : 'application/json; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:JSON.stringify(informacion)
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+
+      peticion.fail(function(response){
+       
+      });
+
+      console.log(respuesta);
+      return respuesta;
+}

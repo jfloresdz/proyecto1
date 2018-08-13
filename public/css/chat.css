@@ -4,10 +4,10 @@ Chat
 .chat {
   position: relative;
   width: 90%;
-  height: 50vh;
+  height: 40vh;
   margin: 10px auto;
   z-index: 2;
-  overflow: hidden;
+  overflow: auto;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
   background: #ffffff;
   border:6px solid #666666;

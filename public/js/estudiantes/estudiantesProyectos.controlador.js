@@ -19,16 +19,14 @@ const Cancelar=document.querySelector('#Cancelar');
 const submitMensaje=document.querySelector('#submitMensaje');
 
 const Buscar =document.querySelector('#buscar');
-const btnBuscar=document.querySelector('#btnBuscar');
 const btnVer=document.querySelector('#verEstudiantes');
-btnBuscar.addEventListener('click',buscarEstudiante);
 
 btnVolver.addEventListener('click',volver);
 btnVolver2.addEventListener('click',volver2);
 btnVolver3.addEventListener('click',volver3);
 btnCliente.addEventListener('click',mostrarCliente);
 btnRegistrar.addEventListener('click',registrar);
-btnVer.addEventListener('click',obtenerEstudiantesProyecto);
+//btnVer.addEventListener('click',obtenerEstudiantesProyecto);
 submitMensaje.addEventListener('click',enviarMensaje);
 Cancelar.addEventListener('click',cancelar);
 Salir.addEventListener('click',cerrarSesion);
@@ -38,11 +36,10 @@ Comprobar();
 function Comprobar() {
     let tipo =sessionStorage.getItem("tipo");
 
-    if(tipo!=2){
+    if(tipo!=1){
         window.location.assign(baseUrl+'/public/logIn.html');
     }else{
         mostrarProyectos();
-        imprimirListaEstudiantes();
     }
 }
 
@@ -173,99 +170,6 @@ function mostrarCliente() {
 
             $('#view2').slideUp();
             $('#view3').slideDown();
-}
-
-function imprimirListaEstudiantes(){
-    let listaEstudiantes = obtenerListaEstudiantes();
-    let tbody = document.querySelector('#table-estudiantes tbody');
-    tbody.innerHTML = '';
-
-    for(let i = 0; i < listaEstudiantes.length; i++){
-        let fila = tbody.insertRow();
-
-        let cfoto= fila.insertCell();
-        let cnombre= fila.insertCell();
-        let ccedula= fila.insertCell();
-        let ccorreo= fila.insertCell();
-        let editar = fila.insertCell();
-        
-        cfoto.innerHTML = ' <img class="img_est" src="'+listaEstudiantes[i]['foto']+'" />';
-        cnombre.innerHTML = listaEstudiantes[i]['nombre'];
-        ccedula.innerHTML = listaEstudiantes[i]['cedula'];
-        ccorreo.innerHTML = listaEstudiantes[i]['correo'];
-        editar.innerHTML = '<button type="button" class="editButton" id="'+listaEstudiantes[i]['_id']+'"><i class="fas fa-check"></i></button>';
-
-        document.getElementById(listaEstudiantes[i]['_id']).onclick= function() {
-            anadirEstudianteProyecto(this.id);
-        }     
-    }
-};
-
-function buscarEstudiante(){
-    let listaEstudiantes = filtrarEstudiantes("1",Buscar.value);
-    let tbody = document.querySelector('#table-estudiantes tbody');
-    tbody.innerHTML = '';
-
-    for(let i = 0; i < listaEstudiantes.length; i++){
-        let fila = tbody.insertRow();
-
-        let cfoto= fila.insertCell();
-        let cnombre= fila.insertCell();
-        let ccedula= fila.insertCell();
-        let ccorreo= fila.insertCell();
-        let editar = fila.insertCell();
-        
-        cfoto.innerHTML = ' <img class="img_est" src="'+listaEstudiantes[i]['foto']+'" />';
-        cnombre.innerHTML = listaEstudiantes[i]['nombre'];
-        ccedula.innerHTML = listaEstudiantes[i]['cedula'];
-        ccorreo.innerHTML = listaEstudiantes[i]['correo'];
-        editar.innerHTML = '<button type="button" class="editButton" id="'+listaEstudiantes[i]['_id']+'"><i class="fas fa-check"></i></button>';
-
-        document.getElementById(listaEstudiantes[i]['_id']).onclick= function() {
-            anadirEstudianteProyecto(this.id);
-        }     
-    }
-};
-
-function anadirEstudianteProyecto(id_user){
-    let respuesta = anadirMiembro(document.querySelector('#idProyecto').value,id_user);
-    if(respuesta.success){
-        toastr.success(respuesta.msj);
-        $('#view2').slideUp();
-        $('#view5').slideDown();
-    }else{
-        toastr.error(respuesta.msj);
-    }
-}
-
-function obtenerEstudiantesProyecto(){
-    let proyectos = filtrarProyectos("3",document.querySelector('#idProyecto').value);
-
-    let tbody= document.querySelector('#table-registrados tbody');
-    tbody.innerHTML="";
-
-    for(let i = 2; i < proyectos[0]['equipo'].length; i++){
-        let listaEstudiantes = filtrarEstudiantes("3",proyectos[0]['equipo'][i]['id_user']);
-
-        let fila = tbody.insertRow();
-
-        let cfoto= fila.insertCell();
-        let cnombre= fila.insertCell();
-        let ccedula= fila.insertCell();
-        let ccorreo= fila.insertCell();
-        let editar = fila.insertCell();
-        
-        cfoto.innerHTML = ' <img class="img_est" src="'+listaEstudiantes[0]['foto']+'" />';
-        cnombre.innerHTML = listaEstudiantes[0]['nombre'];
-        ccedula.innerHTML = listaEstudiantes[0]['cedula'];
-        ccorreo.innerHTML = listaEstudiantes[0]['correo'];
-        editar.innerHTML = '<button type="button" class="editButton" id="'+listaEstudiantes[0]['_id']+'"><i class="fas fa-check"></i></button>';
-
-        document.getElementById(listaEstudiantes[0]['_id']).onclick= function() {
-        }     
-    }
-    $('#view2').slideUp();
-    $('#view5').slideDown();
 }
 
 

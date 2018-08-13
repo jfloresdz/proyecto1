@@ -29,4 +29,9 @@ router.route('/crearMensaje')
     proyectos.crearMensaje(req, res);
 });
 
+router.route('/anadirEstudiante')
+    .post(function(req, res){
+    proyectos.anadirEstudiante(req, res);
+});
+
 module.exports = router;

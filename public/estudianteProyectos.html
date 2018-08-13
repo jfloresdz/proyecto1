@@ -30,7 +30,7 @@
       </div>
       <div class="sidebar">
         <ul>
-          <li><a href="profesorIndex.html"><i class="fas fa-home"></i><span>Inicio</span></a></li>
+          <li><a href="estudianteIndex.html"><i class="fas fa-home"></i><span>Inicio</span></a></li>
           <li><a><i class="fas fa-user-cog"></i><span>Perfil</span></a></li>
           <li><a><i class="fas fa-project-diagram"></i><span>Proyectos</span></a></li>
           <li><a id="salir" class="exit"><i class="fas fa-sign-out-alt"></i><span>Log out</span></a></li>
@@ -127,7 +127,7 @@
       
           <div class="col-one-half">
               <div class="divChart">
-                <h1>Estudiantes</h1>
+                <h1>Bitacora</h1>
                 <button type="button" class="input-seleccionar" id="btnRegistrar">Añadir</button>
                 <button type="button" class="input-ver" id="verEstudiantes">Ver</button>
               </div>
@@ -164,57 +164,28 @@
         </div>
 
         <div id="view4">
-            <div class="flexsearch">
-                <button type="button" class="input-volver" id="Volver2">Volver</button>
-                <div class="flexsearch--wrapper">
-                    <div class="flexsearch--form">
-                        <div class="flexsearch--input-wrapper">
-                            <input class="flexsearch--input" type="text" id="buscar" placeholder="Buscar">
-                        </div>
-                        <button type="button" class="flexsearch--submit" id="btnBuscar">&#10140;</button>
-                    </div>
-                </div>
-            </div>
 
-            <div class="table-users">
-                <div class="tittle">Estudiantes</div>
-              <table class="table" cellspacing="0" width="100%" id="table-estudiantes">
-                <thead>
-                  <tr>
-                    <th>Foto</th>
-                    <th>Nombre</th>
-                    <th>Cedula</th>
-                    <th>Correo</th>
-                    <th>Añadir</th>
-                  </tr>
-                </thead>
-              <tbody>
-             
-              </tbody>
-              </table>
-            </div>
+                      <form class="cf">
+                            <h1>Bitacora</h1>
+                            <br>
+                            <div class="half left cf">
+                              <h2>Inicio:</h2>
+                              <input type="date" id="fecha1">
+                            </div>
+                            <div class="half right cf">
+                                <h2>Fin:</h2>
+                                <input type="date" id="fecha2">      
+                            </div>
+                            <textarea name="message" type="text" id="bitacora" placeholder="Descripcion"></textarea>
+                            <button type="button" class="input-editar" id="btnRegistrar">Guardar</button>
+                            <button type="button" class="input-cancelar" id="Volver2">Volver</button>
+                          </form>
           </div>
 
 
           <div id="view5">
               <button type="button" class="input-volver" id="Volver3">Volver</button>
-              <div class="table-users">
-                  <div class="tittle">Estudiantes Asignados Al Proyecto</div>
-                <table class="table" cellspacing="0" width="100%" id="table-registrados">
-                  <thead>
-                    <tr>
-                      <th>Foto</th>
-                      <th>Nombre</th>
-                      <th>Cedula</th>
-                      <th>Correo</th>
-                      <th>Bitacora</th>
-                    </tr>
-                  </thead>
-                <tbody>
-               
-                </tbody>
-                </table>
-              </div>
+             
             </div>
 
       </div>
@@ -232,8 +203,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <!-- Fin: Scripts de toastr -->
 
-      <script src="JS/profesores/profesor.servicio.js"></script>
-      <script src="JS/profesores/profesoresProyectos.controlador.js"></script>
+      <script src="JS/estudiantes/estudiante.servicio.js"></script>
+      <script src="JS/estudiantes/estudiantesProyectos.controlador.js"></script>
     </footer>
 
 
