@@ -238,7 +238,6 @@ function mapa(latitude,longitude) {
 let controlUIzoomIn2 = document.getElementById("cd-zoom-in2"),
 controlUIzoomOut2 = document.getElementById("cd-zoom-out2");
 
-mapa2(9.933684,-84.061228);
 
 function mapa2(latitude,longitude) {
   //set your google maps parameters

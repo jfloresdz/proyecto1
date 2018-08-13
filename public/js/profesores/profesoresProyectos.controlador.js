@@ -1,11 +1,7 @@
 'use strict';
 
-//imprimirListaProfesores();
-
-const botonRegistrar = document.querySelector('#btnRegistrar');
 const baseUrl = window.location.protocol+'//'+window.location.hostname+':'+window.location.port;
 const Salir = document.querySelector('#salir');
-//botonRegistrar.addEventListener('click', obtenerDatos);
 
 const empresaProyecto=document.querySelector('#empresaProyecto');
 const Lider=document.querySelector('#Lider');
@@ -13,11 +9,24 @@ const LiderTecnico=document.querySelector('#LiderTecnico');
 const Estudiantes=document.querySelector('#Estudiantes');
 const descripcion=document.querySelector('#descripcion');
 const btnCliente=document.querySelector('#btnCliente');
+const btnRegistrar=document.querySelector('#btnRegistrar');
+
+const btnVolver=document.querySelector('#Volver');
+const btnVolver2=document.querySelector('#Volver2');
 const Cancelar=document.querySelector('#Cancelar');
 
 const submitMensaje=document.querySelector('#submitMensaje');
 
+const Buscar =document.querySelector('#buscar');
+const btnBuscar=document.querySelector('#btnBuscar');
+const btnVer=document.querySelector('#verEstudiantes');
+btnBuscar.addEventListener('click',buscarEstudiante);
+
+btnVolver.addEventListener('click',volver);
+btnVolver2.addEventListener('click',volver2);
 btnCliente.addEventListener('click',mostrarCliente);
+btnRegistrar.addEventListener('click',registrar);
+btnVer.addEventListener('click',obtenerEstudiantesProyecto);
 submitMensaje.addEventListener('click',enviarMensaje);
 Cancelar.addEventListener('click',cancelar);
 Salir.addEventListener('click',cerrarSesion);
@@ -31,6 +40,7 @@ function Comprobar() {
         window.location.assign(baseUrl+'/public/logIn.html');
     }else{
         mostrarProyectos();
+        imprimirListaEstudiantes();
     }
 }
 
@@ -69,11 +79,6 @@ function obtenerProyectoSeleccionado(id_proyecto){
     document.querySelector('#idProyecto').value=proyectos[0]['_id'];
     document.querySelector('#idCliente').value=proyectos[0]['empresa'];
     document.querySelector('#nombreProyecto').textContent=proyectos[0]['nombre'];
-    document.querySelector('#empresaProyecto').textContent="Empresa: "+proyectos[0]['empresa_nombre'];
-    /*
-    document.querySelector('#Lider').textContent="Lider: "+proyectos[0]['equipo'][0]['id_user'];
-    document.querySelector('#LiderTecnico').textContent="Lider Tecnico: "+proyectos[0]['equipo'][1]['id_user'];
-    document.querySelector('#Estudiantes').innerHTML="<p>Test</p>"*/
     document.querySelector('#descripcion').textContent=proyectos[0]['descripcion'];
 
     let tbody2= document.querySelector('#table-tickets tbody');
@@ -152,6 +157,117 @@ function enviarMensaje(){
     }
 }
 
+function mostrarCliente() {
+    let clientes = filtrarClientes("3",document.querySelector('#idCliente').value);
+            document.querySelector('#nombre').value=clientes[0]['nombre'];
+            document.querySelector('#cedula').value=clientes[0]['cedula'];
+            document.querySelector('#telefono').value=clientes[0]['telefono'];
+            document.querySelector('#correo').value=clientes[0]['correo'];
+            document.querySelector('#contactoNombre').value=clientes[0]['contacto']['nombre'];
+            document.querySelector('#contactoTel').value=clientes[0]['contacto']['telefono'];
+            document.querySelector('#contactoEmail').value=clientes[0]['contacto']['correo'];
+            document.querySelector('#currentFoto').src=clientes[0]['foto'];
+            mapa(clientes[0]['latitud'],clientes[0]['longitud']);
+
+            $('#view2').slideUp();
+            $('#view3').slideDown();
+}
+
+function imprimirListaEstudiantes(){
+    let listaEstudiantes = obtenerListaEstudiantes();
+    let tbody = document.querySelector('#table-estudiantes tbody');
+    tbody.innerHTML = '';
+
+    for(let i = 0; i < listaEstudiantes.length; i++){
+        let fila = tbody.insertRow();
+
+        let cfoto= fila.insertCell();
+        let cnombre= fila.insertCell();
+        let ccedula= fila.insertCell();
+        let ccorreo= fila.insertCell();
+        let editar = fila.insertCell();
+        
+        cfoto.innerHTML = ' <img class="img_est" src="'+listaEstudiantes[i]['foto']+'" />';
+        cnombre.innerHTML = listaEstudiantes[i]['nombre'];
+        ccedula.innerHTML = listaEstudiantes[i]['cedula'];
+        ccorreo.innerHTML = listaEstudiantes[i]['correo'];
+        editar.innerHTML = '<button type="button" class="editButton" id="'+listaEstudiantes[i]['_id']+'"><i class="fas fa-check"></i></button>';
+
+        document.getElementById(listaEstudiantes[i]['_id']).onclick= function() {
+        }     
+    }
+};
+
+function buscarEstudiante(){
+    let listaEstudiantes = filtrarEstudiantes("1",Buscar.value);
+    let tbody = document.querySelector('#table-estudiantes tbody');
+    tbody.innerHTML = '';
+
+    for(let i = 0; i < listaEstudiantes.length; i++){
+        let fila = tbody.insertRow();
+
+        let cfoto= fila.insertCell();
+        let cnombre= fila.insertCell();
+        let ccedula= fila.insertCell();
+        let ccorreo= fila.insertCell();
+        let editar = fila.insertCell();
+        
+        cfoto.innerHTML = ' <img class="img_est" src="'+listaEstudiantes[i]['foto']+'" />';
+        cnombre.innerHTML = listaEstudiantes[i]['nombre'];
+        ccedula.innerHTML = listaEstudiantes[i]['cedula'];
+        ccorreo.innerHTML = listaEstudiantes[i]['correo'];
+        editar.innerHTML = '<button type="button" class="editButton" id="'+listaEstudiantes[i]['_id']+'"><i class="fas fa-check"></i></button>';
+
+        document.getElementById(listaEstudiantes[i]['_id']).onclick= function() {
+        }     
+    }
+};
+
+function obtenerEstudiantesProyecto(){
+    let proyectos = filtrarProyectos("3",document.querySelector('#idProyecto').value);
+
+    let tbody= document.querySelector('#table-registrados tbody');
+    tbody.innerHTML="";
+
+    for(let i = 2; i < proyectos[0]['equipo'].length; i++){
+        let listaEstudiantes = filtrarEstudiantes("1",proyectos[0]['equipo'][i]['id_user']);
+
+        let fila = tbody.insertRow();
+
+        let cfoto= fila.insertCell();
+        let cnombre= fila.insertCell();
+        let ccedula= fila.insertCell();
+        let ccorreo= fila.insertCell();
+        let editar = fila.insertCell();
+        
+        cfoto.innerHTML = ' <img class="img_est" src="'+listaEstudiantes[i]['foto']+'" />';
+        cnombre.innerHTML = listaEstudiantes[i]['nombre'];
+        ccedula.innerHTML = listaEstudiantes[i]['cedula'];
+        ccorreo.innerHTML = listaEstudiantes[i]['correo'];
+        editar.innerHTML = '<button type="button" class="editButton" id="'+listaEstudiantes[i]['_id']+'"><i class="fas fa-check"></i></button>';
+
+        document.getElementById(listaEstudiantes[i]['_id']).onclick= function() {
+        }     
+    }
+    $('#view2').slideUp();
+    $('#view5').slideDown();
+}
+
+
+function volver(){
+    $('#view3').slideUp();
+    $('#view2').slideDown();
+}
+
+function volver2(){
+    $('#view4').slideUp();
+    $('#view2').slideDown();
+}
+
+function registrar(){
+    $('#view2').slideUp();
+    $('#view4').slideDown();
+}
 
 function cancelar(){
     $('#view2').slideUp();

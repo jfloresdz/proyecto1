@@ -182,6 +182,7 @@ function buscarCliente(){
             editContactoTel.value=clientes[0]['contacto']['telefono'];
             editContactoEmail.value=clientes[0]['contacto']['correo'];
             editFoto.value=clientes[0]['foto'];
+            mapa2(clientes[0]['latitud'],clientes[0]['longitud'])
             editId.value=this.id;
             document.querySelector('#editFotoShow').src= editFoto.value;
             $('.tab').slideUp();

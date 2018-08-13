@@ -68,17 +68,13 @@
           <div class="col-one-half">
                 <form class="cf">
                         <h1 id="nombreProyecto">Proyecto</h1>
-                        <br>
                         <div class="half left cf">
                          <p id="empresaProyecto"></p>
                          <p id="Lider"></p>
                          <p id="LiderTecnico"></p>
                          <input type="hidden" id="idProyecto">
                          <input type="hidden" id="idCliente">
-                         <p> </p>
-                        </div>
-                        <div class="half right cf" id="Estudiantes">
-                          
+                         <h2>Descripcion:</h2>
                         </div>
                         <textarea name="message" id="descripcion" placeholder="Descripcion" disabled></textarea>
                         <button type="button" class="input-editar" id="btnCliente">Cliente</button>
@@ -130,22 +126,10 @@
           </div>
       
           <div class="col-one-half">
-                <div class="table-users">
-                  <div class="tittle">Bitacoras</div>
-                <table class="table" cellspacing="0" width="100%" id="table-Bitacoras">
-                  <thead>
-                    <tr>
-                      <th>Titulo</th>
-                      <th>Estudiante</th>
-                      <th>Estado</th>
-                      <th>Descripcion</th>
-                      <th>Abrir</th>
-                    </tr>
-                  </thead>
-                <tbody>
-                  
-                </tbody>
-                </table>
+              <div class="divChart">
+                <h1>Estudiantes</h1>
+                <button type="button" class="input-seleccionar" id="btnRegistrar">Añadir</button>
+                <button type="button" class="input-ver" id="verEstudiantes">Ver</button>
               </div>
           </div>
         
@@ -155,46 +139,82 @@
           <form class="cf">
             <figure class="snip1566">
               <img id="currentFoto" src="IMG/user.png" alt="sq-sample14" />
-              <figcaption><i class="fas fa-plus"></i></figcaption>
-              <a id="btnSeleccionarImagen"></a>
             </figure>
             <br>
             <div class="half left cf">
-              <input type="text" id="nombre" placeholder="Nombre">
-              <input type="email" id="correo" placeholder="Email">
-              <input type="text" id="telefono" placeholder="Telefono">
-              <input type="text" id="cedula" placeholder="Cedula">
-              <input type="text" id="contactoNombre" placeholder="Nombre Contacto">
-              <input type="text" id="contactoTel" placeholder="Telefono Contacto">
-              <input type="text" id="contactoEmail" placeholder="Email Contacto">
+              <h2>Cliente</h2>
+              <input type="text" id="nombre" placeholder="Nombre" disabled>
+              <input type="email" id="correo" placeholder="Email" disabled>
+              <input type="text" id="telefono" placeholder="Telefono" disabled>
+              <input type="text" id="cedula" placeholder="Cedula" disabled>
             </div>
             <div class="half right cf">
-              <input type="hidden" id="foto">
-              <!-- search input box -->
-              <div class="input-group">
-                <input type="text" id="search_location" class="form-control" placeholder="Lugar">
-                <div class="input-group-btn">
-                    <button class="btn btn-default get_map input-submit" type="button" id="btnMapa">
-                        Buscar
-                    </button>
-                </div>
+              <h2>Contacto</h2>
+              <input type="text" id="contactoNombre" placeholder="Nombre Contacto" disabled>
+              <input type="text" id="contactoTel" placeholder="Telefono Contacto" disabled>
+              <input type="text" id="contactoEmail" placeholder="Email Contacto" disabled>
             </div>
-            
-            <!-- display google map -->
             <section id="cd-google-map">
-              <div id="google-container"></div>
-              <div id="cd-zoom-in"></div>
-              <div id="cd-zoom-out"></div>
-            </section>
-            </div>
-            
-              
-              <!-- display selected location information -->
-              <input type="hidden" id="latitude" class="search_latitude" size="30">
-              <input type="hidden" id="longitude" class="search_longitude" size="30">
-            <button type="button" class="input-submit" id="registrar">Registrar</button>
+                <div id="google-container"></div>
+                <div id="cd-zoom-in"></div>
+                <div id="cd-zoom-out"></div>
+              </section>
+            <button type="button" class="input-submit" id="Volver">Volver</button>
           </form>
         </div>
+
+        <div id="view4">
+            <div class="flexsearch">
+                <button type="button" class="input-volver" id="Volver2">Volver</button>
+                <div class="flexsearch--wrapper">
+                    <div class="flexsearch--form">
+                        <div class="flexsearch--input-wrapper">
+                            <input class="flexsearch--input" type="text" id="buscar" placeholder="Buscar">
+                        </div>
+                        <button type="button" class="flexsearch--submit" id="btnBuscar">&#10140;</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-users">
+                <div class="tittle">Estudiantes</div>
+              <table class="table" cellspacing="0" width="100%" id="table-estudiantes">
+                <thead>
+                  <tr>
+                    <th>Foto</th>
+                    <th>Nombre</th>
+                    <th>Cedula</th>
+                    <th>Correo</th>
+                    <th>Añadir</th>
+                  </tr>
+                </thead>
+              <tbody>
+             
+              </tbody>
+              </table>
+            </div>
+          </div>
+
+
+          <div id="view5">
+              <div class="table-users">
+                  <div class="tittle">Estudiantes Asignados Al Proyecto</div>
+                <table class="table" cellspacing="0" width="100%" id="table-registrados">
+                  <thead>
+                    <tr>
+                      <th>Foto</th>
+                      <th>Nombre</th>
+                      <th>Cedula</th>
+                      <th>Correo</th>
+                      <th>Bitacora</th>
+                    </tr>
+                  </thead>
+                <tbody>
+               
+                </tbody>
+                </table>
+              </div>
+            </div>
 
       </div>
     </main>
@@ -204,6 +224,7 @@
       <script src="JS/jquery-3.1.1.min.js"></script>
       <script src="JS/Home.js"></script>
       <script src="JS/chart.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBm453fVYnWQvAG2GG1VyB_VA9dnMfIK3E" type="text/javascript"></script>
       <script src="js/map.js"></script>
 
        <!-- Inicio: Scripts de toastr -->

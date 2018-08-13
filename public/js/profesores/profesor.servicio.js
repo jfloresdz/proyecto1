@@ -123,6 +123,35 @@ function filtrarProyectos(cTipo,cValor){
     return listaProyectos;
   }
 
+  function filtrarClientes(cTipo,cValor){
+    let listaClientes = [];
+  
+    let respuesta = '';
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/filtrarClientes',
+        type : 'post',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            tipo: cTipo,
+            valor: cValor
+        }
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+       
+      });
+  
+      return respuesta;
+    
+    return listaClientes;
+}
+
   function crearMensaje(id_proyect,proyecto){
     let respuesta = '';
     let informacion = {
@@ -152,3 +181,61 @@ function filtrarProyectos(cTipo,cValor){
       console.log(respuesta);
       return respuesta;
 }
+
+function obtenerListaEstudiantes(){
+    let listaEstudiantes = [];
+
+    let respuesta = '';
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/listarEstudiantes',
+        type : 'get',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            
+        }
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+       
+      });
+
+      return respuesta;
+    
+    return listaEstudiantes;
+}
+
+
+function filtrarEstudiantes(cTipo,cValor){
+    let listaEstudiantes = [];
+  
+    let respuesta = '';
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/filtrarEstudiantes',
+        type : 'post',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{
+            tipo: cTipo,
+            valor: cValor
+        }
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+       
+      });
+  
+      return respuesta;
+    
+    return listaEstudiantes;
+  }

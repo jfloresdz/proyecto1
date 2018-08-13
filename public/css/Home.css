@@ -262,7 +262,7 @@ img.small{
   animation-name: swing;
 }
 
-.edit-box, #view2, #view3{
+.edit-box, #view2, #view3, #view4, #view5{
   display: none;
 }
 
@@ -281,4 +281,64 @@ img.small{
 
 .divChart p{
   color: #666666;
+}
+
+.divChart button{
+  border: 0;
+  outline: 0;
+  padding: 1em;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  width: 45%;
+  margin-top: 1em;
+  -moz-box-shadow: 0 3px 3px rgba(0, 0.1, 0, 0.1);
+  -webkit-box-shadow: 0 3px 3px rgba(0, 0.1, 0, 0.1);
+  box-shadow: 0 3px 3px rgba(0, 0.1, 0, 0.1);
+  resize: none;
+  font-size: 1em;
+}
+
+.divChart button:hover{
+  -moz-box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
+  -webkit-box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
+  box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
+}
+
+.input-seleccionar{
+  color: white;
+  background: #f7b600;
+  cursor: pointer;
+}
+
+.input-volver{
+  border: 0;
+  outline: 0;
+  padding: 1em;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  width: 25%;
+  margin-top: 1em;
+  margin-left: -75%;
+  -moz-box-shadow: 0 3px 3px rgba(0, 0.1, 0, 0.1);
+  -webkit-box-shadow: 0 3px 3px rgba(0, 0.1, 0, 0.1);
+  box-shadow: 0 3px 3px rgba(0, 0.1, 0, 0.1);
+  resize: none;
+  font-size: 1em;
+  background: #f7b600;
+  color: white;
+  cursor: pointer;
+}
+
+.input-volver:hover{
+  -moz-box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
+  -webkit-box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
+  box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
+}
+
+.img_est{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
 }
