@@ -3,7 +3,7 @@
 let controlUIzoomIn = document.getElementById("cd-zoom-in"),
 controlUIzoomOut = document.getElementById("cd-zoom-out");
 
-mapa(9.933684,-84.061228);
+mapa(9.9423769,-84.0865767);
 
 function mapa(latitude,longitude) {
   //set your google maps parameters

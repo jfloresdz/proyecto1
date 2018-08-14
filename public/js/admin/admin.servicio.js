@@ -540,3 +540,28 @@ function actualizarProyecto(id_proyect,proyecto){
       console.log(respuesta);
       return respuesta;
 }
+
+function comprobarCorreo(InputCorreo){
+    let respuesta = [];
+    let peticion = $.ajax({
+        url : 'http://localhost:4000/api/comprobarCorreo',
+        type : 'post',
+        contentType : 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType : 'json',
+        async : false,
+        data:{          
+              correo : InputCorreo
+        }
+      });
+    
+      peticion.done(function(response){
+       respuesta = response;
+      });
+    
+      peticion.fail(function(response){
+       
+      });
+
+      console.log(respuesta);
+      return respuesta;
+}

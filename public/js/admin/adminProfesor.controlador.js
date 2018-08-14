@@ -80,28 +80,89 @@ function registrarFormulario() {
             toastr.error(respuesta.msj);
         }else{
             toastr.success(respuesta.msj);
+            imprimirListaProfesores();
         }
     }
 
 }
 
 function validarFormulario(){
-    let respuesta=false;
+   
+    let regexSoloLetras = /^[a-z A-ZáéíóúÁÉÍÓÚñÑ]+$/;
+    let regexSoloNumeros = /^ ([0 - 9]) * $ /;
+    let regexCedula = /^[1-9]-?\d{4}-?\d{4}$/;
+    let regexTelefono = /^([0-9]+){9}$/;
+    let regexCorreo = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+    let regexFecha = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
+    let regexFoto = /.(gif|jpeg|jpg|png)$/;
+    let respuesta = false;
 
-    if(nombre.value== null || nombre.value==""){
-        respuesta=true;
+    if (nombre.value == '' || (regexSoloLetras.test(nombre.value) == false)) {
+        nombre.classList.add('error_input');
+        toastr.error('Campo Nombre no puede estar vacio y solo acepta letras');
+        respuesta = true;
+    } else {
+        nombre.classList.remove('error_input');
     }
 
-    if (cedula.value == null || cedula.value==""){
-        respuesta=true;
+    if (cedula.value == null || (regexCedula.test(cedula.value) == false)) {
+        cedula.classList.add('error_input');
+        respuesta = true;
+    } else {
+        cedula.classList.remove('error_input');
     }
 
-    if (telefono.value == null || telefono.value==""){
-        respuesta=true;
+    /*if (telefono.value == null || (regexTelefono.test(telefono.value) == false)) {
+        telefono.classList.add('error_input');
+        respuesta = true;
+    } else {
+        telefono.classList.remove('error_input');
+    }*/
+
+    if (correo.value == null || (regexCorreo.test(correo.value) == false)) {
+        correo.classList.add('error_input');
+        toastr.error('Campo Correo no puede estar vacio');
+        respuesta = true;
+    } else {
+        let revisarCorreo = comprobarCorreo(correo.value);
+        if(revisarCorreo['_result']){
+            toastr.error('Correo se encuentra ya registrado');
+            respuesta = true;
+        }else{
+            correo.classList.remove('error_input');
+        }
     }
 
-    if (correo.value == null || correo.value ==""){
-        respuesta=true;
+    if (fechaNacimiento.value == null) {
+        fechaNacimiento.classList.add('error_input');
+        toastr.error('Campo Fecha no puede estar vacio');
+        respuesta = true;
+    } else {
+        fechaNacimiento.classList.remove('error_input');
+    }
+
+    if (profesion.value == '' || (regexSoloLetras.test(profesion.value) == false)) {
+        profesion.classList.add('error_input');
+        toastr.error('Campo Profesion no puede estar vacio y solo acepta letras');
+        respuesta = true;
+    } else {
+        profesion.classList.remove('error_input');
+    }
+
+    if (experiencia.value == '') {
+        experiencia.classList.add('error_input');
+        toastr.error('Campo Experiencia no puede estar vacio y solo acepta numeros');
+        respuesta = true;
+    } else {
+        direccion.classList.remove('error_input');
+    }
+
+    if (direccion.value == '') {
+        direccion.classList.add('error_input');
+        toastr.error('Campo Direccion no puede estar vacio');
+        respuesta = true;
+    } else {
+        direccion.classList.remove('error_input');
     }
 
     return respuesta;

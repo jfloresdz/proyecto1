@@ -278,7 +278,7 @@ function enviarMail(correo,contrasena) {
              <tr>
                <td colspan="3" align="center">
                  <br>
-                 <img src="https://miprimodani.es/mpd/wp-content/uploads/2017/04/test-banner-klein.png" width="80%" height="150px">
+                 <img src="" width="80%" height="150px">
                </td>
              </tr>
              <tr>

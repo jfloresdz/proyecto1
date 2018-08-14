@@ -79,7 +79,7 @@ function registrarFormulario() {
         toastr.warning('Por favor llene los campos');
     }else{
         let respuesta=registrarCliente(cliente);
-        if(respuesta.success == false){
+        if(respuesta.success==false){
             toastr.error(respuesta.msj);
         }else{
             toastr.success(respuesta.msj);
@@ -90,23 +90,80 @@ function registrarFormulario() {
 }
 
 function validarFormulario(){
-    let respuesta=false;
+   
+    let regexSoloLetras = /^[a-z A-ZáéíóúÁÉÍÓÚñÑ]+$/;
+    let regexSoloNumeros = /^ ([0 - 9]) * $ /;
+    let regexCedula = /^[1-9]-?\d{4}-?\d{4}$/;
+    let regexTelefono = /^([0-9]+){9}$/;
+    let regexCorreo = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+    let regexFecha = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
+    let regexFoto = /.(gif|jpeg|jpg|png)$/;
+    let respuesta = false;
 
-    if(nombre.value== null || nombre.value==""){
-        respuesta=true;
+    if (nombre.value == '' || (regexSoloLetras.test(nombre.value) == false)) {
+        nombre.classList.add('error_input');
+        toastr.error('Campo Nombre no puede estar vacio y solo acepta letras');
+        respuesta = true;
+    } else {
+        nombre.classList.remove('error_input');
     }
 
-    if (cedula.value == null || cedula.value==""){
-        respuesta=true;
+    if (cedula.value == null || (regexCedula.test(cedula.value) == false)) {
+        cedula.classList.add('error_input');
+        toastr.error('Campo Cedula no puede estar vacio y solo acepta numeros');
+        respuesta = true;
+    } else {
+        cedula.classList.remove('error_input');
     }
 
-    if (telefono.value == null || telefono.value==""){
-        respuesta=true;
+    /*if (telefono.value == null || (regexTelefono.test(telefono.value) == false)) {
+        telefono.classList.add('error_input');
+        respuesta = true;
+    } else {
+        telefono.classList.remove('error_input');
+    }*/
+
+    if (correo.value == null || (regexCorreo.test(correo.value) == false)) {
+        correo.classList.add('error_input');
+        toastr.error('Campo Correo no puede estar vacio');
+        respuesta = true;
+    } else {
+        let revisarCorreo = comprobarCorreo(correo.value);
+        if(revisarCorreo['_result']){
+            toastr.error('Correo se encuentra ya registrado');
+        }else{
+            correo.classList.remove('error_input');
+        }
     }
 
-    if (correo.value == null || correo.value ==""){
-        respuesta=true;
+    if (contactoNombre.value == '' || (regexSoloLetras.test(contactoNombre.value) == false)) {
+        contactoNombre.classList.add('error_input');
+        toastr.error('Campo Nombre Contacto no puede estar vacio y solo acepta letras');
+        respuesta = true;
+    } else {
+        contactoNombre.classList.remove('error_input');
     }
+
+    /*if (contactoTel.value == '' || (regexSoloNumeros.test(contactoTel.value) == false)) {
+        contactoTel.classList.add('error_input');
+        respuesta = true;
+    } else {
+        contactoTel.classList.remove('error_input');
+    }*/
+
+    if (contactoEmail.value == null || (regexCorreo.test(contactoEmail.value) == false)) {
+        contactoEmail.classList.add('error_input');
+        respuesta = true;
+    } else {
+        contactoEmail.classList.remove('error_input');
+    }
+
+    /*if (foto.value == null || (regexFoto.test(foto.value) == false)) {
+        foto.classList.add('error_input');
+        respuesta = true;
+    } else {
+        foto.classList.remove('error_input');
+    }*/
 
     return respuesta;
 }
